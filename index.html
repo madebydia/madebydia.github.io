@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mei Park - Building and shipping in naptime sprints</title>
+    <meta
+      name="description"
+      content="10yr software engineer turned stay-at-home-mom shipping iOS apps with minimal time. Building ToddlerDo: the iOS app for instant toddler activities."
+    />
+
+    <!-- Social Media Metadata -->
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Mei Park - Building and shipping in naptime sprints"
+    />
+    <meta
+      property="og:description"
+      content="10yr software engineer turned stay-at-home-mom shipping iOS apps with minimal time. Building ToddlerDo: the iOS app for instant toddler activities."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://meimakes.com" />
+    <meta property="og:site_name" content="Mei Park" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Mei Park - Building and shipping in naptime sprints"
+    />
+    <meta
+      name="twitter:description"
+      content="10yr software engineer turned stay-at-home-mom shipping iOS apps with minimal time. Building ToddlerDo: the iOS app for instant toddler activities."
+    />
+    <meta name="twitter:creator" content="@meimakes" />
+    <meta name="twitter:site" content="@meimakes" />
+
+    <!-- iOS Safari Theme Color -->
+    <meta name="theme-color" content="#87a96b" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/m.png" />
+    <link rel="apple-touch-icon" href="/m.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Plausible Analytics -->
+    <script defer data-domain="meimakes.com" src="https://plausible.io/js/script.outbound-links.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+    <style>
+      :root {
+        --sage: #87a96b;
+        --sage-light: #b4c4a7;
+        --sage-dark: #6b8e4e;
+        --cream: #faf7f0;
+        --coral: #ff6b6b;
+
+        /* Light mode colors */
+        --bg-primary: #faf7f0;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f9fafb;
+        --text-primary: #1f2937;
+        --text-secondary: #6b7280;
+        --text-muted: #9ca3af;
+        --border-color: rgba(0, 0, 0, 0.1);
+        --shadow-color: rgba(0, 0, 0, 0.1);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --sage: #a4c087;
+          --sage-light: #c4d4a7;
+          --sage-dark: #8eb06e;
+          --cream: #1a1a1a;
+          --coral: #ff8080;
+
+          /* Dark mode colors */
+          --bg-primary: #1a1a1a;
+          --bg-secondary: #2d2d2d;
+          --bg-tertiary: #3a3a3a;
+          --text-primary: #ffffff;
+          --text-secondary: #d1d5db;
+          --text-muted: #9ca3af;
+          --border-color: rgba(255, 255, 255, 0.1);
+          --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+
+      .bg-sage {
+        background-color: var(--sage);
+      }
+      .bg-sage-light {
+        background-color: var(--sage-light);
+      }
+      .text-sage {
+        color: var(--sage);
+      }
+      .text-coral {
+        color: var(--coral);
+      }
+
+      /* Typing animation */
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .cursor::after {
+        content: '|';
+        animation: blink 1s infinite;
+        color: var(--sage);
+      }
+
+      /* Card hover effects */
+      .hover-lift {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .hover-lift:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px var(--shadow-color);
+      }
+
+      /* Progress bar */
+      .progress-bar {
+        background: #e5e7eb;
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        background: var(--sage);
+        height: 100%;
+        transition: width 0.3s ease;
+      }
+
+      /* Code block styling */
+      .code-block {
+        background: #1e293b;
+        color: #e2e8f0;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-family: 'Monaco', 'Courier New', monospace;
+        font-size: 0.875rem;
+        overflow-x: auto;
+      }
+
+      .stat-card {
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        box-shadow: 0 1px 3px var(--shadow-color);
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--sage);
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section with Hook -->
+    <section
+      style="
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1.5rem 6rem 1.5rem;
+        position: relative;
+      "
+    >
+      <div style="max-width: 48rem; margin: 0 auto">
+        <!-- Status Badge -->
+        <div
+          style="
+            display: inline-block;
+            background: var(--sage-light);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+          "
+        >
+          🟢 Currently: Building my first iOS app with AI tools
+        </div>
+
+        <!-- Main Hook -->
+        <h1
+          style="
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+          "
+        >
+          10 years of coding experience.<br />
+          <span style="color: var(--sage)">2 hours</span> to use it.
+        </h1>
+
+        <p
+          style="
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+          "
+        >
+          I'm Mei Park, a 10-year SWE turned SAHM. Building iOS apps in naptime
+          sprints. Parenting constraints may actually be a superpower.
+        </p>
+
+        <div style="margin-bottom: 2rem">
+          <img
+            src="/mei.jpeg"
+            alt="Mei Park"
+            style="
+              width: 8rem;
+              height: 8rem;
+              border-radius: 50%;
+              display: block;
+              margin: 0 auto;
+              border: 4px solid var(--sage-light);
+              box-shadow: 0 4px 8px var(--shadow-color);
+            "
+          />
+        </div>
+
+        <!-- Quick Stats -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 400px;
+            margin: 2rem auto;
+          "
+        >
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Apps in<br />Development</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">279</div>
+            <div class="stat-label">Followers<br />(So Far)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Things to<br />Figure Out</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <a
+            href="#stack"
+            style="
+              background: var(--sage);
+              color: white;
+              padding: 0.75rem 1.5rem;
+              border-radius: 0.5rem;
+              text-decoration: none;
+              font-weight: 500;
+            "
+          >
+            See How I Do It
+          </a>
+          <a
+            href="#follow"
+            style="
+              border: 2px solid var(--sage);
+              color: var(--sage);
+              padding: 0.75rem 1.5rem;
+              border-radius: 0.5rem;
+              text-decoration: none;
+              font-weight: 500;
+            "
+          >
+            Follow My Journey
+          </a>
+        </div>
+
+        <!-- Fun element -->
+        <div style="margin-top: 3rem; text-align: center">
+          <p
+            style="
+              font-size: 0.875rem;
+              color: var(--text-muted);
+              margin-bottom: 0.5rem;
+            "
+          >
+            Current hypothesis:
+          </p>
+          <code
+            style="
+              background: var(--bg-secondary);
+              padding: 0.25rem 0.5rem;
+              border-radius: 0.25rem;
+              font-size: 0.875rem;
+            "
+            class="cursor"
+          >
+            The journey is the product
+          </code>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey/Timeline Section -->
+    <section
+      id="stack"
+      style="padding: 4rem 1.5rem; background: var(--bg-secondary)"
+    >
+      <div style="max-width: 48rem; margin: 0 auto">
+        <h2
+          style="
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3rem;
+          "
+        >
+          Shipping Code in Naptime Time Blocks 🚀
+        </h2>
+
+        <!-- Timeline -->
+        <div style="position: relative; max-width: 600px; margin: 0 auto">
+          <!-- Line -->
+          <div
+            style="
+              position: absolute;
+              left: 20px;
+              top: 0;
+              bottom: 0;
+              width: 2px;
+              background: var(--sage-light);
+            "
+          ></div>
+
+          <!-- Timeline items -->
+          <div
+            style="margin-bottom: 2rem; position: relative; padding-left: 60px"
+          >
+            <div
+              style="
+                position: absolute;
+                left: 10px;
+                top: 30px;
+                width: 20px;
+                height: 20px;
+                background: var(--sage);
+                border-radius: 50%;
+                border: 4px solid white;
+              "
+            ></div>
+            <div
+              style="
+                background: var(--bg-tertiary);
+                padding: 1rem;
+                border-radius: 0.5rem;
+              "
+            >
+              <strong>Week 1:</strong> "I have ~2 hours a day. Can I actually
+              build an app?"
+              <span
+                style="
+                  display: block;
+                  font-size: 0.875rem;
+                  color: var(--text-secondary);
+                  margin-top: 0.25rem;
+                "
+                >Discovered Claude Code. Game changer.</span
+              >
+            </div>
+          </div>
+
+          <div
+            style="margin-bottom: 2rem; position: relative; padding-left: 60px"
+          >
+            <div
+              style="
+                position: absolute;
+                left: 10px;
+                top: 30px;
+                width: 20px;
+                height: 20px;
+                background: var(--sage);
+                border-radius: 50%;
+                border: 4px solid white;
+              "
+            ></div>
+            <div
+              style="
+                background: var(--bg-tertiary);
+                padding: 1rem;
+                border-radius: 0.5rem;
+              "
+            >
+              <strong>Week 2:</strong> First working prototype in record time
+              <span
+                style="
+                  display: block;
+                  font-size: 0.875rem;
+                  color: var(--text-secondary);
+                  margin-top: 0.25rem;
+                "
+                >AI pair programming = 10x productivity boost</span
+              >
+            </div>
+          </div>
+
+          <div
+            style="margin-bottom: 2rem; position: relative; padding-left: 60px"
+          >
+            <div
+              style="
+                position: absolute;
+                left: 10px;
+                top: 30px;
+                width: 20px;
+                height: 20px;
+                background: var(--sage);
+                border-radius: 50%;
+                border: 4px solid white;
+              "
+            ></div>
+            <div
+              style="
+                background: var(--bg-tertiary);
+                padding: 1rem;
+                border-radius: 0.5rem;
+              "
+            >
+              <strong>Week 3:</strong> Chaos testing (aka parenthood)
+              <span
+                style="
+                  display: block;
+                  font-size: 0.875rem;
+                  color: var(--text-secondary);
+                  margin-top: 0.25rem;
+                "
+                >"Make it work with one hand" = best UX advice ever</span
+              >
+            </div>
+          </div>
+
+          <div
+            style="margin-bottom: 2rem; position: relative; padding-left: 60px"
+          >
+            <div
+              style="
+                position: absolute;
+                left: 10px;
+                top: 30px;
+                width: 20px;
+                height: 20px;
+                background: var(--coral);
+                border-radius: 50%;
+                border: 4px solid white;
+              "
+            ></div>
+            <div
+              style="
+                background: var(--bg-tertiary);
+                padding: 1rem;
+                border-radius: 0.5rem;
+              "
+            >
+              <strong>Today:</strong> Shipping features while building a
+              community
+              <span
+                style="
+                  display: block;
+                  font-size: 0.875rem;
+                  color: var(--text-secondary);
+                  margin-top: 0.25rem;
+                "
+                >Sharing how I ship on toddler time</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Productivity showcase -->
+        <div
+          style="
+            margin-top: 3rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--sage-light);
+            border-radius: 1rem;
+            padding: 2rem;
+          "
+        >
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem">
+            The Parent Developer Stack
+          </h3>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem">
+            <div>
+              <strong style="color: var(--sage)"
+                >⚡ "No Time" Tech Tools:</strong
+              >
+              <ul
+                style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc"
+              >
+                <li>Claude Code: "Here's my idea, make it happen"</li>
+                <li>Drafts App: Quick capture prompt ideas</li>
+                <li>Working Copy: Commit from anywhere</li>
+              </ul>
+            </div>
+            <div>
+              <strong style="color: var(--sage)">🎯 The Method:</strong>
+              <p style="margin: 0.5rem 0">
+                5-min sprints while toddler watches Helper Cars. One feature.
+                Make it work. Ship. Repeat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Projects -->
+    <section style="padding: 4rem 1.5rem; background: var(--bg-primary)">
+      <div style="max-width: 64rem; margin: 0 auto">
+        <h2
+          style="
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+          "
+        >
+          What I'm Actually Building
+        </h2>
+        <p
+          style="
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+          "
+        >
+          (Real products, not demo apps)
+        </p>
+
+        <div
+          id="app-grid"
+          style="
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+          "
+        >
+          <!-- ToddlerDo Card -->
+          <div
+            class="hover-lift"
+            style="
+              background: var(--bg-secondary);
+              border-radius: 1rem;
+              overflow: hidden;
+              box-shadow: 0 4px 6px var(--shadow-color);
+            "
+          >
+            <div
+              style="
+                background: var(--sage-light);
+                padding: 1rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem">🖍️</span>
+            </div>
+            <div style="padding: 2rem">
+              <h3
+                style="
+                  font-size: 1.5rem;
+                  font-weight: bold;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                ToddlerDo (toddlerdo.com)
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem">
+                Because my toddler asks "What can we do now?" 47 times a day.
+                iOS app with AI-powered activity suggestions, built entirely
+                during naptime coding sessions.
+              </p>
+
+              <!-- Progress -->
+              <div style="margin-bottom: 1.5rem">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  <span style="font-size: 0.875rem">MVP Progress</span>
+                  <span
+                    style="
+                      font-size: 0.875rem;
+                      color: var(--sage);
+                      font-weight: 500;
+                    "
+                    >35%</span
+                  >
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 35%"></div>
+                </div>
+              </div>
+
+              <!-- Current Status -->
+              <div
+                style="
+                  background: var(--bg-tertiary);
+                  padding: 1rem;
+                  border-radius: 0.5rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <p style="font-size: 0.875rem; margin: 0">
+                  <strong>✅ Done:</strong> Basic UI, activity database,
+                  filtering logic
+                </p>
+                <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
+                  <strong>🚧 Next:</strong> AI integration for smarter
+                  suggestions
+                </p>
+              </div>
+
+              <a
+                href="https://toddlerdo.com"
+                style="
+                  display: block;
+                  text-align: center;
+                  background: var(--sage);
+                  color: white;
+                  padding: 0.75rem;
+                  border-radius: 0.5rem;
+                  text-decoration: none;
+                  font-weight: 500;
+                "
+              >
+                Join the Waitlist →
+              </a>
+            </div>
+          </div>
+
+          <!-- NonToxicGoods Card -->
+          <div
+            class="hover-lift"
+            style="
+              background: var(--bg-secondary);
+              border-radius: 1rem;
+              overflow: hidden;
+              box-shadow: 0 4px 6px var(--shadow-color);
+            "
+          >
+            <div
+              style="
+                background: var(--sage-light);
+                padding: 1rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem">🌿</span>
+            </div>
+            <div style="padding: 2rem">
+              <h3
+                style="
+                  font-size: 1.5rem;
+                  font-weight: bold;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                NontoxicGoods.com
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem">
+                A curated database of safe, non-toxic products for families.
+                Built with good ol' HTML/CSS/JS.
+              </p>
+
+              <!-- Quick Stats -->
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem">
+                <strong>86</strong> products reviewed •
+                <strong>65</strong> brands verified
+              </p>
+
+              <a
+                href="https://nontoxicgoods.com"
+                style="
+                  display: block;
+                  text-align: center;
+                  background: #d1fae5;
+                  color: #065f46;
+                  padding: 0.75rem;
+                  border-radius: 0.5rem;
+                  text-decoration: none;
+                  font-weight: 500;
+                "
+              >
+                ✅ Visit Live Site →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Building in Public Section -->
+    <section style="padding: 4rem 1.5rem; background: var(--bg-secondary)">
+      <div style="max-width: 48rem; margin: 0 auto">
+        <h2
+          style="
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3rem;
+          "
+        >
+          Building Apps with Extreme Constraints 💪
+        </h2>
+
+        <!-- GitHub Activity -->
+        <div
+          style="
+            background: var(--bg-tertiary);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+          "
+        >
+          <img
+            src="https://ghchart.rshah.org/87A96B/meimakes"
+            alt="GitHub Contributions"
+            style="max-width: 100%; height: auto"
+          />
+          <p
+            style="
+              font-size: 0.875rem;
+              color: var(--text-secondary);
+              margin-top: 1rem;
+            "
+          >
+            Green squares = actual shipped code (not just README updates, I
+            swear)
+          </p>
+        </div>
+
+        <!-- What I'm Learning -->
+        <div
+          id="learning-grid"
+          style="
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+          "
+        >
+          <div
+            style="
+              background: var(--sage-dark);
+              background-opacity: 0.1;
+              border-radius: 1rem;
+              padding: 1.5rem;
+            "
+          >
+            <h3
+              style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem"
+            >
+              Currently Learning
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li style="margin-bottom: 0.5rem">
+                🤖 Better AI prompting for iOS
+              </li>
+              <li style="margin-bottom: 0.5rem">
+                ⚡ 20-minute coding speed runs
+              </li>
+              <li style="margin-bottom: 0.5rem">📱 Mobile dev workflows</li>
+              <li>🧪 AI testing plays</li>
+            </ul>
+          </div>
+
+          <div
+            style="
+              background: var(--bg-tertiary);
+              border-radius: 1rem;
+              padding: 1.5rem;
+            "
+          >
+            <h3
+              style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem"
+            >
+              Small Wins So Far
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li style="margin-bottom: 0.5rem">✅ Prototype actually works</li>
+              <li style="margin-bottom: 0.5rem">
+                ✅ Claude Code is a game changer
+              </li>
+              <li style="margin-bottom: 0.5rem">✅ Can code on phone</li>
+              <li>✅ Toddler approved the spec</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section
+      style="padding: 4rem 1.5rem; background: var(--sage); color: white"
+      id="follow"
+    >
+      <div style="max-width: 48rem; margin: 0 auto; text-align: center">
+        <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem">
+          Let's Build Together 🚀
+        </h2>
+        <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9">
+          Follow the journey from zero to shipped apps
+        </p>
+
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+          "
+        >
+          <a
+            href="https://x.com/meimakes"
+            style="color: white; text-decoration: none"
+          >
+            <div style="text-align: center">
+              <svg
+                style="width: 2rem; height: 2rem; margin: 0 auto 0.5rem"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                />
+              </svg>
+              <div>Updates</div>
+            </div>
+          </a>
+          <a
+            href="https://github.com/meimakes"
+            style="color: white; text-decoration: none"
+          >
+            <div style="text-align: center">
+              <svg
+                style="width: 2rem; height: 2rem; margin: 0 auto 0.5rem"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+              <div>Code</div>
+            </div>
+          </a>
+          <a
+            href="https://dev.to/meimakes"
+            style="color: white; text-decoration: none"
+          >
+            <div style="text-align: center">
+              <svg
+                style="width: 2rem; height: 2rem; margin: 0 auto 0.5rem"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.3zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.66-2.52.74-.04c.4-.02.73 0 .73.04 0 .14-1.67 6.38-1.8 6.68z"
+                />
+              </svg>
+              <div>Tutorials</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Newsletter -->
+        <div
+          style="
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+          "
+        >
+          <h3
+            style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem"
+          >
+            Start Here
+          </h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem">
+            Daily build-in-public updates on X.<br />Maybe a newsletter someday?
+          </p>
+          <a
+            href="https://x.com/meimakes"
+            style="
+              display: block;
+              background: var(--sage);
+              color: white;
+              padding: 0.75rem 1.5rem;
+              border-radius: 0.5rem;
+              text-decoration: none;
+              text-align: center;
+              font-weight: 500;
+            "
+          >
+            Follow @meimakes →
+          </a>
+          <p
+            style="
+              text-align: center;
+              font-size: 0.875rem;
+              color: var(--text-muted);
+              margin-top: 1rem;
+            "
+          ></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      style="
+        padding: 2rem 1.5rem;
+        text-align: center;
+        color: var(--text-secondary);
+        background: var(--bg-primary);
+      "
+    >
+      <p style="margin-bottom: 0.5rem">
+        Mei makes apps (when parenthood permits).
+      </p>
+      <p style="font-size: 0.875rem">© 2025 Mei Park</p>
+    </footer>
+
+    <!-- Twitter Widget Script -->
+    <script
+      async
+      src="https://platform.x.com/widgets.js"
+      charset="utf-8"
+    ></script>
+
+    <!-- Media queries for responsive grid -->
+    <style>
+      @media (min-width: 768px) {
+        section:first-child > div > div:nth-child(3) {
+          grid-template-columns: 1fr 1fr;
+        }
+        #app-grid {
+          grid-template-columns: 1fr 1fr !important;
+        }
+        #learning-grid {
+          grid-template-columns: 1fr 1fr !important;
+        }
+      }
+    </style>
+  </body>
+</html>
