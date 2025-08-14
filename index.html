@@ -40,7 +40,8 @@
     <meta name="twitter:image" content="https://meimakes.com/preview.png" />
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#E8F4FD" />
+    <meta name="theme-color" content="#E8F4FD" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <!-- Favicon -->
@@ -289,6 +290,120 @@
           grid-template-columns: 1fr !important;
         }
       }
+
+      /* Dark mode */
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #e2e8f0;
+          background: linear-gradient(
+            180deg,
+            #0f172a 0%,
+            #1e293b 25%,
+            #0f172a 50%,
+            #1e293b 75%,
+            #0f172a 100%
+          );
+        }
+
+        h1, h2, h3 {
+          color: #f1f5f9;
+        }
+
+        .glass-card {
+          background: rgba(30, 41, 59, 0.7);
+          border: 1px solid rgba(71, 85, 105, 0.3);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-card:hover {
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-primary {
+          background: rgba(30, 41, 59, 0.9);
+          color: #e2e8f0;
+          border: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .btn-primary:hover {
+          background: rgba(30, 41, 59, 1);
+        }
+
+        .btn-secondary {
+          color: #94a3b8;
+          border: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .btn-secondary:hover {
+          background: rgba(30, 41, 59, 0.5);
+          color: #e2e8f0;
+        }
+
+        .progress-bar {
+          background: rgba(71, 85, 105, 0.3);
+        }
+
+        .timeline-dot {
+          border: 3px solid rgba(30, 41, 59, 0.9);
+        }
+
+        .glow-orb {
+          opacity: 0.15;
+        }
+
+        code {
+          background: rgba(30, 41, 59, 0.5) !important;
+          color: #e2e8f0;
+        }
+
+        /* Dark mode specific text colors */
+        p {
+          color: #cbd5e1;
+        }
+
+        /* Fix hero text colors */
+        h1 span {
+          color: #10b981 !important;
+        }
+
+        /* Status badge in hero */
+        body > section:first-child .fade-in:first-child {
+          background: linear-gradient(
+            135deg,
+            rgba(134, 239, 172, 0.2),
+            rgba(251, 191, 36, 0.2)
+          );
+          border: 1px solid rgba(134, 239, 172, 0.3);
+        }
+
+        /* Icon backgrounds in project cards only */
+        #current .glass-card > div:first-child {
+          background: linear-gradient(
+            135deg,
+            rgba(134, 239, 172, 0.2),
+            rgba(251, 191, 36, 0.2)
+          ) !important;
+        }
+
+        /* Remove gradient from stat cards */
+        .glass-card[style*="padding: 1rem; text-align: center"] {
+          background: rgba(30, 41, 59, 0.7) !important;
+        }
+
+        /* Status boxes inside cards */
+        .glass-card div[style*="background: rgba(255, 255, 255, 0.5)"] {
+          background: rgba(30, 41, 59, 0.5) !important;
+        }
+
+        /* Links */
+        a {
+          color: #60a5fa;
+        }
+
+        a:hover {
+          color: #93c5fd;
+        }
+      }
     </style>
   </head>
   <body>
@@ -328,7 +443,7 @@
           "
           class="fade-in"
         >
-          ✨ Building AI-powered apps in naptime sprints
+          🏆 VibeTask is a hackathon winner!
         </div>
 
         <!-- Main Hook -->
@@ -408,7 +523,7 @@
           </div>
           <div class="glass-card" style="padding: 1rem; text-align: center">
             <div style="font-size: 2rem; font-weight: 400; color: #f59e0b">
-              289
+              302
             </div>
             <div style="font-size: 0.875rem; color: #94a3b8">
               Followers<br />& growing
@@ -659,60 +774,52 @@
               >
                 VibeTask.ai
               </h3>
-              <p style="color: #64748b; margin-bottom: 1.5rem">
-                AI-powered task management that flows with your energy. Capture
-                tasks instantly, let AI match them to your vibe level. Built
-                entirely during naptime coding sessions.
-              </p>
-
-              <!-- Progress -->
-              <div style="margin-bottom: 1.5rem">
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 0.5rem;
-                  "
-                >
-                  <span style="font-size: 0.875rem">MVP Progress</span>
-                  <span
-                    style="
-                      font-size: 0.875rem;
-                      color: #10b981;
-                      font-weight: 400;
-                    "
-                    >65%</span
-                  >
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 65%"></div>
-                </div>
+              <div style="margin-bottom: 1rem">
+                <span style="
+                  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+                  color: white;
+                  font-size: 0.75rem;
+                  padding: 0.25rem 0.5rem;
+                  border-radius: 12px;
+                  font-weight: 400;
+                  display: inline-block;
+                ">🏆 HACKATHON WINNER</span>
               </div>
+              <p style="color: #64748b; margin-bottom: 1.5rem">
+                AI-powered to-do app that matches tasks to your energy. Capture
+                tasks instantly, let AI match them to your vibe level.
+              </p>
 
               <!-- Status -->
               <div
                 style="
                   background: rgba(255, 255, 255, 0.5);
-                  padding: 1rem;
                   border-radius: 12px;
                   margin-bottom: 1.5rem;
                 "
               >
                 <p style="font-size: 0.875rem; margin: 0">
-                  <strong>✅ Done:</strong> Core UI, AI categorization, energy
-                  task matching
+                  <strong>🏆 Hackathon winner:</strong> Beat 200+ submissions at AI/ML hackathon
                 </p>
                 <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
-                  <strong>🚧 Next:</strong> iOS app submission
+                  <strong>🚀 Live in beta:</strong> Join free and start getting things done!
                 </p>
               </div>
 
               <a
                 href="https://vibetask.ai"
-                class="btn btn-primary"
-                style="width: 100%; justify-content: center"
+                class="btn"
+                style="
+                  width: 100%;
+                  justify-content: center;
+                  background: linear-gradient(135deg, #fbbf24, #f59e0b, #f87171, #fb7185);
+                  color: white;
+                  font-weight: 500;
+                  border: none;
+                  box-shadow: 0 4px 15px rgba(251, 146, 60, 0.3);
+                "
               >
-                Get started with web version →
+                Join the beta →
               </a>
             </div>
           </div>
@@ -838,10 +945,10 @@
               Recent wins
             </h3>
             <ul style="list-style: none; padding: 0; margin: 0">
+              <li style="margin-bottom: 0.5rem">✅ VibeTask is a hackathon winner!</li>
               <li style="margin-bottom: 0.5rem">✅ VibeTask beta is live!</li>
               <li style="margin-bottom: 0.5rem">✅ Substack launched!</li>
-              <li style="margin-bottom: 0.5rem">✅ Can code on my phone</li>
-              <li>✅ Toddler-approved UX</li>
+              <li>✅ Can code on my phone!</li>
             </ul>
           </div>
         </div>
@@ -977,8 +1084,23 @@
           </p>
           <a
             href="https://x.com/meimakes"
-            class="btn btn-primary"
-            style="width: 100%; justify-content: center"
+            class="btn"
+            style="
+              width: 100%;
+              justify-content: center;
+              background: #000000;
+              color: white;
+              border: none;
+              padding: 0.875rem 2rem;
+              border-radius: 14px;
+              font-size: 0.95rem;
+              font-weight: 400;
+              transition: all 0.3s ease;
+              text-decoration: none;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+            "
           >
             Follow @meimakes →
           </a>
