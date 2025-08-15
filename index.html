@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://meimakes.com" />
     <meta property="og:site_name" content="Mei Park" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://meimakes.com/preview.png" />
+    <meta property="og:image" content="https://meimakes.com/images/preview.png" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -37,7 +37,7 @@
     />
     <meta name="twitter:creator" content="@meimakes" />
     <meta name="twitter:site" content="@meimakes" />
-    <meta name="twitter:image" content="https://meimakes.com/preview.png" />
+    <meta name="twitter:image" content="https://meimakes.com/images/preview.png" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#E8F4FD" media="(prefers-color-scheme: light)" />
@@ -45,8 +45,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/m.png" />
-    <link rel="apple-touch-icon" href="/m.png" />
+    <link rel="icon" type="image/png" href="/images/m.png" />
+    <link rel="apple-touch-icon" href="/images/m.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -281,6 +281,67 @@
         );
       }
 
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-content {
+        position: relative;
+        margin: 2% auto;
+        max-width: 90%;
+        max-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content img {
+        max-width: 100%;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        font-size: 40px;
+        font-weight: 300;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .modal-close:hover {
+        color: #ccc;
+        transform: scale(1.1);
+      }
+
+      /* Link styling for modal triggers */
+      a.modal-trigger {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        text-underline-offset: 2px;
+        cursor: pointer;
+      }
+
+      a.modal-trigger:hover {
+        text-decoration-style: solid;
+      }
+
       /* Responsive */
       @media (max-width: 768px) {
         h1 {
@@ -490,7 +551,7 @@
             "
           >
             <img
-              src="/mei.jpeg"
+              src="/images/mei.jpeg"
               alt="Mei Park"
               style="
                 width: 100%;
@@ -515,15 +576,15 @@
         >
           <div class="glass-card" style="padding: 1rem; text-align: center">
             <div style="font-size: 2rem; font-weight: 400; color: #10b981">
-              2
+              4
             </div>
             <div style="font-size: 0.875rem; color: #94a3b8">
-              Apps in<br />progress
+              Apps<br />shipped
             </div>
           </div>
           <div class="glass-card" style="padding: 1rem; text-align: center">
             <div style="font-size: 2rem; font-weight: 400; color: #f59e0b">
-              302
+              364
             </div>
             <div style="font-size: 0.875rem; color: #94a3b8">
               Followers<br />& growing
@@ -750,7 +811,7 @@
           class="grid-2"
         >
           <!-- VibeTask Card -->
-          <div class="glass-card" style="overflow: hidden">
+          <div class="glass-card" style="overflow: hidden; display: flex; flex-direction: column; height: 100%;">
             <div
               style="
                 background: linear-gradient(
@@ -764,7 +825,7 @@
             >
               <span style="font-size: 3rem">✨</span>
             </div>
-            <div style="padding: 2rem">
+            <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1;">
               <h3
                 style="
                   font-size: 1.5rem;
@@ -799,15 +860,16 @@
                 "
               >
                 <p style="font-size: 0.875rem; margin: 0">
-                  <strong>🏆 Hackathon winner:</strong> Beat 200+ submissions at AI/ML hackathon
+                  <strong>🏆 Hackathon winner:</strong> Beat 200+ submissions at <a href="#" class="modal-trigger" onclick="openModal('hackathonModal'); return false;">Anything $10k Weekend Hackathon</a>
                 </p>
                 <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
                   <strong>🚀 Live in beta:</strong> Join free and start getting things done!
                 </p>
               </div>
 
-              <a
-                href="https://vibetask.ai"
+              <div style="margin-top: auto; padding-top: 1rem;">
+                <a
+                  href="https://vibetask.ai"
                 class="btn"
                 style="
                   width: 100%;
@@ -821,11 +883,70 @@
               >
                 Join the beta →
               </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- NapStack Card -->
+          <div class="glass-card" style="overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(139, 92, 246, 0.1),
+                  rgba(236, 72, 153, 0.1)
+                );
+                padding: 1.5rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem">🍼</span>
+            </div>
+            <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1;">
+              <h3
+                style="
+                  font-size: 1.5rem;
+                  font-weight: 400;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                NapStack.dev
+              </h3>
+              <p style="color: #64748b; margin-bottom: 1.5rem">
+                Productivity dashboard for parent developers with focus-boosting ambient sounds. Track coding sessions during naptime with Quick Fix (5m), Focus Block (20m), and Naptime Sprint (45m) modes.
+              </p>
+
+              <!-- Status -->
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.5);
+                  padding: 1rem;
+                  border-radius: 12px;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <p style="font-size: 0.875rem; margin: 0">
+                  <strong>⏱️ Realistic pomodoros:</strong> Optimized for parent schedules
+                </p>
+                <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
+                  <strong>🎵 Ambient sounds:</strong> Coffee shop, rain, lofi
+                </p>
+              </div>
+
+              <div style="margin-top: auto; padding-top: 1rem;">
+                <a
+                  href="https://napstack.dev"
+                class="btn btn-primary"
+                style="width: 100%; justify-content: center"
+              >
+                Start tracking →
+              </a>
+              </div>
             </div>
           </div>
 
           <!-- NontoxicGoods Card -->
-          <div class="glass-card" style="overflow: hidden">
+          <div class="glass-card" style="overflow: hidden; display: flex; flex-direction: column; height: 100%;">
             <div
               style="
                 background: linear-gradient(
@@ -839,7 +960,7 @@
             >
               <span style="font-size: 3rem">🌿</span>
             </div>
-            <div style="padding: 2rem">
+            <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1;">
               <h3
                 style="
                   font-size: 1.5rem;
@@ -854,7 +975,7 @@
                 Simple, clean, everyday finds.
               </p>
 
-              <!-- Stats -->
+              <!-- Status -->
               <div
                 style="
                   background: rgba(255, 255, 255, 0.5);
@@ -864,13 +985,16 @@
                 "
               >
                 <p style="font-size: 0.875rem; margin: 0">
-                  <strong>86</strong> products reviewed •
-                  <strong>65</strong> brands verified
+                  <strong>🔍 86 products:</strong> Thoroughly reviewed & tested
+                </p>
+                <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
+                  <strong>✨ 65 brands:</strong> Verified non-toxic & safe
                 </p>
               </div>
 
-              <a
-                href="https://nontoxicgoods.com"
+              <div style="margin-top: auto; padding-top: 1rem;">
+                <a
+                  href="https://nontoxicgoods.com"
                 class="btn btn-primary"
                 style="
                   width: 100%;
@@ -882,6 +1006,71 @@
               >
                 ✅ Visit live site →
               </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- LMAITFY Card -->
+          <div class="glass-card" style="overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(59, 130, 246, 0.1),
+                  rgba(16, 185, 129, 0.1)
+                );
+                padding: 1.5rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem">🤖</span>
+            </div>
+            <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1;">
+              <h3
+                style="
+                  font-size: 1.5rem;
+                  font-weight: 400;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                LMAITFY.xyz
+              </h3>
+              <p style="color: #64748b; margin-bottom: 1.5rem">
+                <strong>Let Me AI That For You</strong> lets you create shareable AI demonstration links. Help people learn how to effectively ask AI questions (instead of asking you).
+              </p>
+
+              <!-- Status -->
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.5);
+                  padding: 1rem;
+                  border-radius: 12px;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <p style="font-size: 0.875rem; margin: 0">
+                  <strong>🔗 Share AI demos:</strong> Create teaching moments
+                </p>
+                <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
+                  <strong>🎓 AI education:</strong> Making AI accessible to all
+                </p>
+              </div>
+
+              <div style="margin-top: auto; padding-top: 1rem;">
+                <a
+                  href="https://lmaitfy.xyz"
+                class="btn btn-primary"
+                style="
+                  width: 100%;
+                  justify-content: center;
+                  background: rgba(59, 130, 246, 0.1);
+                  color: #2563eb;
+                  border-color: rgba(59, 130, 246, 0.3);
+                "
+              >
+                Try it out →
+              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -945,9 +1134,9 @@
               Recent wins
             </h3>
             <ul style="list-style: none; padding: 0; margin: 0">
-              <li style="margin-bottom: 0.5rem">✅ VibeTask is a hackathon winner!</li>
+              <li style="margin-bottom: 0.5rem">✅ <a href="#" class="modal-trigger" onclick="openModal('hackathonModal'); return false;">VibeTask is a hackathon winner!</a></li>
+              <li style="margin-bottom: 0.5rem">✅ <a href="#" class="modal-trigger" onclick="openModal('devtoModal'); return false;">Dev.to Top 7 Post feature!</a></li>
               <li style="margin-bottom: 0.5rem">✅ VibeTask beta is live!</li>
-              <li style="margin-bottom: 0.5rem">✅ Substack launched!</li>
               <li>✅ Can code on my phone!</li>
             </ul>
           </div>
@@ -1129,6 +1318,21 @@
       charset="utf-8"
     ></script>
 
+    <!-- Modal HTML structures -->
+    <div id="hackathonModal" class="modal" onclick="if(event.target === this) closeModal('hackathonModal')">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('hackathonModal')">&times;</span>
+        <img src="/images/anything-win-20250813.png" alt="Anything $10k Weekend Hackathon Winner">
+      </div>
+    </div>
+
+    <div id="devtoModal" class="modal" onclick="if(event.target === this) closeModal('devtoModal')">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('devtoModal')">&times;</span>
+        <img src="/images/dev-top-7-20250812.png" alt="Dev.to Top 7 Post Feature">
+      </div>
+    </div>
+
     <!-- Parallax effect for orbs -->
     <script>
       document.addEventListener("mousemove", (e) => {
@@ -1140,6 +1344,35 @@
           const speed = (index + 1) * 15;
           orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
         });
+      });
+
+      // Modal functions
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      // Close modal when clicking outside of image or on modal background
+      document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+          event.target.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          document.querySelectorAll('.modal').forEach(modal => {
+            modal.style.display = 'none';
+          });
+          document.body.style.overflow = "auto";
+        }
       });
 
       // Smooth scroll
