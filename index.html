@@ -1,1578 +1,574 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mei Park - Building apps in naptime sprints</title>
-    <meta
-      name="description"
-      content="10yr software engineer turned stay-at-home-mom shipping iOS apps with minimal time. Building VibeTask: the AI-powered task app that flows with your energy."
-    />
-
-    <!-- Social Media Metadata -->
-    <meta
-      property="og:title"
-      content="Mei Park - Building apps in naptime sprints"
-    />
-    <meta
-      property="og:description"
-      content="10yr software engineer turned stay-at-home-mom shipping iOS apps with minimal time. Building VibeTask: the AI-powered task app that flows with your energy."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://meimakes.com" />
-    <meta property="og:site_name" content="Mei Park" />
-    <meta property="og:locale" content="en_US" />
-    <meta
-      property="og:image"
-      content="https://meimakes.com/images/preview.png"
-    />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Mei Park - Building apps in naptime sprints"
-    />
-    <meta
-      name="twitter:description"
-      content="Building VibeTask: the AI-powered task app that flows with your energy."
-    />
-    <meta name="twitter:creator" content="@meimakes" />
-    <meta name="twitter:site" content="@meimakes" />
-    <meta
-      name="twitter:image"
-      content="https://meimakes.com/images/preview.png"
-    />
-
-    <!-- Theme Color -->
-    <meta
-      name="theme-color"
-      content="#E8F4FD"
-      media="(prefers-color-scheme: light)"
-    />
-    <meta
-      name="theme-color"
-      content="#0f172a"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/m.png" />
-    <link rel="apple-touch-icon" href="/images/m.png" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Plausible Analytics -->
-    <script
-      defer
-      data-domain="meimakes.com"
-      src="https://plausible.io/js/script.outbound-links.js"
-    ></script>
-    <script>
-      window.plausible =
-        window.plausible ||
-        function () {
-          (window.plausible.q = window.plausible.q || []).push(arguments);
-        };
-    </script>
-
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-weight: 300;
-        color: #2c3e50;
-        background: linear-gradient(
-          180deg,
-          #f7f3e9 0%,
-          #fdf6e3 25%,
-          #faf5e4 50%,
-          #f4ead5 75%,
-          #f0e6d2 100%
-        );
-        min-height: 100vh;
-        overflow-x: hidden;
-        line-height: 1.6;
-        position: relative;
-      }
-
-      /* Ethereal background elements */
-      .glow-orb {
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.3;
-        animation: float-orb 25s infinite ease-in-out;
-        pointer-events: none;
-      }
-
-      .orb-1 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(
-          circle,
-          rgba(218, 165, 32, 0.3),
-          transparent
-        );
-        top: 10%;
-        left: 5%;
-      }
-
-      .orb-2 {
-        width: 350px;
-        height: 350px;
-        background: radial-gradient(
-          circle,
-          rgba(205, 133, 63, 0.3),
-          transparent
-        );
-        bottom: 20%;
-        right: 10%;
-        animation-delay: -10s;
-      }
-
-      .orb-3 {
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(
-          circle,
-          rgba(188, 143, 143, 0.3),
-          transparent
-        );
-        top: 50%;
-        left: 50%;
-        animation-delay: -5s;
-      }
-
-      @keyframes float-orb {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-        33% {
-          transform: translate(30px, -40px) scale(1.1);
-        }
-        66% {
-          transform: translate(-40px, 30px) scale(0.9);
-        }
-      }
-
-      /* Glass cards */
-      .glass-card {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 20px;
-        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.08);
-        transition: all 0.3s ease;
-      }
-
-      .glass-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(31, 38, 135, 0.12);
-      }
-
-      /* Typography */
-      h1,
-      h2,
-      h3 {
-        font-weight: 300;
-        letter-spacing: -0.02em;
-      }
-
-      /* Buttons */
-      .btn {
-        padding: 0.875rem 2rem;
-        border-radius: 14px;
-        font-size: 0.95rem;
-        font-weight: 400;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .btn-primary {
-        background: rgba(255, 255, 255, 0.9);
-        color: #2c3e50;
-        border: 1px solid rgba(203, 213, 225, 0.2);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      }
-
-      .btn-primary:hover {
-        background: rgba(255, 255, 255, 1);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: #64748b;
-        border: 1px solid rgba(203, 213, 225, 0.3);
-      }
-
-      .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.5);
-        color: #2c3e50;
-      }
-
-      /* Progress bar */
-      .progress-bar {
-        background: rgba(229, 231, 235, 0.3);
-        height: 6px;
-        border-radius: 3px;
-        overflow: hidden;
-      }
-
-      .progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #10b981, #f59e0b);
-        transition: width 0.3s ease;
-      }
-
-      /* Fade in animation */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .fade-in {
-        animation: fadeInUp 0.8s ease forwards;
-      }
-
-      /* Timeline */
-      .timeline-item {
-        position: relative;
-        padding-left: 60px;
-        margin-bottom: 2rem;
-      }
-
-      .timeline-dot {
-        position: absolute;
-        left: 10px;
-        top: 8px;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #10b981, #14b8a6);
-        border: 3px solid rgba(255, 255, 255, 0.9);
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
-      }
-
-      .timeline-line {
-        position: absolute;
-        left: 19px;
-        top: 30px;
-        bottom: -20px;
-        width: 2px;
-        background: linear-gradient(
-          180deg,
-          rgba(16, 185, 129, 0.3),
-          transparent
-        );
-      }
-
-      /* Modal styles */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(5px);
-        animation: fadeIn 0.3s ease;
-      }
-
-      .modal-content {
-        position: relative;
-        margin: 2% auto;
-        max-width: 90%;
-        max-height: 90vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .modal-content img {
-        max-width: 100%;
-        max-height: 90vh;
-        object-fit: contain;
-        border-radius: 12px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-      }
-
-      .modal-close {
-        position: absolute;
-        top: 20px;
-        right: 35px;
-        font-size: 40px;
-        font-weight: 300;
-        color: #fff;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .modal-close:hover {
-        color: #ccc;
-        transform: scale(1.1);
-      }
-
-      /* Link styling for modal triggers */
-      a.modal-trigger {
-        color: inherit;
-        text-decoration: underline;
-        text-decoration-style: dotted;
-        text-underline-offset: 2px;
-        cursor: pointer;
-      }
-
-      a.modal-trigger:hover {
-        text-decoration-style: solid;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2.5rem !important;
-        }
-        .grid-2 {
-          grid-template-columns: 1fr !important;
-        }
-      }
-
-      /* Dark mode */
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: #e2e8f0;
-          background: linear-gradient(
-            180deg,
-            #1a1612 0%,
-            #2d241e 25%,
-            #1a1612 50%,
-            #2d241e 75%,
-            #1a1612 100%
-          );
-        }
-
-        h1,
-        h2,
-        h3 {
-          color: #f1f5f9;
-        }
-
-        .glass-card {
-          background: rgba(45, 36, 30, 0.7);
-          border: 1px solid rgba(139, 115, 85, 0.3);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .glass-card:hover {
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .btn-primary {
-          background: rgba(45, 36, 30, 0.9);
-          color: #e2e8f0;
-          border: 1px solid rgba(139, 115, 85, 0.3);
-        }
-
-        .btn-primary:hover {
-          background: rgba(45, 36, 30, 1);
-        }
-
-        .btn-secondary {
-          color: #94a3b8;
-          border: 1px solid rgba(139, 115, 85, 0.3);
-        }
-
-        .btn-secondary:hover {
-          background: rgba(45, 36, 30, 0.5);
-          color: #e2e8f0;
-        }
-
-        .progress-bar {
-          background: rgba(139, 115, 85, 0.3);
-        }
-
-        .timeline-dot {
-          border: 3px solid rgba(45, 36, 30, 0.9);
-        }
-
-        .glow-orb {
-          opacity: 0.15;
-        }
-
-        code {
-          background: rgba(45, 36, 30, 0.5) !important;
-          color: #e2e8f0;
-        }
-
-        /* Dark mode specific text colors */
-        p {
-          color: #cbd5e1;
-        }
-
-        /* Fix hero text colors */
-        h1 span {
-          color: #10b981 !important;
-        }
-
-        /* Status badge in hero */
-        body > section:first-child .fade-in:first-child {
-          background: linear-gradient(
-            135deg,
-            rgba(134, 239, 172, 0.2),
-            rgba(251, 191, 36, 0.2)
-          );
-          border: 1px solid rgba(134, 239, 172, 0.3);
-        }
-
-        /* Icon backgrounds in project cards only */
-        #current .glass-card > div:first-child {
-          background: linear-gradient(
-            135deg,
-            rgba(134, 239, 172, 0.2),
-            rgba(251, 191, 36, 0.2)
-          ) !important;
-        }
-
-        /* Remove gradient from stat cards */
-        .glass-card[style*="padding: 1rem; text-align: center"] {
-          background: rgba(30, 41, 59, 0.7) !important;
-        }
-
-        /* Status boxes inside cards */
-        .glass-card div[style*="background: rgba(255, 255, 255, 0.5)"] {
-          background: rgba(45, 36, 30, 0.5) !important;
-        }
-
-        /* Links */
-        a {
-          color: #60a5fa;
-        }
-
-        a:hover {
-          color: #93c5fd;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Floating orbs -->
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-    <div class="glow-orb orb-3"></div>
-
-    <!-- Hero Section -->
-    <section
-      style="
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 3rem 1.5rem;
-        position: relative;
-        z-index: 10;
-      "
-    >
-      <div style="max-width: 48rem; margin: 0 auto; text-align: center">
-        <!-- Status Badge -->
-        <div
-          style="
-            display: inline-block;
-            background: linear-gradient(
-              135deg,
-              rgba(134, 239, 172, 0.1),
-              rgba(251, 191, 36, 0.1)
-            );
-            border: 1px solid rgba(134, 239, 172, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.875rem;
-            color: #10b981;
-            margin-bottom: 2rem;
-          "
-          class="fade-in"
-        >
-          🏆 VibeTask is a hackathon winner!
-        </div>
-
-        <!-- Main Hook -->
-        <h1
-          style="
-            font-size: 3.5rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-          "
-          class="fade-in"
-        >
-          10 years of experience.<br />
-          <span style="color: #cd853f; font-weight: 400">2 hours</span> to use
-          it.
-        </h1>
-
-        <p
-          style="
-            font-size: 1.25rem;
-            color: #64748b;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-          "
-          class="fade-in"
-        >
-          I'm Mei Park. 10-year engineer turned stay-at-home-mom. Building apps
-          that flow with real life's chaos.
-        </p>
-
-        <!-- Profile Image -->
-        <div style="margin-bottom: 2rem" class="fade-in">
-          <div
-            class="glass-card"
-            style="
-              width: 8rem;
-              height: 8rem;
-              border-radius: 50%;
-              padding: 4px;
-              margin: 0 auto;
-            "
-          >
-            <img
-              src="/images/mei.jpg"
-              alt="Mei Park"
-              style="
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                object-fit: cover;
-              "
-            />
-          </div>
-        </div>
-
-        <!-- Quick Stats -->
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            max-width: 400px;
-            margin: 2rem auto;
-          "
-          class="fade-in"
-        >
-          <div class="glass-card" style="padding: 1rem; text-align: center">
-            <div style="font-size: 2rem; font-weight: 400; color: #cd853f">
-              5
-            </div>
-            <div style="font-size: 0.875rem; color: #94a3b8">
-              Apps<br />shipped
-            </div>
-          </div>
-          <div class="glass-card" style="padding: 1rem; text-align: center">
-            <div style="font-size: 2rem; font-weight: 400; color: #f59e0b">
-              447
-            </div>
-            <div style="font-size: 0.875rem; color: #94a3b8">
-              Followers<br />& growing
-            </div>
-          </div>
-          <div class="glass-card" style="padding: 1rem; text-align: center">
-            <div style="font-size: 2rem; font-weight: 400; color: #ec4899">
-              ∞
-            </div>
-            <div style="font-size: 0.875rem; color: #94a3b8">
-              Ideas<br />to build
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div
-          style="
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 2rem;
-          "
-          class="fade-in"
-        >
-          <a href="#current" class="btn btn-primary">
-            See what I'm building
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-          <a href="#follow" class="btn btn-secondary">Follow the journey</a>
-        </div>
-
-        <!-- Fun element -->
-        <div style="margin-top: 3rem" class="fade-in">
-          <p style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.5rem">
-            Current mantra:
-          </p>
-          <code
-            style="
-              background: rgba(255, 255, 255, 0.5);
-              padding: 0.5rem 1rem;
-              border-radius: 8px;
-              font-size: 0.875rem;
-            "
-          >
-            Ship it before naptime ends ⏰
-          </code>
-        </div>
-      </div>
-    </section>
-
-    <!-- Journey Section -->
-    <section style="padding: 4rem 1.5rem; position: relative; z-index: 10">
-      <div style="max-width: 48rem; margin: 0 auto">
-        <h2
-          style="
-            font-size: 2.5rem;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 1rem;
-          "
-        >
-          Shipping code in (nap)time blocks
-        </h2>
-        <p style="text-align: center; color: #94a3b8; margin-bottom: 3rem">
-          How I went from idea to working app with AI
-        </p>
-
-        <!-- Timeline -->
-        <div style="max-width: 600px; margin: 0 auto">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-line"></div>
-            <div class="glass-card" style="padding: 1.5rem">
-              <strong>Week 1:</strong>
-              <span style="font-style: italic"
-                >"I have ~2 hours a day. Can I actually build an app?"</span
-              >
-              <span
-                style="
-                  display: block;
-                  font-size: 0.875rem;
-                  color: #64748b;
-                  margin-top: 0.25rem;
-                "
-              >
-                Discovered Claude Code. Game changer.
-              </span>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div
-              class="timeline-dot"
-              style="background: linear-gradient(135deg, #f59e0b, #f97316)"
-            ></div>
-            <div class="timeline-line"></div>
-            <div class="glass-card" style="padding: 1.5rem">
-              <strong>Week 2:</strong> First working prototype in record time
-              <span
-                style="
-                  display: block;
-                  font-size: 0.875rem;
-                  color: #64748b;
-                  margin-top: 0.25rem;
-                "
-              >
-                AI pair programming = 10x productivity boost
-              </span>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div
-              class="timeline-dot"
-              style="background: linear-gradient(135deg, #ec4899, #f87171)"
-            ></div>
-            <div class="timeline-line"></div>
-            <div class="glass-card" style="padding: 1.5rem">
-              <strong>Week 3:</strong> Chaos testing (aka parenthood)
-              <span
-                style="
-                  display: block;
-                  font-size: 0.875rem;
-                  color: #64748b;
-                  margin-top: 0.25rem;
-                "
-              >
-                "Make it work one-handed" = best UX constraint ever
-              </span>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div
-              class="timeline-dot"
-              style="background: linear-gradient(135deg, #7c3aed, #6366f1)"
-            ></div>
-            <div class="glass-card" style="padding: 1.5rem">
-              <strong>Today:</strong> Building in public
-              <span
-                style="
-                  display: block;
-                  font-size: 0.875rem;
-                  color: #64748b;
-                  margin-top: 0.25rem;
-                "
-              >
-                Sharing everything I learn along the way
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tech Stack -->
-        <div class="glass-card" style="margin-top: 3rem; padding: 2rem">
-          <h3
-            style="font-size: 1.25rem; font-weight: 400; margin-bottom: 1.5rem"
-          >
-            The parent-friendly tech stack
-          </h3>
-          <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem">
-            <div>
-              <strong style="color: #10b981">⚡ Speed tools:</strong>
-              <ul
-                style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc"
-              >
-                <li>Claude Code: "Here's my idea, make it happen"</li>
-                <li>Drafts App: Quick capture prompt ideas</li>
-                <li>Working Copy: Commit from anywhere</li>
-              </ul>
-            </div>
-            <div>
-              <strong style="color: #f59e0b">🎯 The method:</strong>
-              <p style="margin: 0.5rem 0">
-                20-minute sprints. One feature. Ship it. Let AI handle the heavy
-                lifting.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Current Projects -->
-    <section
-      id="current"
-      style="padding: 4rem 1.5rem; position: relative; z-index: 10"
-    >
-      <div style="max-width: 64rem; margin: 0 auto">
-        <h2
-          style="
-            font-size: 2.5rem;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 1rem;
-          "
-        >
-          What I'm shipping
-        </h2>
-        <p style="text-align: center; color: #94a3b8; margin-bottom: 3rem">
-          Real apps built in ~2 hrs a day
-        </p>
-
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-          "
-          class="grid-2"
-        >
-          <!-- VibeTask Card -->
-          <div
-            class="glass-card"
-            style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              height: 100%;
-            "
-          >
-            <div
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(134, 239, 172, 0.1),
-                  rgba(251, 191, 36, 0.1)
-                );
-                padding: 1.5rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem">✨</span>
-            </div>
-            <div
-              style="
-                padding: 2rem;
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-              "
-            >
-              <h3
-                style="
-                  font-size: 1.5rem;
-                  font-weight: 400;
-                  margin-bottom: 0.5rem;
-                "
-              >
-                VibeTask.ai
-              </h3>
-              <div style="margin-bottom: 1rem">
-                <span
-                  style="
-                    background: linear-gradient(135deg, #fbbf24, #f59e0b);
-                    color: white;
-                    font-size: 0.75rem;
-                    padding: 0.25rem 0.5rem;
-                    border-radius: 12px;
-                    font-weight: 400;
-                    display: inline-block;
-                  "
-                  >🏆 HACKATHON WINNER</span
-                >
-              </div>
-              <p style="color: #64748b; margin-bottom: 1.5rem">
-                AI-powered to-do app that matches tasks to your energy. Capture
-                tasks instantly, let AI match them to your vibe level.
-              </p>
-
-              <!-- Status -->
-              <div
-                style="
-                  background: rgba(255, 255, 255, 0.5);
-                  border-radius: 12px;
-                  margin-bottom: 1.5rem;
-                "
-              >
-                <p style="font-size: 0.875rem; margin: 0">
-                  <strong>🏆 Hackathon winner:</strong> Beat 100+ submissions at
-                  <a
-                    href="#"
-                    class="modal-trigger"
-                    onclick="openModal('hackathonModal'); return false;"
-                    >Anything $10k Weekend Hackathon</a
-                  >
-                </p>
-                <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
-                  <strong>🚀 Live in beta:</strong> Join free and start getting
-                  things done!
-                </p>
-              </div>
-
-              <div style="margin-top: auto; padding-top: 1rem">
-                <a
-                  href="https://vibetask.ai"
-                  class="btn"
-                  style="
-                    width: 100%;
-                    justify-content: center;
-                    background: linear-gradient(
-                      135deg,
-                      #fbbf24,
-                      #f59e0b,
-                      #f87171,
-                      #fb7185
-                    );
-                    color: white;
-                    font-weight: 500;
-                    border: none;
-                    box-shadow: 0 4px 15px rgba(251, 146, 60, 0.3);
-                  "
-                >
-                  Join the beta →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PromptBetter.dev Card -->
-          <div
-            class="glass-card"
-            style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              height: 100%;
-            "
-          >
-            <div
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(205, 133, 63, 0.1),
-                  rgba(218, 165, 32, 0.1)
-                );
-                padding: 1.5rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem">💡</span>
-            </div>
-            <div
-              style="
-                padding: 2rem;
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-              "
-            >
-              <h3
-                style="
-                  font-size: 1.5rem;
-                  font-weight: 400;
-                  margin-bottom: 0.5rem;
-                "
-              >
-                PromptBetter.dev
-              </h3>
-              <div style="margin-bottom: 1rem">
-                <span
-                  style="
-                    background: linear-gradient(135deg, #cd853f, #daa520);
-                    color: white;
-                    font-size: 0.75rem;
-                    padding: 0.25rem 0.5rem;
-                    border-radius: 12px;
-                    font-weight: 400;
-                    display: inline-block;
-                  "
-                  >🏆 HACKATHON WINNER</span
-                >
-              </div>
-              <p style="color: #64748b; margin-bottom: 1.5rem">
-                AI prompt optimization tool that helps you write better prompts
-                for any AI model. Analyze, improve, and perfect your prompts
-                with AI-powered suggestions.
-              </p>
-
-              <!-- Status -->
-              <div
-                style="
-                  background: rgba(255, 255, 255, 0.5);
-                  padding: 1rem;
-                  border-radius: 12px;
-                  margin-bottom: 1.5rem;
-                "
-              >
-                <p style="font-size: 0.875rem; margin: 0">
-                  <strong
-                    >🏆
-                    <a
-                      href="#"
-                      class="modal-trigger"
-                      onclick="openModal('promptbetterModal'); return false;"
-                      >Another hackathon win</a
-                    >:</strong
-                  >
-                  Built in 48 hours
-                </p>
-                <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
-                  <strong>🚀 Live tool:</strong> Optimize your AI prompts
-                  instantly
-                </p>
-              </div>
-
-              <div style="margin-top: auto; padding-top: 1rem">
-                <a
-                  href="https://promptbetter.dev"
-                  class="btn btn-primary"
-                  style="
-                    width: 100%;
-                    justify-content: center;
-                    background: linear-gradient(
-                      135deg,
-                      rgba(205, 133, 63, 0.1),
-                      rgba(218, 165, 32, 0.1)
-                    );
-                    color: #8b4513;
-                    border-color: rgba(205, 133, 63, 0.3);
-                  "
-                >
-                  Optimize prompts →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- NapStack Card -->
-          <div
-            class="glass-card"
-            style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              height: 100%;
-            "
-          >
-            <div
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(139, 92, 246, 0.1),
-                  rgba(236, 72, 153, 0.1)
-                );
-                padding: 1.5rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem">🍼</span>
-            </div>
-            <div
-              style="
-                padding: 2rem;
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-              "
-            >
-              <h3
-                style="
-                  font-size: 1.5rem;
-                  font-weight: 400;
-                  margin-bottom: 0.5rem;
-                "
-              >
-                NapStack.dev
-              </h3>
-              <p style="color: #64748b; margin-bottom: 1.5rem">
-                Productivity dashboard for parent developers with focus-boosting
-                ambient sounds. Track coding sessions during naptime with Quick
-                Fix (5m), Focus Block (20m), and Naptime Sprint (45m) modes.
-              </p>
-
-              <!-- Status -->
-              <div
-                style="
-                  background: rgba(255, 255, 255, 0.5);
-                  padding: 1rem;
-                  border-radius: 12px;
-                  margin-bottom: 1.5rem;
-                "
-              >
-                <p style="font-size: 0.875rem; margin: 0">
-                  <strong>⏱️ Realistic pomodoros:</strong> Optimized for parent
-                  schedules
-                </p>
-                <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
-                  <strong>🎵 Ambient sounds:</strong> Coffee shop, rain, lofi
-                </p>
-              </div>
-
-              <div style="margin-top: auto; padding-top: 1rem">
-                <a
-                  href="https://napstack.dev"
-                  class="btn btn-primary"
-                  style="width: 100%; justify-content: center"
-                >
-                  Start tracking →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- NontoxicGoods Card -->
-          <div
-            class="glass-card"
-            style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              height: 100%;
-            "
-          >
-            <div
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(134, 239, 172, 0.1),
-                  rgba(59, 130, 246, 0.1)
-                );
-                padding: 1.5rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem">🌿</span>
-            </div>
-            <div
-              style="
-                padding: 2rem;
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-              "
-            >
-              <h3
-                style="
-                  font-size: 1.5rem;
-                  font-weight: 400;
-                  margin-bottom: 0.5rem;
-                "
-              >
-                NontoxicGoods.com
-              </h3>
-              <p style="color: #64748b; margin-bottom: 1.5rem">
-                A curated database of safe, non-toxic products for families.
-                Simple, clean, everyday finds.
-              </p>
-
-              <!-- Status -->
-              <div
-                style="
-                  background: rgba(255, 255, 255, 0.5);
-                  padding: 1rem;
-                  border-radius: 12px;
-                  margin-bottom: 1.5rem;
-                "
-              >
-                <p style="font-size: 0.875rem; margin: 0">
-                  <strong>🔍 86 products:</strong> Thoroughly reviewed & tested
-                </p>
-                <p style="font-size: 0.875rem; margin: 0.5rem 0 0 0">
-                  <strong>✨ 65 brands:</strong> Verified non-toxic & safe
-                </p>
-              </div>
-
-              <div style="margin-top: auto; padding-top: 1rem">
-                <a
-                  href="https://nontoxicgoods.com"
-                  class="btn btn-primary"
-                  style="
-                    width: 100%;
-                    justify-content: center;
-                    background: rgba(134, 239, 172, 0.1);
-                    color: #065f46;
-                    border-color: rgba(134, 239, 172, 0.3);
-                  "
-                >
-                  ✅ Visit live site →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Building in Public -->
-    <section style="padding: 4rem 1.5rem; position: relative; z-index: 10">
-      <div style="max-width: 48rem; margin: 0 auto">
-        <h2
-          style="
-            font-size: 2.5rem;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 3rem;
-          "
-        >
-          Learning, building, sharing
-        </h2>
-
-        <!-- GitHub Activity -->
-        <div
-          class="glass-card"
-          style="padding: 2rem; text-align: center; margin-bottom: 3rem"
-        >
-          <img
-            src="https://ghchart.rshah.org/10B981/meimakes?cache=bust"
-            alt="GitHub Contributions"
-            style="max-width: 100%; height: auto; opacity: 0.8"
-          />
-          <p style="font-size: 0.875rem; color: #94a3b8; margin-top: 1rem">
-            Green squares = not just README updates
-          </p>
-        </div>
-
-        <!-- Learning Grid -->
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-          "
-          class="grid-2"
-        >
-          <div class="glass-card" style="padding: 1.5rem">
-            <h3
-              style="font-size: 1.25rem; font-weight: 400; margin-bottom: 1rem"
-            >
-              Currently exploring
-            </h3>
-            <ul style="list-style: none; padding: 0; margin: 0">
-              <li style="margin-bottom: 0.5rem">🤖 AI-first development</li>
-              <li style="margin-bottom: 0.5rem">
-                ⚡ 20-minute feature sprints
-              </li>
-              <li style="margin-bottom: 0.5rem">📱 Mobile dev workflows</li>
-              <li>💪 Building with constraints</li>
-            </ul>
-          </div>
-
-          <div class="glass-card" style="padding: 1.5rem">
-            <h3
-              style="font-size: 1.25rem; font-weight: 400; margin-bottom: 1rem"
-            >
-              Recent wins
-            </h3>
-            <ul style="list-style: none; padding: 0; margin: 0">
-              <li style="margin-bottom: 0.5rem">✅ <a
-                href="#"
-                class="modal-trigger"
-                onclick="openModal('promptbetterModal'); return false;"
-                >PromptBetter is a hackathon winner!</a></li>
-              <li style="margin-bottom: 0.5rem">
-                ✅
-                <a
-                  href="#"
-                  class="modal-trigger"
-                  onclick="openModal('hackathonModal'); return false;"
-                  >VibeTask is a hackathon winner!</a
-                >
-              </li>
-              <li style="margin-bottom: 0.5rem">
-                ✅
-                <a
-                  href="#"
-                  class="modal-trigger"
-                  onclick="openModal('devtoModal'); return false;"
-                  >Dev.to Top 7 Post feature!</a
-                >
-              </li>
-              <li>✅ Can code on my phone!</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Connect Section -->
-    <section
-      id="follow"
-      style="padding: 4rem 1.5rem; position: relative; z-index: 10"
-    >
-      <div style="max-width: 48rem; margin: 0 auto; text-align: center">
-        <h2 style="font-size: 2.5rem; font-weight: 300; margin-bottom: 1rem">
-          Let's build together
-        </h2>
-        <p style="font-size: 1.25rem; margin-bottom: 3rem; color: #64748b">
-          Follow the journey from naptime ideas to shipped apps
-        </p>
-
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
-          "
-        >
-          <a
-            href="https://x.com/meimakes"
-            style="color: #2c3e50; text-decoration: none"
-          >
-            <div style="text-align: center">
-              <div
-                class="glass-card"
-                style="
-                  width: 60px;
-                  height: 60px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin: 0 auto 0.5rem;
-                  border-radius: 50%;
-                "
-              >
-                <svg
-                  style="width: 1.5rem; height: 1.5rem"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                  />
-                </svg>
-              </div>
-              <div style="font-size: 0.875rem">Updates</div>
-            </div>
-          </a>
-          <a
-            href="https://github.com/meimakes"
-            style="color: #2c3e50; text-decoration: none"
-          >
-            <div style="text-align: center">
-              <div
-                class="glass-card"
-                style="
-                  width: 60px;
-                  height: 60px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin: 0 auto 0.5rem;
-                  border-radius: 50%;
-                "
-              >
-                <svg
-                  style="width: 1.5rem; height: 1.5rem"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                  />
-                </svg>
-              </div>
-              <div style="font-size: 0.875rem">Code</div>
-            </div>
-          </a>
-          <a
-            href="https://systemsmama.com"
-            style="color: #2c3e50; text-decoration: none"
-          >
-            <div style="text-align: center">
-              <div
-                class="glass-card"
-                style="
-                  width: 60px;
-                  height: 60px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin: 0 auto 0.5rem;
-                  border-radius: 50%;
-                "
-              >
-                <svg
-                  style="width: 1.5rem; height: 1.5rem"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
-                  />
-                </svg>
-              </div>
-              <div style="font-size: 0.875rem">Writing</div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Newsletter -->
-        <div
-          class="glass-card"
-          style="max-width: 500px; margin: 0 auto; padding: 2rem"
-        >
-          <h3
-            style="font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem"
-          >
-            Start here
-          </h3>
-          <p style="color: #64748b; margin-bottom: 1.5rem">
-            Daily build updates on X.<br />
-            Real lessons from shipping with constraints.
-          </p>
-          <a
-            href="https://x.com/meimakes"
-            class="btn"
-            style="
-              width: 100%;
-              justify-content: center;
-              background: #000000;
-              color: white;
-              border: none;
-              padding: 0.875rem 2rem;
-              border-radius: 14px;
-              font-size: 0.95rem;
-              font-weight: 400;
-              transition: all 0.3s ease;
-              text-decoration: none;
-              display: inline-flex;
-              align-items: center;
-              gap: 0.5rem;
-            "
-          >
-            Follow @meimakes →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer
-      style="
-        padding: 3rem 1.5rem;
-        text-align: center;
-        color: #94a3b8;
-        position: relative;
-        z-index: 10;
-      "
-    >
-      <p style="margin-bottom: 0.5rem">
-        Mei makes apps (when parenthood permits).
-      </p>
-      <p style="font-size: 0.875rem">© 2025 Mei Park</p>
-    </footer>
-
-    <!-- Twitter Widget Script -->
-    <script
-      async
-      src="https://platform.x.com/widgets.js"
-      charset="utf-8"
-    ></script>
-
-    <!-- Modal HTML structures -->
-    <div
-      id="hackathonModal"
-      class="modal"
-      onclick="if(event.target === this) closeModal('hackathonModal')"
-    >
-      <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('hackathonModal')"
-          >&times;</span
-        >
-        <img
-          src="/images/anything-win-20250813.png"
-          alt="Anything $10k Weekend Hackathon Winner"
-        />
-      </div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>meimakes</title>
+<meta name="description" content="Things made by Mei Park. Tools, family projects, and MCP servers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://meimakes.com/">
+<meta property="og:title" content="meimakes">
+<meta property="og:description" content="Things made by Mei Park. Tools, family projects, and MCP servers.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@meimakes">
+<link rel="canonical" href="https://meimakes.com/">
+<style>
+:root {
+  /* Catppuccin Mocha */
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+  --overlay0: #6c7086;
+  --overlay1: #7f849c;
+  --text: #cdd6f4;
+  --subtext0: #a6adc8;
+  --subtext1: #bac2de;
+  --lavender: #b4befe;
+  --blue: #89b4fa;
+  --sapphire: #74c7ec;
+  --sky: #89dceb;
+  --teal: #94e2d5;
+  --green: #a6e3a1;
+  --yellow: #f9e2af;
+  --peach: #fab387;
+  --maroon: #eba0ac;
+  --red: #f38ba8;
+  --mauve: #cba6f7;
+  --pink: #f5c2e7;
+  --flamingo: #f2cdcd;
+  --rosewater: #f5e0dc;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: var(--crust);
+  color: var(--text);
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Window chrome */
+.window {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 40px);
+  max-height: 100vh;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--surface1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  background: var(--base);
+}
+.titlebar {
+  background: var(--mantle);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--surface0);
+  border-radius: 12px 12px 0 0;
+}
+.dots { display: flex; gap: 6px; }
+.dot {
+  width: 12px; height: 12px; border-radius: 50%;
+}
+.dot.red { background: #ed6a5e; }
+.dot.yellow { background: #f4bf4f; }
+.dot.green { background: #61c554; }
+.titlebar-text {
+  flex: 1; text-align: center;
+  color: var(--overlay1); font-size: 12px;
+}
+
+/* Terminal body */
+.terminal {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  scroll-behavior: smooth;
+}
+.terminal::-webkit-scrollbar { width: 8px; }
+.terminal::-webkit-scrollbar-track { background: var(--mantle); }
+.terminal::-webkit-scrollbar-thumb { background: var(--surface1); border-radius: 4px; }
+
+/* Lines */
+.line { white-space: pre-wrap; word-break: break-word; }
+.prompt-symbol { color: var(--green); }
+.cmd-text { color: var(--text); }
+.comment { color: var(--overlay0); }
+.dir { color: var(--blue); font-weight: 600; cursor: pointer; }
+.dir:hover { text-decoration: underline; }
+.file { color: var(--text); }
+.link { color: var(--sapphire); cursor: pointer; }
+.link:hover { text-decoration: underline; }
+.accent { color: var(--mauve); }
+.heading { color: var(--yellow); font-weight: 600; }
+.desc { color: var(--subtext0); }
+.error { color: var(--red); }
+.muted { color: var(--overlay0); }
+.success { color: var(--green); }
+
+/* Project listing */
+.project-row {
+  display: flex;
+  gap: 8px;
+  padding: 2px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  padding-left: 24px;
+}
+.project-row:hover {
+  background: var(--surface0);
+}
+.project-name {
+  color: var(--blue);
+  font-weight: 600;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+.project-desc {
+  color: var(--subtext0);
+}
+.category-header {
+  color: var(--yellow);
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+.category-header:first-child { margin-top: 0; }
+
+/* Input line */
+.input-line {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 4px;
+}
+.input-line .prompt-symbol { flex-shrink: 0; }
+#cmd-input {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  outline: none;
+  flex: 1;
+  caret-color: var(--green);
+  padding: 0;
+  margin-left: 0;
+}
+
+/* Typing animation for auto-run */
+.typing-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--green);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Bio section */
+.bio-line { padding: 1px 0; }
+.bio-separator { color: var(--surface2); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  body { font-size: 14px; }
+  .window { margin: 0; height: 100vh; border-radius: 0; border: none; }
+  .titlebar { border-radius: 0; }
+  .terminal { padding: 12px; }
+  .line { padding: 2px 0; }
+  .project-name { min-width: 140px; }
+  .project-row { padding: 6px 0 6px 16px; }
+  .titlebar-text { font-size: 12px; }
+}
+@media (max-width: 400px) {
+  .project-name { min-width: 120px; }
+  .project-desc { display: none; }
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="window">
+  <div class="titlebar">
+    <div class="dots">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
     </div>
-
-    <div
-      id="devtoModal"
-      class="modal"
-      onclick="if(event.target === this) closeModal('devtoModal')"
-    >
-      <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('devtoModal')"
-          >&times;</span
-        >
-        <img
-          src="/images/dev-top-7-20250812.png"
-          alt="Dev.to Top 7 Post Feature"
-        />
-      </div>
+    <div class="titlebar-text">mei@meimakes: ~</div>
+    <div style="width: 54px;"></div>
+  </div>
+  <div class="terminal" id="terminal">
+    <div id="output"></div>
+    <div class="input-line" id="input-line" style="display:none;">
+      <span class="prompt-symbol">❯&nbsp;</span><input id="cmd-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" autofocus>
     </div>
+  </div>
+</div>
 
-    <div
-      id="promptbetterModal"
-      class="modal"
-      onclick="if(event.target === this) closeModal('promptbetterModal')"
-    >
-      <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('promptbetterModal')"
-          >&times;</span
-        >
-        <img
-          src="/images/anything-win-20250829.png"
-          alt="PromptBetter.dev Hackathon Winner"
-        />
-      </div>
-    </div>
+<script>
+const PROJECTS = {
+  tools: [
+    { name: 'codesnap', desc: 'Pretty code screenshots from your terminal', url: 'https://github.com/meimakes/codesnap' },
+    { name: 'chomp', desc: 'Local food database CLI for nutrition tracking', url: 'https://github.com/meimakes/chomp' },
+    { name: 'napstack', desc: 'Productivity dashboard for naptime code sessions', url: 'https://github.com/meimakes/napstack-dev' },
+  ],
+  family: [
+    { name: 'toddler-activity-finder', desc: '100+ curated activities for toddlers', url: 'https://github.com/meimakes/toddler-activity-finder' },
+    { name: 'raisingpixels', desc: 'Resources for raising digital natives', url: 'https://raisingpixels.dev' },
+    { name: 'madladstudios', desc: 'Games built by a 3-year-old and his mom', url: 'https://madladstudios.com' },
+  ],
+  agents: [
+    { name: 'amazon-mcp-server', desc: 'Amazon cart MCP server', url: 'https://github.com/meimakes/amazon-mcp-server' },
+    { name: 'apple-mcp-server', desc: 'Apple Reminders MCP server', url: 'https://github.com/meimakes/apple-mcp-server' },
+    { name: 'oura-mcp-server', desc: 'Oura Ring MCP server', url: 'https://github.com/meimakes/oura-mcp-server' },
+    { name: 'hevy-mcp-server', desc: 'Hevy workout app MCP server', url: 'https://github.com/meimakes/hevy-mcp-server' },
+    { name: 'strava-mcp-server', desc: 'Strava MCP server', url: 'https://github.com/meimakes/strava-mcp-server' },
+  ],
+};
 
-    <!-- Parallax effect for orbs -->
-    <script>
-      document.addEventListener("mousemove", (e) => {
-        const orbs = document.querySelectorAll(".glow-orb");
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
+const ALL_PROJECTS = Object.values(PROJECTS).flat();
+const PROJECT_NAMES = ALL_PROJECTS.map(p => p.name);
 
-        orbs.forEach((orb, index) => {
-          const speed = (index + 1) * 15;
-          orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-        });
-      });
+const BIO = [
+  { text: '# about.md', cls: 'heading' },
+  { text: '', cls: '' },
+  { text: 'Mei Park', cls: 'accent' },
+  { text: 'SAHM. Ceaseless builder. Formerly SWE director,', cls: 'file' },
+  { text: 'now full-time maker of things that needed to exist.', cls: 'file' },
+  { text: '', cls: '' },
+  { text: 'I build tools for my family, then share them.', cls: 'file' },
+  { text: 'MCP servers for AI agents. CLI tools for AI and devs.', cls: 'file' },
+  { text: 'Educational apps for my 3-year-old.', cls: 'file' },
+  { text: '', cls: '' },
+  { text: 'Follow along:', cls: 'file' },
+  { text: '  github    github.com/meimakes', cls: 'link', url: 'https://github.com/meimakes' },
+  { text: '  𝕏         x.com/meimakes', cls: 'link', url: 'https://x.com/meimakes' },
+];
 
-      // Modal functions
-      function openModal(modalId) {
-        document.getElementById(modalId).style.display = "block";
-        document.body.style.overflow = "hidden";
+const COMMANDS = {
+  help: () => [
+    { text: 'Available commands:', cls: 'heading' },
+    { text: '', cls: '' },
+    { text: '  ls                List all projects', cls: 'file' },
+    { text: '  cat about.md      About me', cls: 'file' },
+    { text: '  cd &lt;project&gt;      Open a project', cls: 'file' },
+    { text: '  open &lt;project&gt;    Open a project', cls: 'file' },
+    { text: '  man &lt;project&gt;     Project details', cls: 'file' },
+    { text: '  clear             Clear terminal', cls: 'file' },
+    { text: '  help              Show this message', cls: 'file' },
+    { text: '', cls: '' },
+    { text: 'Tip: click any project name to open it', cls: 'muted' },
+  ],
+  ls: () => {
+    const lines = [];
+    for (const [category, projects] of Object.entries(PROJECTS)) {
+      lines.push({ text: `${category}/`, cls: 'category-header' });
+      for (const p of projects) {
+        lines.push({ type: 'project', name: p.name, desc: p.desc, url: p.url });
       }
+    }
+    return lines;
+  },
+  cat: (args) => {
+    if (!args || args === 'about.md' || args === 'README.md' || args === 'readme.md') {
+      return BIO;
+    }
+    return [{ text: `cat: ${args}: No such file or directory`, cls: 'error' }];
+  },
+  cd: (args) => {
+    const project = findProject(args);
+    if (project) {
+      setTimeout(() => navigateTo(project.url), 300);
+      return [{ text: `→ Opening ${project.name}...`, cls: 'success' }];
+    }
+    return [{ text: `cd: no such directory: ${args || ''}`, cls: 'error' }];
+  },
+  open: (args) => COMMANDS.cd(args),
+  man: (args) => {
+    const project = findProject(args);
+    if (project) {
+      return [
+        { text: `${project.name.toUpperCase()}(1)`, cls: 'heading' },
+        { text: '', cls: '' },
+        { text: 'NAME', cls: 'accent' },
+        { text: `  ${project.name} - ${project.desc}`, cls: 'file' },
+        { text: '', cls: '' },
+        { text: 'URL', cls: 'accent' },
+        { text: `  ${project.url.startsWith('http') ? project.url : 'https://meimakes.com' + project.url}`, cls: 'link', url: project.url },
+        { text: '', cls: '' },
+        { text: 'SOURCE', cls: 'accent' },
+        { text: `  https://github.com/meimakes/${project.name}`, cls: 'link', url: `https://github.com/meimakes/${project.name}` },
+      ];
+    }
+    return [{ text: `No manual entry for ${args || ''}`, cls: 'error' }];
+  },
+  clear: () => {
+    document.getElementById('output').innerHTML = '';
+    return [];
+  },
+  pwd: () => [{ text: '/home/meimakes', cls: 'file' }],
+  whoami: () => [{ text: 'a visitor with mass taste', cls: 'file' }],
+  echo: (args) => [{ text: args || '', cls: 'file' }],
+  neofetch: () => [
+    { text: '        ╱╲', cls: 'accent' },
+    { text: '       ╱  ╲       meimakes', cls: 'accent' },
+    { text: '      ╱    ╲      ─────────', cls: 'accent' },
+    { text: '     ╱  ╱╲  ╲     Projects: ' + ALL_PROJECTS.length, cls: 'accent' },
+    { text: '    ╱  ╱  ╲  ╲    MCP Servers: ' + PROJECTS.agents.length, cls: 'accent' },
+    { text: '   ╱  ╱    ╲  ╲   Tools: ' + PROJECTS.tools.length, cls: 'accent' },
+    { text: '  ╱──╱──────╲──╲  Shell: zsh', cls: 'accent' },
+    { text: ' ╱──────────────╲ Theme: Catppuccin Mocha', cls: 'accent' },
+  ],
+  exit: () => {
+    setTimeout(() => window.location.href = 'https://github.com/meimakes', 500);
+    return [{ text: 'logout', cls: 'muted' }];
+  },
+  sudo: () => [{ text: 'nice try', cls: 'error' }],
+  rm: () => [{ text: 'absolutely not', cls: 'error' }],
+  vim: () => [{ text: "you can check out any time you like, but you can never leave", cls: 'muted' }],
+  ssh: (args) => {
+    if (args === 'mei') {
+      return [
+        { text: 'Connecting to mei...', cls: 'success' },
+        { text: '', cls: '' },
+        { text: "Chat coming soon. For now, find me on 𝕏:", cls: 'file' },
+        { text: '  x.com/meimakes', cls: 'link', url: 'https://x.com/meimakes' },
+      ];
+    }
+    return [{ text: `ssh: Could not resolve hostname ${args || ''}: nodename nor servname provided`, cls: 'error' }];
+  },
+};
 
-      function closeModal(modalId) {
-        document.getElementById(modalId).style.display = "none";
-        document.body.style.overflow = "auto";
+function findProject(name) {
+  if (!name) return null;
+  name = name.toLowerCase().trim().replace(/\/$/, '');
+  // Try exact match first
+  let match = ALL_PROJECTS.find(p => p.name.toLowerCase() === name);
+  if (match) return match;
+  // Try with category prefix stripped (e.g. tools/codesnap)
+  const parts = name.split('/');
+  if (parts.length === 2) {
+    match = ALL_PROJECTS.find(p => p.name.toLowerCase() === parts[1].replace(/\/$/, ''));
+  }
+  // Try partial match
+  if (!match) {
+    match = ALL_PROJECTS.find(p => p.name.toLowerCase().startsWith(name));
+  }
+  return match || null;
+}
+
+function navigateTo(url) {
+  if (url.startsWith('http')) {
+    window.open(url, '_blank');
+  } else {
+    window.location.href = url;
+  }
+}
+
+const output = document.getElementById('output');
+const terminal = document.getElementById('terminal');
+const inputLine = document.getElementById('input-line');
+const cmdInput = document.getElementById('cmd-input');
+
+function renderLines(lines) {
+  for (const line of lines) {
+    if (line.type === 'project') {
+      const row = document.createElement('div');
+      row.className = 'project-row';
+      row.innerHTML = `<span class="project-name">${line.name}</span><span class="project-desc">${line.desc}</span>`;
+      row.addEventListener('click', () => navigateTo(line.url));
+      output.appendChild(row);
+    } else {
+      const div = document.createElement('div');
+      div.className = 'line';
+      if (line.url) {
+        div.innerHTML = `<span class="${line.cls}">${line.text}</span>`;
+        div.style.cursor = 'pointer';
+        div.addEventListener('click', () => navigateTo(line.url));
+      } else {
+        div.innerHTML = line.text === '' ? '&nbsp;' : `<span class="${line.cls}">${line.text}</span>`;
       }
+      output.appendChild(div);
+    }
+  }
+  scrollToBottom();
+}
 
-      // Close modal when clicking outside of image or on modal background
-      document.addEventListener("click", function (event) {
-        if (event.target.classList.contains("modal")) {
-          event.target.style.display = "none";
-          document.body.style.overflow = "auto";
-        }
-      });
+function addPromptLine(text) {
+  const div = document.createElement('div');
+  div.className = 'line';
+  div.innerHTML = `<span class="prompt-symbol">❯ </span><span class="cmd-text">${text}</span>`;
+  output.appendChild(div);
+}
 
-      // Close modal with Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          document.querySelectorAll(".modal").forEach((modal) => {
-            modal.style.display = "none";
-          });
-          document.body.style.overflow = "auto";
-        }
-      });
+function scrollToBottom() {
+  terminal.scrollTop = terminal.scrollHeight;
+}
 
-      // Smooth scroll
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-      });
-    </script>
-  </body>
+function handleCommand(raw) {
+  const trimmed = raw.trim();
+  if (!trimmed) return;
+
+  addPromptLine(escapeHtml(trimmed));
+
+  const parts = trimmed.split(/\s+/);
+  const cmd = parts[0].toLowerCase();
+  const args = parts.slice(1).join(' ');
+
+  // Handle rm with any flags
+  if (cmd === 'rm') {
+    renderLines(COMMANDS.rm());
+    return;
+  }
+  if (cmd === 'sudo') {
+    renderLines(COMMANDS.sudo());
+    return;
+  }
+
+  if (COMMANDS[cmd]) {
+    const result = COMMANDS[cmd](args);
+    renderLines(result);
+  } else {
+    renderLines([
+      { text: `zsh: command not found: ${escapeHtml(cmd)}`, cls: 'error' },
+      { text: "Type 'help' for available commands", cls: 'muted' },
+    ]);
+  }
+}
+
+function escapeHtml(text) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// Completable tokens
+const FILES = ['about.md', 'README.md'];
+const ALL_COMPLETIONS = PROJECT_NAMES.concat(FILES);
+
+// Command history
+const history = [];
+let historyIdx = -1;
+
+// Single consolidated input handler
+cmdInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Tab') {
+    e.preventDefault();
+    const val = cmdInput.value;
+    const parts = val.split(/\s+/);
+    if (parts.length >= 2) {
+      const partial = parts[parts.length - 1].toLowerCase();
+      const match = ALL_COMPLETIONS.find(n => n.toLowerCase().startsWith(partial));
+      if (match) {
+        parts[parts.length - 1] = match;
+        cmdInput.value = parts.join(' ');
+      }
+    }
+    return;
+  }
+  if (e.key === 'Enter') {
+    const val = cmdInput.value;
+    if (val.trim()) {
+      history.push(val.trim());
+      historyIdx = -1;
+    }
+    cmdInput.value = '';
+    handleCommand(val);
+    return;
+  }
+  if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (history.length > 0 && historyIdx < history.length - 1) {
+      historyIdx++;
+      cmdInput.value = history[history.length - 1 - historyIdx];
+    }
+    return;
+  }
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (historyIdx > 0) {
+      historyIdx--;
+      cmdInput.value = history[history.length - 1 - historyIdx];
+    } else {
+      historyIdx = -1;
+      cmdInput.value = '';
+    }
+    return;
+  }
+});
+
+// Click terminal to focus input
+terminal.addEventListener('click', (e) => {
+  if (!e.target.closest('.project-row') && !e.target.closest('[style*="cursor: pointer"]') && !e.target.closest('.link')) {
+    cmdInput.focus();
+  }
+});
+
+// Auto-run intro sequence
+async function intro() {
+  await typeCommand('cat about.md');
+  renderLines(BIO);
+  await pause(600);
+  renderLines([{ text: '', cls: '' }]);
+  await typeCommand('ls projects');
+  renderLines(COMMANDS.ls());
+  await pause(400);
+
+  // Show input
+  inputLine.style.display = 'flex';
+  cmdInput.focus();
+  scrollToBottom();
+}
+
+async function typeCommand(text) {
+  const div = document.createElement('div');
+  div.className = 'line';
+  const prompt = document.createElement('span');
+  prompt.className = 'prompt-symbol';
+  prompt.textContent = '❯ ';
+  div.appendChild(prompt);
+  const cmdSpan = document.createElement('span');
+  cmdSpan.className = 'cmd-text';
+  div.appendChild(cmdSpan);
+  const cursor = document.createElement('span');
+  cursor.className = 'typing-cursor';
+  div.appendChild(cursor);
+  output.appendChild(div);
+  scrollToBottom();
+
+  for (let i = 0; i < text.length; i++) {
+    cmdSpan.textContent += text[i];
+    scrollToBottom();
+    await pause(40 + Math.random() * 30);
+  }
+  cursor.remove();
+  await pause(300);
+}
+
+function pause(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
+
+intro();
+</script>
+</body>
 </html>
