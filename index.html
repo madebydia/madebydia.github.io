@@ -88,6 +88,9 @@ body {
   flex-shrink: 0;
   border-bottom: 1px solid var(--surface0);
   border-radius: 12px 12px 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .dots { display: flex; gap: 6px; }
 .dot {
@@ -539,13 +542,21 @@ async function intro() {
   await pause(600);
   renderLines([{ text: '', cls: '' }]);
   await typeCommand('ls projects');
+  // Don't auto-scroll during ls output so about.md stays visible
+  const savedScroll = terminal.scrollTop;
   renderLines(COMMANDS.ls());
+  terminal.scrollTop = savedScroll;
   await pause(400);
 
-  // Show input
+  // Show input — scroll just enough to reveal the prompt, not to bottom
   inputLine.style.display = 'flex';
   cmdInput.focus();
-  scrollToBottom();
+  // Gentle scroll: show prompt is there without hiding the bio
+  const inputRect = inputLine.getBoundingClientRect();
+  const termRect = terminal.getBoundingClientRect();
+  if (inputRect.bottom > termRect.bottom) {
+    terminal.scrollTop += (inputRect.bottom - termRect.bottom) + 16;
+  }
 }
 
 async function typeCommand(text) {
