@@ -228,7 +228,9 @@
   .card--salmon { background: var(--card-salmon); color: var(--salmon-text); }
   .card--light { background: var(--card-light); color: var(--light-card-text); }
   .card--sage { background: var(--card-sage); color: var(--sage-text); }
+  .card--sage .stars, .card--sage .forks { color: var(--sage-text); opacity: 0.7; }
   .card--chocolate { background: var(--card-chocolate); color: var(--chocolate-text); }
+  .card--chocolate .stars, .card--chocolate .forks { color: var(--chocolate-text); opacity: 0.7; }
 
   /* Greeting */
   .greeting-tile {
@@ -453,23 +455,28 @@
       @meimakes</a>
   </div>
 
-  <div id="b-p0" class="card card--salmon"><div><div class="card-title">loficode-hugo-theme</div><div class="card-desc">Cozy lo-fi Hugo theme with ambient sounds</div></div><div class="card-meta"><span class="lang-tag">CSS</span><span class="stars">★ 17</span><span class="forks"><svg class="fork-icon" width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm6.5 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-3 8.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM5.75 4a2.25 2.25 0 1 0-1.5 0v5.5a2.25 2.25 0 1 0 1.5 0V4Zm6 0a2.25 2.25 0 1 0-1.5 0v2.5a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 0 0 1.5h1.5A2.25 2.25 0 0 0 11.75 6.5V4Z"/></svg> 5</span></div></div>
-
-  <div id="b-p1" class="card card--light"><div><div class="card-title">vintage-web-hugo-theme</div><div class="card-desc">Nostalgic 90s/2000s web Hugo theme</div></div><div class="card-meta"><span class="lang-tag lang-tag--alt">HTML</span><span class="stars">★ 20</span><span class="forks"><svg class="fork-icon" width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm6.5 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-3 8.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM5.75 4a2.25 2.25 0 1 0-1.5 0v5.5a2.25 2.25 0 1 0 1.5 0V4Zm6 0a2.25 2.25 0 1 0-1.5 0v2.5a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 0 0 1.5h1.5A2.25 2.25 0 0 0 11.75 6.5V4Z"/></svg> 1</span></div></div>
-
-  <div id="b-p2" class="card card--sage"><div><div class="card-title">shapes</div><div class="card-desc">2D/3D shapes that spin when clicked</div></div><div class="card-meta"><span class="lang-tag">HTML</span></div></div>
-
-  <div id="b-p3" class="card card--chocolate"><div><div class="card-title">carnivore-calculator</div><div class="card-desc">Calculate meat needs by protein</div></div><div class="card-meta"><span class="lang-tag lang-tag--alt">HTML</span></div></div>
-
-  <div id="b-p4" class="card card--salmon"><div><div class="card-title">tiny-terminal</div><div class="card-desc">Fake terminal for kids to type in</div></div><div class="card-meta"><span class="lang-tag">HTML</span></div></div>
-
-  <div id="b-p5" class="card card--light"><div><div class="card-title">amazon-mcp-server</div><div class="card-desc">Amazon cart MCP server</div></div><div class="card-meta"><span class="lang-tag">TypeScript</span><span class="stars">★ 14</span><span class="forks"><svg class="fork-icon" width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm6.5 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-3 8.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM5.75 4a2.25 2.25 0 1 0-1.5 0v5.5a2.25 2.25 0 1 0 1.5 0V4Zm6 0a2.25 2.25 0 1 0-1.5 0v2.5a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 0 0 1.5h1.5A2.25 2.25 0 0 0 11.75 6.5V4Z"/></svg> 2</span></div></div>
-
-  <div id="b-p6" class="card card--sage"><div><div class="card-title">codesnap</div><div class="card-desc">Pretty code screenshots</div></div><div class="card-meta"><span class="lang-tag lang-tag--alt2">JavaScript</span></div></div>
+  <div id="project-container"></div>
 </div>
 
 <script>
 (function() {
+  const GITHUB_USER = 'meimakes';
+  const CARD_COUNT = 7;
+  const FORK_SVG = '<svg class="fork-icon" width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm6.5 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-3 8.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM5.75 4a2.25 2.25 0 1 0-1.5 0v5.5a2.25 2.25 0 1 0 1.5 0V4Zm6 0a2.25 2.25 0 1 0-1.5 0v2.5a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 0 0 1.5h1.5A2.25 2.25 0 0 0 11.75 6.5V4Z"/></svg>';
+  const colorClasses = ['card--salmon', 'card--light', 'card--sage', 'card--chocolate'];
+  const langTagClass = { 'default': 'lang-tag', 'HTML': 'lang-tag lang-tag--alt', 'JavaScript': 'lang-tag lang-tag--alt2' };
+
+  // Fallback repos if GitHub API fails
+  const FALLBACK = [
+    { name: 'loficode-hugo-theme', description: 'Cozy lo-fi Hugo theme with ambient sounds', language: 'CSS', stargazers_count: 17, forks_count: 5, html_url: 'https://github.com/meimakes/loficode-hugo-theme' },
+    { name: 'vintage-web-hugo-theme', description: 'Nostalgic 90s/2000s web Hugo theme', language: 'HTML', stargazers_count: 20, forks_count: 1, html_url: 'https://github.com/meimakes/vintage-web-hugo-theme' },
+    { name: 'shapes', description: '2D/3D shapes that spin when clicked', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/shapes' },
+    { name: 'carnivore-calculator', description: 'Calculate meat needs by protein', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/carnivore-calculator' },
+    { name: 'tiny-terminal', description: 'Fake terminal for kids to type in', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/tiny-terminal' },
+    { name: 'amazon-mcp-server', description: 'Amazon cart MCP server', language: 'TypeScript', stargazers_count: 14, forks_count: 2, html_url: 'https://github.com/meimakes/amazon-mcp-server' },
+    { name: 'codesnap', description: 'Pretty code screenshots', language: 'JavaScript', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/codesnap' },
+  ];
+
   // Layout templates
   const layouts = [
     { cols: '300px 1fr 1fr 1fr', rows: '1fr 1.5fr 1.3fr 1.5fr',
@@ -485,8 +492,8 @@
   ];
 
   const utilIds = ['b-greeting', 'b-season', 'b-clock', 'b-links'];
-  const projIds = ['b-p0', 'b-p1', 'b-p2', 'b-p3', 'b-p4', 'b-p5', 'b-p6'];
   const slotNames = 'ABCDEFGHIJK'.split('');
+  let projIds = [];
 
   function shuffle(arr) {
     const a = [...arr];
@@ -495,6 +502,51 @@
       [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
+  }
+
+  function buildCard(repo, index) {
+    const color = colorClasses[index % colorClasses.length];
+    const lang = repo.language || '';
+    const tagCls = langTagClass[lang] || 'lang-tag';
+    const id = 'b-p' + index;
+
+    let meta = lang ? '<span class="' + tagCls + '">' + lang + '</span>' : '';
+    if (repo.stargazers_count > 0) meta += '<span class="stars">\u2605 ' + repo.stargazers_count + '</span>';
+    if (repo.forks_count > 0) meta += '<span class="forks">' + FORK_SVG + ' ' + repo.forks_count + '</span>';
+
+    const div = document.createElement('div');
+    div.id = id;
+    div.className = 'card ' + color;
+    div.innerHTML = '<a href="' + repo.html_url + '" target="_blank" style="display:flex;flex-direction:column;justify-content:space-between;height:100%">' +
+      '<div><div class="card-title">' + repo.name + '</div>' +
+      '<div class="card-desc">' + (repo.description || '') + '</div></div>' +
+      '<div class="card-meta">' + meta + '</div></a>';
+    return { id, el: div };
+  }
+
+  async function fetchRepos() {
+    try {
+      const resp = await fetch('https://api.github.com/users/' + GITHUB_USER + '/repos?per_page=100&sort=updated');
+      if (!resp.ok) throw new Error(resp.status);
+      const repos = await resp.json();
+      // Filter out .github.io (this site) and forks
+      return repos.filter(r => !r.fork && !r.name.endsWith('.github.io') && r.description);
+    } catch(e) {
+      return null;
+    }
+  }
+
+  function renderProjects(repos) {
+    const grid = document.getElementById('grid');
+    const container = document.getElementById('project-container');
+    const picked = shuffle(repos).slice(0, CARD_COUNT);
+
+    picked.forEach((repo, i) => {
+      const { id, el } = buildCard(repo, i);
+      projIds.push(id);
+      grid.insertBefore(el, container);
+    });
+    container.remove();
   }
 
   function findSpans(areas) {
@@ -508,7 +560,22 @@
     return spans;
   }
 
+  function isMobile() { return window.innerWidth <= 768; }
+
   function applyLayout() {
+    if (isMobile()) {
+      // On mobile: shuffle DOM order instead of grid-area
+      const g = document.getElementById('grid');
+      const avatar = document.getElementById('avatar-cell');
+      const allBlocks = shuffle([...utilIds, ...projIds]);
+      // Avatar stays first, then shuffled blocks
+      allBlocks.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) g.appendChild(el);
+      });
+      return;
+    }
+
     const L = layouts[Math.random() * layouts.length | 0];
     const g = document.getElementById('grid');
     g.style.gridTemplateColumns = L.cols;
@@ -642,9 +709,14 @@
   }
 
   // Init
-  applyLayout();
-  updateClock();
-  setInterval(updateClock, 1000);
+  async function init() {
+    const repos = await fetchRepos();
+    renderProjects(repos || FALLBACK);
+    applyLayout();
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
+  init();
 })();
 </script>
 </body>
