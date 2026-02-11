@@ -2,593 +2,650 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>meimakes</title>
-<meta name="description" content="Things made by Mei Park. Tools, family projects, and MCP servers.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mei makes</title>
+<meta name="description" content="mother · maker · builder">
+<meta property="og:title" content="mei makes">
+<meta property="og:description" content="mother · maker · builder">
+<meta property="og:image" content="https://meimakes.com/avatar.jpg">
+<meta property="og:url" content="https://meimakes.com">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://meimakes.com/">
-<meta property="og:title" content="meimakes">
-<meta property="og:description" content="Things made by Mei Park. Tools, family projects, and MCP servers.">
-<meta property="og:image" content="https://meimakes.com/social-preview.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="meimakes terminal showing bio and project listing">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@meimakes">
-<meta name="twitter:creator" content="@meimakes">
-<meta name="twitter:title" content="meimakes">
-<meta name="twitter:description" content="Things made by Mei Park. Tools, family projects, and MCP servers.">
-<meta name="twitter:image" content="https://meimakes.com/social-preview.png">
-<meta name="twitter:image:alt" content="meimakes terminal showing bio and project listing">
-<link rel="canonical" href="https://meimakes.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mei makes">
+<meta name="twitter:description" content="mother · maker · builder">
+<meta name="twitter:image" content="https://meimakes.com/avatar.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✿</text></svg>">
 <style>
-:root {
-  /* Catppuccin Mocha */
-  --base: #1e1e2e;
-  --mantle: #181825;
-  --crust: #11111b;
-  --surface0: #313244;
-  --surface1: #45475a;
-  --surface2: #585b70;
-  --overlay0: #6c7086;
-  --overlay1: #7f849c;
-  --text: #cdd6f4;
-  --subtext0: #a6adc8;
-  --subtext1: #bac2de;
-  --lavender: #b4befe;
-  --blue: #89b4fa;
-  --sapphire: #74c7ec;
-  --sky: #89dceb;
-  --teal: #94e2d5;
-  --green: #a6e3a1;
-  --yellow: #f9e2af;
-  --peach: #fab387;
-  --maroon: #eba0ac;
-  --red: #f38ba8;
-  --mauve: #cba6f7;
-  --pink: #f5c2e7;
-  --flamingo: #f2cdcd;
-  --rosewater: #f5e0dc;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  background: var(--crust);
-  color: var(--text);
-  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
-  font-size: 14px;
-  line-height: 1.6;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  :root {
+    --bg: #C3BEB2;
+    --text: #1a1918;
+    --text-on-dark: #F0E8DB;
+    --card-light: #FFF9F0;
+    --card-salmon: #f0be8a;
+    --card-sage: #7a8660;
+    --card-chocolate: #3d2c22;
+    --accent: #bf6945;
+    --accent-secondary: #d4885a;
+    --stars: #a07030;
+    --font: Optima, Segoe, 'Segoe UI', Candara, sans-serif;
+    --tag-bg: #bf6945;
+    --tag-color: #faf7f2;
+    --tag-alt-bg: #f5f0e8;
+    --tag-alt-color: #5a6a5a;
+    --tag-alt-color2: #8a7060;
+    --greeting-bg: #FFF9F0;
+    --season-bg: #3d2c22;
+    --clock-bg: #3d2c22;
+    --links-bg: #3d2c22;
+    --gradient-overlay: linear-gradient(to top, rgba(250,247,242,0.85) 0%, rgba(250,247,242,0.2) 35%, transparent 55%);
+    --season-text: #FFF9F0;
+    --clock-text: #efe5d2;
+    --link-color: #F0E8DB;
+    --link-opacity: 0.8;
+    --snowflake-color: #FFF9F0;
+    --snowflake-opacity-peak: 0.3;
+    --snowflake-opacity-late: 0.15;
+    --petal-color: #f0a0b0;
+    --firefly-color: #e8c84c;
+    --minute-sq-bg: #efe5d2;
+    --minute-sq-opacity: 0.12;
+    --minute-sq-active: 0.4;
+    --salmon-text: #3a2a1a;
+    --sage-text: #FFF9F0;
+    --chocolate-text: #FFF9F0;
+    --light-card-text: #3d2c22;
+  }
 
-/* Window chrome */
-.window {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 40px);
-  max-height: 100vh;
-  width: 100%;
-  max-width: 900px;
-  margin: 20px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--surface1);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  background: var(--base);
-}
-.titlebar {
-  background: var(--mantle);
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  border-bottom: 1px solid var(--surface0);
-  border-radius: 12px 12px 0 0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.dots { display: flex; gap: 6px; }
-.dot {
-  width: 12px; height: 12px; border-radius: 50%;
-}
-.dot.red { background: #ed6a5e; }
-.dot.yellow { background: #f4bf4f; }
-.dot.green { background: #61c554; }
-.titlebar-text {
-  flex: 1; text-align: center;
-  color: var(--overlay1); font-size: 12px;
-}
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1918;
+      --text: #efe5d2;
+      --text-on-dark: #efe5d2;
+      --card-light: #2e2623;
+      --card-salmon: #352a24;
+      --card-sage: #2b2220;
+      --card-chocolate: #302824;
+      --accent: #bf6945;
+      --accent-secondary: #bf6945;
+      --stars: #d4a44c;
+      --tag-bg: #8b5e3c;
+      --tag-color: #efe5d2;
+      --tag-alt-bg: #6b4c3a;
+      --tag-alt-color: #efe5d2;
+      --tag-alt-color2: #efe5d2;
+      --greeting-bg: #3d2e26;
+      --season-bg: #33261f;
+      --clock-bg: #382c25;
+      --links-bg: #2d2520;
+      --gradient-overlay: linear-gradient(to top, rgba(20,18,17,0.8) 0%, rgba(20,18,17,0.15) 35%, transparent 55%);
+      --season-text: #efe5d2;
+      --clock-text: #efe5d2;
+      --link-color: #efe5d2;
+      --link-opacity: 0.6;
+      --snowflake-color: #efe5d2;
+      --snowflake-opacity-peak: 0.6;
+      --snowflake-opacity-late: 0.4;
+      --petal-color: #f0a0b0;
+      --firefly-color: #e8c84c;
+      --minute-sq-bg: #efe5d2;
+      --minute-sq-opacity: 0.12;
+      --minute-sq-active: 0.4;
+      --salmon-text: #efe5d2;
+      --sage-text: #efe5d2;
+      --chocolate-text: #efe5d2;
+      --light-card-text: #efe5d2;
+    }
+  }
 
-/* Terminal body */
-.terminal {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px;
-  scroll-behavior: smooth;
-}
-.terminal::-webkit-scrollbar { width: 8px; }
-.terminal::-webkit-scrollbar-track { background: var(--mantle); }
-.terminal::-webkit-scrollbar-thumb { background: var(--surface1); border-radius: 4px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Lines */
-.line { white-space: pre-wrap; word-break: break-word; }
-.prompt-symbol { color: var(--green); }
-.cmd-text { color: var(--text); }
-.comment { color: var(--overlay0); }
-.dir { color: var(--blue); font-weight: 600; cursor: pointer; }
-.dir:hover { text-decoration: underline; }
-.file { color: var(--text); }
-.link { color: var(--sapphire); cursor: pointer; }
-.link:hover { text-decoration: underline; }
-.accent { color: var(--mauve); }
-.heading { color: var(--yellow); font-weight: 600; }
-.desc { color: var(--subtext0); }
-.error { color: var(--red); }
-.muted { color: var(--overlay0); }
-.success { color: var(--green); }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    font-family: var(--font);
+  }
 
-/* Project listing */
-.project-row {
-  display: flex;
-  gap: 8px;
-  padding: 2px 0;
-  cursor: pointer;
-  border-radius: 4px;
-  padding-left: 24px;
-}
-.project-row:hover {
-  background: var(--surface0);
-}
-.project-name {
-  color: var(--blue);
-  font-weight: 600;
-  min-width: 200px;
-  flex-shrink: 0;
-}
-.project-desc {
-  color: var(--subtext0);
-}
-.category-header {
-  color: var(--yellow);
-  margin-top: 8px;
-  margin-bottom: 2px;
-}
-.category-header:first-child { margin-top: 0; }
+  .grid {
+    display: grid;
+    gap: 3px;
+    width: 100%;
+    height: 100vh;
+    max-width: 1200px;
+  }
 
-/* Input line */
-.input-line {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  margin-top: 4px;
-}
-.input-line .prompt-symbol { flex-shrink: 0; }
-#cmd-input {
-  background: none;
-  border: none;
-  color: var(--text);
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  outline: none;
-  flex: 1;
-  caret-color: var(--green);
-  padding: 0;
-  margin-left: 0;
-}
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto !important;
+      grid-template-areas: none !important;
+      height: auto !important;
+      overflow: auto !important;
+    }
+    .grid > div { grid-area: auto !important; }
+    .avatar-cell { max-height: 40vh; }
+    body { height: auto; overflow: auto; }
+  }
 
-/* Typing animation for auto-run */
-.typing-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 16px;
-  background: var(--green);
-  animation: blink 1s step-end infinite;
-  vertical-align: text-bottom;
-  margin-left: 1px;
-}
-@keyframes blink {
-  50% { opacity: 0; }
-}
+  /* Avatar */
+  .avatar-cell {
+    overflow: hidden;
+    position: relative;
+  }
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .avatar-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-overlay);
+  }
+  .avatar-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  .avatar-name {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .avatar-subtitle {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 3px;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+  }
 
-/* Bio section */
-.bio-line { padding: 1px 0; }
-.bio-separator { color: var(--surface2); }
+  /* Cards */
+  .card {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .card-title {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .card-desc {
+    font-size: 11px;
+    opacity: 0.55;
+    line-height: 1.5;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 10px;
+  }
+  .lang-tag {
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    background: var(--tag-bg);
+    color: var(--tag-color);
+  }
+  .lang-tag--alt {
+    background: var(--tag-alt-bg);
+    color: var(--tag-alt-color);
+  }
+  .lang-tag--alt2 {
+    background: var(--tag-alt-bg);
+    color: var(--tag-alt-color2);
+  }
+  .stars {
+    color: var(--stars);
+    font-size: 11px;
+  }
+  .forks {
+    color: var(--stars);
+    font-size: 11px;
+    opacity: 0.7;
+  }
+  .fork-icon {
+    opacity: 0.7;
+    vertical-align: -2px;
+  }
 
-/* Responsive */
-@media (max-width: 600px) {
-  body { font-size: 14px; }
-  .window { margin: 0; height: 100vh; border-radius: 0; border: none; }
-  .titlebar { border-radius: 0; }
-  .terminal { padding: 12px; }
-  .line { padding: 2px 0; }
-  .project-name { min-width: 140px; }
-  .project-row { padding: 6px 0 6px 16px; }
-  .titlebar-text { font-size: 12px; }
-}
-@media (max-width: 400px) {
-  .project-name { min-width: 120px; }
-  .project-desc { display: none; }
-}
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: 0.7; }
+
+  /* Project card color variants */
+  .card--salmon { background: var(--card-salmon); color: var(--salmon-text); }
+  .card--light { background: var(--card-light); color: var(--light-card-text); }
+  .card--sage { background: var(--card-sage); color: var(--sage-text); }
+  .card--chocolate { background: var(--card-chocolate); color: var(--chocolate-text); }
+
+  /* Greeting */
+  .greeting-tile {
+    background: var(--greeting-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .greeting-watermark {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    opacity: 0.07;
+  }
+  .greeting-en {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+  }
+  .greeting-jp {
+    font-size: 18px;
+    color: var(--accent-secondary);
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+
+  /* Season */
+  .season-tile {
+    background: var(--season-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .season-label, .season-year {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    color: var(--season-text);
+    z-index: 1;
+  }
+  .season-year { margin-top: 4px; }
+
+  /* Season effects */
+  .snowflake {
+    position: absolute;
+    color: var(--snowflake-color);
+    opacity: 0;
+    animation: fall linear infinite;
+    pointer-events: none;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10px) rotate(0); opacity: 0; }
+    10% { opacity: var(--snowflake-opacity-peak); }
+    90% { opacity: var(--snowflake-opacity-late); }
+    100% { transform: translateY(200px) rotate(360deg); opacity: 0; }
+  }
+  .petal {
+    position: absolute;
+    color: var(--petal-color);
+    font-size: 12px;
+    opacity: 0;
+    animation: drift linear infinite;
+    pointer-events: none;
+  }
+  @keyframes drift {
+    0% { transform: translateY(-10px) translateX(0) rotate(0); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(200px) translateX(30px) rotate(180deg); opacity: 0; }
+  }
+  .firefly {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--firefly-color);
+    border-radius: 50%;
+    opacity: 0;
+    animation: glow ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes glow {
+    0%, 100% { opacity: 0; transform: translate(0,0); }
+    25% { opacity: 0.7; }
+    50% { opacity: 0.3; transform: translate(20px,-15px); }
+    75% { opacity: 0.6; transform: translate(-10px,-30px); }
+  }
+  .leaf {
+    position: absolute;
+    font-size: 11px;
+    opacity: 0;
+    animation: tumble linear infinite;
+    pointer-events: none;
+  }
+  @keyframes tumble {
+    0% { transform: translateY(-10px) rotate(0); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(200px) translateX(-20px) rotate(270deg); opacity: 0; }
+  }
+
+  /* Clock */
+  .clock-tile {
+    background: var(--clock-bg);
+    color: var(--clock-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .minute-grid {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 2px;
+    padding: 6px;
+    pointer-events: none;
+  }
+  .minute-sq {
+    width: 9px;
+    height: 9px;
+    border-radius: 1px;
+    background: var(--minute-sq-bg);
+    opacity: var(--minute-sq-opacity);
+  }
+  .minute-sq.active { opacity: var(--minute-sq-active); }
+  .minute-sq.current { animation: blink 1s step-end infinite; }
+  @keyframes blink {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.1; }
+  }
+  .clock-time {
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 38px;
+    color: var(--clock-text);
+    opacity: 0.85;
+    z-index: 1;
+  }
+  .clock-moon {
+    margin-top: 8px;
+    opacity: 0.25;
+    z-index: 1;
+  }
+
+  /* Links */
+  .links-tile {
+    background: var(--links-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px;
+  }
+  .links-tile a {
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: var(--link-opacity);
+    color: var(--link-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="window">
-  <div class="titlebar">
-    <div class="dots">
-      <div class="dot red"></div>
-      <div class="dot yellow"></div>
-      <div class="dot green"></div>
-    </div>
-    <div class="titlebar-text">mei@meimakes: ~</div>
-    <div style="width: 54px;"></div>
-  </div>
-  <div class="terminal" id="terminal">
-    <div id="output"></div>
-    <div class="input-line" id="input-line" style="display:none;">
-      <span class="prompt-symbol">❯&nbsp;</span><input id="cmd-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" autofocus>
+<div class="grid" id="grid">
+  <div id="avatar-cell" class="avatar-cell">
+    <img class="avatar-img" src="avatar.jpg" alt="mei">
+    <div class="avatar-overlay"></div>
+    <div class="avatar-text">
+      <div class="avatar-name">mei makes</div>
+      <div class="avatar-subtitle">mother · maker · builder</div>
     </div>
   </div>
+
+  <div id="b-greeting" class="greeting-tile">
+    <div id="sun-mark" class="greeting-watermark">
+      <svg width="120" height="120" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <div id="moon-mark" class="greeting-watermark" style="display:none;">
+      <svg width="110" height="110" viewBox="0 0 24 24" fill="var(--accent)"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </div>
+    <div id="greeting-en" class="greeting-en"></div>
+    <div id="greeting-jp" class="greeting-jp"></div>
+  </div>
+
+  <div id="b-season" class="season-tile">
+    <div id="season" class="season-label"></div>
+    <div id="year" class="season-year"></div>
+  </div>
+
+  <div id="b-clock" class="clock-tile">
+    <div class="minute-grid" id="minute-grid"></div>
+    <div id="clock" class="clock-time"></div>
+    <div id="moon" class="clock-moon" style="display:none;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="var(--clock-text)"/></svg>
+    </div>
+  </div>
+
+  <div id="b-links" class="links-tile">
+    <a href="https://github.com/meimakes" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--link-color)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      meimakes</a>
+    <a href="https://x.com/meimakes" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--link-color)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      @meimakes</a>
+  </div>
+
+  <div id="b-p0" class="card card--salmon"><div><div class="card-title">loficode-hugo-theme</div><div class="card-desc">Cozy lo-fi Hugo theme with ambient sounds</div></div><div class="card-meta"><span class="lang-tag">CSS</span><span class="stars">★ 17</span><span class="forks"><svg class="fork-icon" width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm6.5 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-3 8.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM5.75 4a2.25 2.25 0 1 0-1.5 0v5.5a2.25 2.25 0 1 0 1.5 0V4Zm6 0a2.25 2.25 0 1 0-1.5 0v2.5a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 0 0 1.5h1.5A2.25 2.25 0 0 0 11.75 6.5V4Z"/></svg> 5</span></div></div>
+
+  <div id="b-p1" class="card card--light"><div><div class="card-title">vintage-web-hugo-theme</div><div class="card-desc">Nostalgic 90s/2000s web Hugo theme</div></div><div class="card-meta"><span class="lang-tag lang-tag--alt">HTML</span><span class="stars">★ 20</span><span class="forks"><svg class="fork-icon" width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm6.5 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-3 8.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM5.75 4a2.25 2.25 0 1 0-1.5 0v5.5a2.25 2.25 0 1 0 1.5 0V4Zm6 0a2.25 2.25 0 1 0-1.5 0v2.5a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 0 0 1.5h1.5A2.25 2.25 0 0 0 11.75 6.5V4Z"/></svg> 1</span></div></div>
+
+  <div id="b-p2" class="card card--sage"><div><div class="card-title">shapes</div><div class="card-desc">2D/3D shapes that spin when clicked</div></div><div class="card-meta"><span class="lang-tag">HTML</span></div></div>
+
+  <div id="b-p3" class="card card--chocolate"><div><div class="card-title">carnivore-calculator</div><div class="card-desc">Calculate meat needs by protein</div></div><div class="card-meta"><span class="lang-tag lang-tag--alt">HTML</span></div></div>
+
+  <div id="b-p4" class="card card--salmon"><div><div class="card-title">tiny-terminal</div><div class="card-desc">Fake terminal for kids to type in</div></div><div class="card-meta"><span class="lang-tag">HTML</span></div></div>
+
+  <div id="b-p5" class="card card--light"><div><div class="card-title">amazon-mcp-server</div><div class="card-desc">Amazon cart MCP server</div></div><div class="card-meta"><span class="lang-tag">TypeScript</span><span class="stars">★ 14</span><span class="forks"><svg class="fork-icon" width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm6.5 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-3 8.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM5.75 4a2.25 2.25 0 1 0-1.5 0v5.5a2.25 2.25 0 1 0 1.5 0V4Zm6 0a2.25 2.25 0 1 0-1.5 0v2.5a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 0 0 1.5h1.5A2.25 2.25 0 0 0 11.75 6.5V4Z"/></svg> 2</span></div></div>
+
+  <div id="b-p6" class="card card--sage"><div><div class="card-title">codesnap</div><div class="card-desc">Pretty code screenshots</div></div><div class="card-meta"><span class="lang-tag lang-tag--alt2">JavaScript</span></div></div>
 </div>
 
 <script>
-const PROJECTS = {
-  tools: [
-    { name: 'codesnap', desc: 'Pretty code screenshots from your terminal', url: 'https://github.com/meimakes/codesnap' },
-    { name: 'chomp', desc: 'Local food database CLI for nutrition tracking', url: 'https://github.com/meimakes/chomp' },
-    { name: 'napstack', desc: 'Productivity dashboard for naptime code sessions', url: 'https://github.com/meimakes/napstack-dev' },
-  ],
-  family: [
-    { name: 'toddler-activity-finder', desc: '100+ curated activities for toddlers', url: 'https://github.com/meimakes/toddler-activity-finder' },
-    { name: 'raisingpixels', desc: 'Resources for raising digital natives', url: 'https://raisingpixels.dev' },
-    { name: 'madladstudios', desc: 'Games built by a 3-year-old and his mom', url: 'https://madladstudios.com' },
-  ],
-  agents: [
-    { name: 'amazon-mcp-server', desc: 'Amazon cart MCP server', url: 'https://github.com/meimakes/amazon-mcp-server' },
-    { name: 'apple-mcp-server', desc: 'Apple Reminders MCP server', url: 'https://github.com/meimakes/apple-mcp-server' },
-    { name: 'oura-mcp-server', desc: 'Oura Ring MCP server', url: 'https://github.com/meimakes/oura-mcp-server' },
-    { name: 'hevy-mcp-server', desc: 'Hevy workout app MCP server', url: 'https://github.com/meimakes/hevy-mcp-server' },
-    { name: 'strava-mcp-server', desc: 'Strava MCP server', url: 'https://github.com/meimakes/strava-mcp-server' },
-  ],
-};
+(function() {
+  // Layout templates
+  const layouts = [
+    { cols: '300px 1fr 1fr 1fr', rows: '1fr 1.5fr 1.3fr 1.5fr',
+      areas: ['avatar A B C', 'avatar D E F', 'avatar G H I', 'avatar J J K'] },
+    { cols: '300px 1fr 1fr 1fr', rows: '1fr 1.6fr 1.4fr 1.3fr',
+      areas: ['avatar A A B', 'avatar C D E', 'avatar F G H', 'avatar I J K'] },
+    { cols: '300px 1fr 1.2fr 0.8fr', rows: '1fr 1.5fr 1.3fr 1.5fr',
+      areas: ['avatar A B C', 'avatar D E F', 'avatar G G H', 'avatar I J K'] },
+    { cols: '300px 0.9fr 1fr 1.1fr', rows: '1.1fr 1.5fr 1.4fr 1.3fr',
+      areas: ['avatar A B C', 'avatar D E F', 'avatar G H I', 'avatar K K J'] },
+    { cols: '300px 1fr 1fr 1fr', rows: '1fr 1.5fr 1.3fr 1.6fr',
+      areas: ['avatar A B C', 'avatar D E F', 'avatar G H I', 'avatar J K K'] },
+  ];
 
-const ALL_PROJECTS = Object.values(PROJECTS).flat();
-const PROJECT_NAMES = ALL_PROJECTS.map(p => p.name);
+  const utilIds = ['b-greeting', 'b-season', 'b-clock', 'b-links'];
+  const projIds = ['b-p0', 'b-p1', 'b-p2', 'b-p3', 'b-p4', 'b-p5', 'b-p6'];
+  const slotNames = 'ABCDEFGHIJK'.split('');
 
-const BIO = [
-  { text: '# about.md', cls: 'heading' },
-  { text: '', cls: '' },
-  { text: 'Mei Park', cls: 'accent' },
-  { text: 'SAHM. Ceaseless builder. Formerly SWE director,', cls: 'file' },
-  { text: 'now full-time maker of things that needed to exist.', cls: 'file' },
-  { text: '', cls: '' },
-  { text: 'I build tools for my family, then share them.', cls: 'file' },
-  { text: 'MCP servers for AI agents. CLI tools for AI and devs.', cls: 'file' },
-  { text: 'Educational apps for my 3-year-old.', cls: 'file' },
-  { text: '', cls: '' },
-  { text: 'Follow along:', cls: 'file' },
-  { text: '  github    github.com/meimakes', cls: 'link', url: 'https://github.com/meimakes' },
-  { text: '  𝕏         x.com/meimakes', cls: 'link', url: 'https://x.com/meimakes' },
-];
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.random() * (i + 1) | 0;
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
 
-const COMMANDS = {
-  help: () => [
-    { text: 'Available commands:', cls: 'heading' },
-    { text: '', cls: '' },
-    { text: '  ls                List all projects', cls: 'file' },
-    { text: '  cat about.md      About me', cls: 'file' },
-    { text: '  cd &lt;project&gt;      Open a project', cls: 'file' },
-    { text: '  open &lt;project&gt;    Open a project', cls: 'file' },
-    { text: '  man &lt;project&gt;     Project details', cls: 'file' },
-    { text: '  clear             Clear terminal', cls: 'file' },
-    { text: '  help              Show this message', cls: 'file' },
-    { text: '', cls: '' },
-    { text: 'Tip: click any project name to open it', cls: 'muted' },
-  ],
-  ls: () => {
-    const lines = [];
-    for (const [category, projects] of Object.entries(PROJECTS)) {
-      lines.push({ text: `${category}/`, cls: 'category-header' });
-      for (const p of projects) {
-        lines.push({ type: 'project', name: p.name, desc: p.desc, url: p.url });
+  function findSpans(areas) {
+    const spans = new Set();
+    for (const row of areas) {
+      const cells = row.split(' ').filter(x => x !== 'avatar');
+      for (let i = 0; i < cells.length - 1; i++) {
+        if (cells[i] === cells[i + 1]) spans.add(cells[i]);
       }
     }
-    return lines;
-  },
-  cat: (args) => {
-    if (!args || args === 'about.md' || args === 'README.md' || args === 'readme.md') {
-      return BIO;
-    }
-    return [{ text: `cat: ${args}: No such file or directory`, cls: 'error' }];
-  },
-  cd: (args) => {
-    const project = findProject(args);
-    if (project) {
-      setTimeout(() => navigateTo(project.url), 300);
-      return [{ text: `→ Opening ${project.name}...`, cls: 'success' }];
-    }
-    return [{ text: `cd: no such directory: ${args || ''}`, cls: 'error' }];
-  },
-  open: (args) => COMMANDS.cd(args),
-  man: (args) => {
-    const project = findProject(args);
-    if (project) {
-      return [
-        { text: `${project.name.toUpperCase()}(1)`, cls: 'heading' },
-        { text: '', cls: '' },
-        { text: 'NAME', cls: 'accent' },
-        { text: `  ${project.name} - ${project.desc}`, cls: 'file' },
-        { text: '', cls: '' },
-        { text: 'URL', cls: 'accent' },
-        { text: `  ${project.url.startsWith('http') ? project.url : 'https://meimakes.com' + project.url}`, cls: 'link', url: project.url },
-        { text: '', cls: '' },
-        { text: 'SOURCE', cls: 'accent' },
-        { text: `  https://github.com/meimakes/${project.name}`, cls: 'link', url: `https://github.com/meimakes/${project.name}` },
-      ];
-    }
-    return [{ text: `No manual entry for ${args || ''}`, cls: 'error' }];
-  },
-  clear: () => {
-    document.getElementById('output').innerHTML = '';
-    return [];
-  },
-  pwd: () => [{ text: '/home/meimakes', cls: 'file' }],
-  whoami: () => [{ text: 'a visitor with mass taste', cls: 'file' }],
-  echo: (args) => [{ text: args || '', cls: 'file' }],
-  neofetch: () => [
-    { text: '        ╱╲', cls: 'accent' },
-    { text: '       ╱  ╲       meimakes', cls: 'accent' },
-    { text: '      ╱    ╲      ─────────', cls: 'accent' },
-    { text: '     ╱  ╱╲  ╲     Projects: ' + ALL_PROJECTS.length, cls: 'accent' },
-    { text: '    ╱  ╱  ╲  ╲    MCP Servers: ' + PROJECTS.agents.length, cls: 'accent' },
-    { text: '   ╱  ╱    ╲  ╲   Tools: ' + PROJECTS.tools.length, cls: 'accent' },
-    { text: '  ╱──╱──────╲──╲  Shell: zsh', cls: 'accent' },
-    { text: ' ╱──────────────╲ Theme: Catppuccin Mocha', cls: 'accent' },
-  ],
-  exit: () => {
-    setTimeout(() => window.location.href = 'https://github.com/meimakes', 500);
-    return [{ text: 'logout', cls: 'muted' }];
-  },
-  sudo: () => [{ text: 'nice try', cls: 'error' }],
-  rm: () => [{ text: 'absolutely not', cls: 'error' }],
-  vim: () => [{ text: "you can check out any time you like, but you can never leave", cls: 'muted' }],
-  ssh: (args) => {
-    if (args === 'mei') {
-      return [
-        { text: 'Connecting to mei...', cls: 'success' },
-        { text: '', cls: '' },
-        { text: "Chat coming soon. For now, find me on 𝕏:", cls: 'file' },
-        { text: '  x.com/meimakes', cls: 'link', url: 'https://x.com/meimakes' },
-      ];
-    }
-    return [{ text: `ssh: Could not resolve hostname ${args || ''}: nodename nor servname provided`, cls: 'error' }];
-  },
-};
-
-function findProject(name) {
-  if (!name) return null;
-  name = name.toLowerCase().trim().replace(/\/$/, '');
-  // Try exact match first
-  let match = ALL_PROJECTS.find(p => p.name.toLowerCase() === name);
-  if (match) return match;
-  // Try with category prefix stripped (e.g. tools/codesnap)
-  const parts = name.split('/');
-  if (parts.length === 2) {
-    match = ALL_PROJECTS.find(p => p.name.toLowerCase() === parts[1].replace(/\/$/, ''));
+    return spans;
   }
-  // Try partial match
-  if (!match) {
-    match = ALL_PROJECTS.find(p => p.name.toLowerCase().startsWith(name));
+
+  function applyLayout() {
+    const L = layouts[Math.random() * layouts.length | 0];
+    const g = document.getElementById('grid');
+    g.style.gridTemplateColumns = L.cols;
+    g.style.gridTemplateRows = L.rows;
+    g.style.gridTemplateAreas = L.areas.map(r => "'" + r + "'").join(' ');
+    document.getElementById('avatar-cell').style.gridArea = 'avatar';
+
+    const spans = findSpans(L.areas);
+    const spanSlots = [];
+    const singleSlots = [];
+    slotNames.forEach(s => { if (spans.has(s)) spanSlots.push(s); else singleSlots.push(s); });
+
+    const su = shuffle(utilIds);
+    const sp = shuffle(projIds);
+    const assignments = {};
+
+    // Utility blocks get span-2 slots
+    spanSlots.forEach((slot, i) => { if (i < su.length) assignments[su[i]] = slot; });
+
+    // Remaining blocks fill single slots
+    const remaining = shuffle([...su.filter(id => !assignments[id]), ...sp]);
+    const availSlots = shuffle(singleSlots);
+    remaining.forEach((id, i) => { assignments[id] = availSlots[i]; });
+
+    Object.entries(assignments).forEach(([id, slot]) => {
+      document.getElementById(id).style.gridArea = slot;
+    });
   }
-  return match || null;
-}
 
-function navigateTo(url) {
-  if (url.startsWith('http')) {
-    window.open(url, '_blank');
-  } else {
-    window.location.href = url;
+  // Minute grid for clock
+  function buildMinuteGrid() {
+    const grid = document.getElementById('minute-grid');
+    const now = new Date();
+    const totalMins = now.getHours() * 60 + now.getMinutes();
+    const filled = Math.floor(totalMins / 10);
+    if (grid.dataset.last === String(filled)) return;
+    grid.dataset.last = String(filled);
+    grid.innerHTML = '';
+    for (let i = 0; i < 144; i++) {
+      const sq = document.createElement('div');
+      sq.className = 'minute-sq' + (i < filled ? ' active' : '') + (i === filled ? ' current' : '');
+      grid.appendChild(sq);
+    }
   }
-}
 
-const output = document.getElementById('output');
-const terminal = document.getElementById('terminal');
-const inputLine = document.getElementById('input-line');
-const cmdInput = document.getElementById('cmd-input');
+  // Season particle effects
+  function seasonEffects(si) {
+    const tile = document.getElementById('b-season');
+    if (tile.dataset.fx) return;
+    tile.dataset.fx = '1';
 
-function renderLines(lines) {
-  for (const line of lines) {
-    if (line.type === 'project') {
-      const row = document.createElement('div');
-      row.className = 'project-row';
-      row.innerHTML = `<span class="project-name">${line.name}</span><span class="project-desc">${line.desc}</span>`;
-      row.addEventListener('click', () => navigateTo(line.url));
-      output.appendChild(row);
+    if (si === 0) {
+      // Winter: snowflakes
+      for (let i = 0; i < 15; i++) {
+        const s = document.createElement('div');
+        s.className = 'snowflake';
+        s.textContent = '\u2022';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.animationDuration = (2 + Math.random() * 3) + 's';
+        s.style.animationDelay = Math.random() * 4 + 's';
+        s.style.fontSize = (6 + Math.random() * 8) + 'px';
+        tile.appendChild(s);
+      }
+    } else if (si === 1) {
+      // Spring: petals
+      for (let i = 0; i < 8; i++) {
+        const p = document.createElement('div');
+        p.className = 'petal';
+        p.textContent = '\u273f';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (3 + Math.random() * 4) + 's';
+        p.style.animationDelay = Math.random() * 5 + 's';
+        tile.appendChild(p);
+      }
+    } else if (si === 2) {
+      // Summer: fireflies
+      for (let i = 0; i < 6; i++) {
+        const f = document.createElement('div');
+        f.className = 'firefly';
+        f.style.left = (10 + Math.random() * 80) + '%';
+        f.style.top = (10 + Math.random() * 80) + '%';
+        f.style.animationDuration = (2 + Math.random() * 3) + 's';
+        f.style.animationDelay = Math.random() * 3 + 's';
+        tile.appendChild(f);
+      }
     } else {
-      const div = document.createElement('div');
-      div.className = 'line';
-      if (line.url) {
-        div.innerHTML = `<span class="${line.cls}">${line.text}</span>`;
-        div.style.cursor = 'pointer';
-        div.addEventListener('click', () => navigateTo(line.url));
-      } else {
-        div.innerHTML = line.text === '' ? '&nbsp;' : `<span class="${line.cls}">${line.text}</span>`;
-      }
-      output.appendChild(div);
-    }
-  }
-  scrollToBottom();
-}
-
-function addPromptLine(text) {
-  const div = document.createElement('div');
-  div.className = 'line';
-  div.innerHTML = `<span class="prompt-symbol">❯ </span><span class="cmd-text">${text}</span>`;
-  output.appendChild(div);
-}
-
-function scrollToBottom() {
-  terminal.scrollTop = terminal.scrollHeight;
-}
-
-function handleCommand(raw) {
-  const trimmed = raw.trim();
-  if (!trimmed) return;
-
-  addPromptLine(escapeHtml(trimmed));
-
-  const parts = trimmed.split(/\s+/);
-  const cmd = parts[0].toLowerCase();
-  const args = parts.slice(1).join(' ');
-
-  // Handle rm with any flags
-  if (cmd === 'rm') {
-    renderLines(COMMANDS.rm());
-    return;
-  }
-  if (cmd === 'sudo') {
-    renderLines(COMMANDS.sudo());
-    return;
-  }
-
-  if (COMMANDS[cmd]) {
-    const result = COMMANDS[cmd](args);
-    renderLines(result);
-  } else {
-    renderLines([
-      { text: `zsh: command not found: ${escapeHtml(cmd)}`, cls: 'error' },
-      { text: "Type 'help' for available commands", cls: 'muted' },
-    ]);
-  }
-}
-
-function escapeHtml(text) {
-  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-// Completable tokens
-const FILES = ['about.md', 'README.md'];
-const ALL_COMPLETIONS = PROJECT_NAMES.concat(FILES);
-
-// Command history
-const history = [];
-let historyIdx = -1;
-
-// Single consolidated input handler
-cmdInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Tab') {
-    e.preventDefault();
-    const val = cmdInput.value;
-    const parts = val.split(/\s+/);
-    if (parts.length >= 2) {
-      const partial = parts[parts.length - 1].toLowerCase();
-      const match = ALL_COMPLETIONS.find(n => n.toLowerCase().startsWith(partial));
-      if (match) {
-        parts[parts.length - 1] = match;
-        cmdInput.value = parts.join(' ');
+      // Autumn: leaves
+      for (let i = 0; i < 8; i++) {
+        const l = document.createElement('div');
+        l.className = 'leaf';
+        l.textContent = ['\ud83c\udf42', '\ud83c\udf41'][i % 2];
+        l.style.left = Math.random() * 100 + '%';
+        l.style.animationDuration = (3 + Math.random() * 3) + 's';
+        l.style.animationDelay = Math.random() * 4 + 's';
+        tile.appendChild(l);
       }
     }
-    return;
   }
-  if (e.key === 'Enter') {
-    const val = cmdInput.value;
-    if (val.trim()) {
-      history.push(val.trim());
-      historyIdx = -1;
-    }
-    cmdInput.value = '';
-    handleCommand(val);
-    return;
+
+  // Clock and greeting updates
+  function updateClock() {
+    const now = new Date();
+    const h = now.getHours() % 12 || 12;
+    const m = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('clock').textContent = h + ':' + m + ' ' + (now.getHours() >= 12 ? 'pm' : 'am');
+
+    const month = now.getMonth();
+    const seasons = ['winter', 'spring', 'summer', 'autumn'];
+    const si = month < 2 ? 0 : month < 5 ? 1 : month < 8 ? 2 : month < 11 ? 3 : 0;
+    document.getElementById('season').textContent = seasons[si];
+    document.getElementById('year').textContent = now.getFullYear();
+
+    const hr = now.getHours();
+    document.getElementById('moon').style.display = (hr >= 19 || hr < 6) ? 'block' : 'none';
+
+    let en, jp;
+    if (hr >= 5 && hr < 12) { en = 'good morning'; jp = '\u304a\u306f\u3088\u3046'; }
+    else if (hr >= 12 && hr < 17) { en = 'good afternoon'; jp = '\u3053\u3093\u306b\u3061\u306f'; }
+    else if (hr >= 17 && hr < 21) { en = 'good evening'; jp = '\u3053\u3093\u3070\u3093\u306f'; }
+    else { en = 'good night'; jp = '\u304a\u3084\u3059\u307f'; }
+
+    document.getElementById('greeting-en').textContent = en;
+    document.getElementById('greeting-jp').textContent = jp;
+
+    const isSun = hr >= 6 && hr < 18;
+    document.getElementById('sun-mark').style.display = isSun ? 'block' : 'none';
+    document.getElementById('moon-mark').style.display = isSun ? 'none' : 'block';
+
+    seasonEffects(si);
+    buildMinuteGrid();
   }
-  if (e.key === 'ArrowUp') {
-    e.preventDefault();
-    if (history.length > 0 && historyIdx < history.length - 1) {
-      historyIdx++;
-      cmdInput.value = history[history.length - 1 - historyIdx];
-    }
-    return;
-  }
-  if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    if (historyIdx > 0) {
-      historyIdx--;
-      cmdInput.value = history[history.length - 1 - historyIdx];
-    } else {
-      historyIdx = -1;
-      cmdInput.value = '';
-    }
-    return;
-  }
-});
 
-// Click terminal to focus input
-terminal.addEventListener('click', (e) => {
-  if (!e.target.closest('.project-row') && !e.target.closest('[style*="cursor: pointer"]') && !e.target.closest('.link')) {
-    cmdInput.focus();
-  }
-});
-
-// Auto-run intro sequence
-async function intro() {
-  await typeCommand('cat about.md');
-  renderLines(BIO);
-  await pause(600);
-  renderLines([{ text: '', cls: '' }]);
-  await typeCommand('ls projects');
-  // Don't auto-scroll during ls output so about.md stays visible
-  const savedScroll = terminal.scrollTop;
-  renderLines(COMMANDS.ls());
-  terminal.scrollTop = savedScroll;
-  await pause(400);
-
-  // Show input — scroll just enough to reveal the prompt, not to bottom
-  inputLine.style.display = 'flex';
-  cmdInput.focus();
-  // Gentle scroll: show prompt is there without hiding the bio
-  const inputRect = inputLine.getBoundingClientRect();
-  const termRect = terminal.getBoundingClientRect();
-  if (inputRect.bottom > termRect.bottom) {
-    terminal.scrollTop += (inputRect.bottom - termRect.bottom) + 16;
-  }
-}
-
-async function typeCommand(text) {
-  const div = document.createElement('div');
-  div.className = 'line';
-  const prompt = document.createElement('span');
-  prompt.className = 'prompt-symbol';
-  prompt.textContent = '❯ ';
-  div.appendChild(prompt);
-  const cmdSpan = document.createElement('span');
-  cmdSpan.className = 'cmd-text';
-  div.appendChild(cmdSpan);
-  const cursor = document.createElement('span');
-  cursor.className = 'typing-cursor';
-  div.appendChild(cursor);
-  output.appendChild(div);
-  scrollToBottom();
-
-  for (let i = 0; i < text.length; i++) {
-    cmdSpan.textContent += text[i];
-    scrollToBottom();
-    await pause(40 + Math.random() * 30);
-  }
-  cursor.remove();
-  await pause(300);
-}
-
-function pause(ms) {
-  return new Promise(r => setTimeout(r, ms));
-}
-
-intro();
+  // Init
+  applyLayout();
+  updateClock();
+  setInterval(updateClock, 1000);
+})();
 </script>
 </body>
 </html>
