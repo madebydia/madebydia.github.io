@@ -1,6 +1,6 @@
 # meimakes.com
 
-Personal homepage for [mei makes](https://meimakes.com) — a Mondrian-inspired tile grid layout.
+Personal homepage for [meimakes.com](https://meimakes.com) — a Mondrian-inspired tile grid layout.
 
 ## Features
 
@@ -12,11 +12,6 @@ Personal homepage for [mei makes](https://meimakes.com) — a Mondrian-inspired 
 - **Greeting tile** with time-of-day greetings in English and Japanese, sun/moon SVG watermarks
 - **Project cards** for GitHub repos with star counts and fork indicators
 - **Mobile layout** collapses to single column at 768px
-- **Self-contained** — single HTML file, no external dependencies, system fonts only
-
-## Tech
-
-Pure HTML/CSS/JS. No frameworks, no build tools, no external assets. The avatar is base64-encoded inline.
 
 ## Color Palette
 
