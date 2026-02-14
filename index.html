@@ -468,13 +468,22 @@
 
   // Fallback repos if GitHub API fails
   const FALLBACK = [
-    { name: 'loficode-hugo-theme', description: 'Cozy lo-fi Hugo theme with ambient sounds', language: 'CSS', stargazers_count: 17, forks_count: 5, html_url: 'https://github.com/meimakes/loficode-hugo-theme' },
-    { name: 'vintage-web-hugo-theme', description: 'Nostalgic 90s/2000s web Hugo theme', language: 'HTML', stargazers_count: 20, forks_count: 1, html_url: 'https://github.com/meimakes/vintage-web-hugo-theme' },
-    { name: 'shapes', description: '2D/3D shapes that spin when clicked', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/shapes' },
-    { name: 'carnivore-calculator', description: 'Calculate meat needs by protein', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/carnivore-calculator' },
-    { name: 'tiny-terminal', description: 'Fake terminal for kids to type in', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/tiny-terminal' },
-    { name: 'amazon-mcp-server', description: 'Amazon cart MCP server', language: 'TypeScript', stargazers_count: 14, forks_count: 2, html_url: 'https://github.com/meimakes/amazon-mcp-server' },
-    { name: 'codesnap', description: 'Pretty code screenshots', language: 'JavaScript', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/codesnap' },
+    { name: 'remember-scroll-position', description: 'An Obsidian plugin that remembers your cursor and scroll position for each note.', language: 'TypeScript', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/remember-scroll-position' },
+    { name: 'chomp', description: 'Local food database CLI for AI-assisted nutrition tracking', language: 'Rust', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/chomp' },
+    { name: 'loficode-hugo-theme', description: 'A cozy, lo-fi inspired Hugo theme. Features ambient sound player, dark/light themes, and a retro aesthetic with modern functionality.', language: 'CSS', stargazers_count: 17, forks_count: 5, html_url: 'https://github.com/meimakes/loficode-hugo-theme' },
+    { name: 'vintage-web-hugo-theme', description: 'A nostalgic Hugo theme inspired by late 90s/early 2000s web design. 20+ stars.', language: 'HTML', stargazers_count: 21, forks_count: 1, html_url: 'https://github.com/meimakes/vintage-web-hugo-theme' },
+    { name: 'tiny-terminal', description: 'A fake terminal where kids can type anything and get fun responses. Teaches keyboard familiarity and cause-effect thinking.', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/tiny-terminal' },
+    { name: 'strava-mcp-server', description: 'Strava MCP server for AI agents.', language: 'TypeScript', stargazers_count: 1, forks_count: 0, html_url: 'https://github.com/meimakes/strava-mcp-server' },
+    { name: 'shapes', description: '2D and 3D shapes that reveal their names and spin when you click them!', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/shapes' },
+    { name: 'oura-mcp-server', description: 'Oura MCP server for poke.com and other agents.', language: 'TypeScript', stargazers_count: 6, forks_count: 10, html_url: 'https://github.com/meimakes/oura-mcp-server' },
+    { name: 'amazon-mcp-server', description: 'MCP server for your Amazon cart. Made for Poke.com but works for everyone.', language: 'TypeScript', stargazers_count: 14, forks_count: 2, html_url: 'https://github.com/meimakes/amazon-mcp-server' },
+    { name: 'hevy-mcp-server', description: 'MCP server connecting agents to the Hevy workout app API.', language: 'TypeScript', stargazers_count: 1, forks_count: 4, html_url: 'https://github.com/meimakes/hevy-mcp-server' },
+    { name: 'carnivore-calculator', description: 'A calculator to figure out how much meat to eat, as determined by your protein requirement.', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/carnivore-calculator' },
+    { name: 'tdee', description: 'Calculate your Total Daily Energy Expenditure.', language: 'HTML', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/tdee' },
+    { name: 'parent-dev-devcontainer', description: 'The portable, consistent, no-set-up-time development environment for parent devs who code in 15-minute windows.', language: null, stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/parent-dev-devcontainer' },
+    { name: 'codesnap', description: 'Pretty code screenshots from your terminal. Catppuccin themes, platform presets, auto scaling.', language: 'JavaScript', stargazers_count: 0, forks_count: 0, html_url: 'https://github.com/meimakes/codesnap' },
+    { name: 'toddler-activity-finder', description: '100+ activities for toddlers! Filter by materials, benefits, time commitment, and messiness.', language: 'JavaScript', stargazers_count: 1, forks_count: 0, html_url: 'https://github.com/meimakes/toddler-activity-finder' },
+    { name: 'napstack-dev', description: 'Productivity dashboard for naptime code sessions. Pomodoro, ambient sounds, streaks, and more!', language: 'TypeScript', stargazers_count: 1, forks_count: 2, html_url: 'https://github.com/meimakes/napstack-dev' },
   ];
 
   // Layout templates
