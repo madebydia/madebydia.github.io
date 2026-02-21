@@ -2,6 +2,9 @@
 
 Personal homepage for [meimakes.com](https://meimakes.com) — a Mondrian-inspired tile grid layout.
 
+Built by [@meimakes](https://x.com/meimakes)
+
+
 ## Features
 
 - **Responsive grid** with 5 randomized layout templates that shuffle on each page load
