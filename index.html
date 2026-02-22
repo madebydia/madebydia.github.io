@@ -38,8 +38,8 @@ body{font-family:'IBM Plex Mono',monospace;background:#fafafa;color:#1a1a1a;line
 @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:1}}
 
 /* Easter egg */
-.egg{text-decoration:none;position:relative;display:inline-block;width:0.3em;cursor:pointer}
-.egg::after{content:'💬';position:absolute;top:0.1em;left:50%;transform:translateX(-50%) scale(0.5);font-size:12px;opacity:0;filter:grayscale(1) brightness(0);animation:glitch 12s ease infinite;pointer-events:none}
+.egg{text-decoration:none;position:relative;display:inline-block;width:0.3em;cursor:pointer;vertical-align:baseline}
+.egg::after{content:'💬';position:absolute;bottom:0.15em;left:50%;transform:translateX(-50%) scale(0.5);font-size:12px;opacity:0;filter:grayscale(1) brightness(0);animation:glitch 12s ease infinite;pointer-events:none}
 @keyframes glitch{0%,93%,95%,100%{opacity:0}93.5%{opacity:0.7;transform:translateX(-50%) scale(0.6) translateY(-1px)}94.5%{opacity:0.4;transform:translateX(-40%) scale(0.6) translateY(1px)}}
 
 /* Timeline */
