@@ -21,7 +21,6 @@ body{font-family:'IBM Plex Mono',monospace;background:#fafafa;color:#1a1a1a;line
   .cta a{border-bottom-color:#FF4858}
   .year-marker h2{color:#eee}
   .year-marker::before{background:#eee}
-  .egg::after{filter:grayscale(1) brightness(2)}
   .entry::before{border:2px solid #111}
 }
 
@@ -37,10 +36,9 @@ body{font-family:'IBM Plex Mono',monospace;background:#fafafa;color:#1a1a1a;line
 .scroll-hint{margin-top:40px;color:#ccc;font-size:11px;letter-spacing:2px;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:1}}
 
-/* Easter egg */
-.egg{text-decoration:none;position:relative;display:inline-block;width:0.3em;cursor:pointer;vertical-align:baseline}
-.egg::after{content:'💬';position:absolute;bottom:0.15em;left:50%;transform:translateX(-50%) scale(0.5);font-size:12px;opacity:0;filter:grayscale(1) brightness(0);animation:glitch 12s ease infinite;pointer-events:none}
-@keyframes glitch{0%,93%,95%,100%{opacity:0}93.5%{opacity:0.7;transform:translateX(-50%) scale(0.6) translateY(-1px)}94.5%{opacity:0.4;transform:translateX(-40%) scale(0.6) translateY(1px)}}
+/* Profile links to chat.meimakes.com */
+.hero a img{transition:border-color 0.2s}
+.hero a img:hover{border-color:#1a1a1a}
 
 /* Timeline */
 .timeline{max-width:600px;margin:0 auto;padding:0 24px 60px}
@@ -83,8 +81,8 @@ body{font-family:'IBM Plex Mono',monospace;background:#fafafa;color:#1a1a1a;line
 <body>
 
 <div class="hero">
-  <img src="profile.png" alt="mei">
-  <h1>mei<a href="https://chat.meimakes.com" class="egg"> </a><span>makes</span></h1>
+  <a href="https://chat.meimakes.com"><img src="profile.png" alt="mei"></a>
+  <h1>mei <span>makes</span></h1>
   <div class="tagline">mother · maker · builder</div>
   <div class="social">
     <a href="https://github.com/meimakes">GitHub</a>
