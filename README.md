@@ -1,23 +1,17 @@
 # meimakes.com
 
-Personal homepage for [meimakes.com](https://meimakes.com) — a Mondrian-inspired tile grid layout.
+Personal homepage for [meimakes.com](https://meimakes.com) — a vertical timeline of projects, tools, and things I've built.
 
 Built by [@meimakes](https://x.com/meimakes)
 
-
 ## Features
 
-- **Responsive grid** with 5 randomized layout templates that shuffle on each page load
-- **Light/dark mode** via `prefers-color-scheme` with CSS custom properties
-- **Avatar column** spanning all rows with gradient overlay
-- **Live clock tile** with 144-square minute grid (one per 10 min of day) and blinking current indicator
-- **Season tile** with animated particle effects — snow (winter), petals (spring), fireflies (summer), leaves (autumn)
-- **Greeting tile** with time-of-day greetings in English and Japanese, sun/moon SVG watermarks
-- **Project cards** for GitHub repos with star counts and fork indicators
-- **Mobile layout** collapses to single column at 768px
-
-## Color Palette
-
-Light mode uses warm earth tones: cream (#FFF9F0), salmon (#f0be8a), sage (#7a8660), chocolate (#3d2c22) on a stone background (#C3BEB2).
-
-Dark mode shifts to deep warm browns with the same accent palette (#bf6945).
+- **Timeline layout** — chronological project entries with year markers and dot connectors
+- **IBM Plex Mono** throughout for that terminal/builder aesthetic
+- **Light/dark mode** via `prefers-color-scheme`
+- **Brand color** #FF4858 (coral) for accents, links, and timeline dots
+- **Profile image** links to [chat.meimakes.com](https://chat.meimakes.com)
+- **"Get notified" CTA** links to [meimakes.gumroad.com](https://meimakes.gumroad.com) for email capture
+- **Responsive** — clean single-column on mobile
+- **Tag labels** on entries (open source, tool, game, theme, etc.)
+- **External links** to GitHub repos and live sites per entry
