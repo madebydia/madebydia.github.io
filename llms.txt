@@ -1,0 +1,36 @@
+# meimakes.com
+
+> Mei Park — indie builder, former engineering director, homeschool mom. Ships open source tools, MCP servers, and two newsletters.
+
+## Newsletters
+
+- [The Undercurrent](https://www.theundercurrent.dev): Daily weekday dispatches on dev tools, AI, and terminal culture for builders who ship.
+- [Raising Pixels](https://www.raisingpixels.dev): Weekly posts on computational thinking, coding with kids, and raising tech-native humans.
+
+## Open Source
+
+- [chomp](https://github.com/meimakes/chomp): Rust CLI + MCP server for food/macro tracking. Dual transport (stdio + SSE).
+- [strava-mcp-server](https://github.com/meimakes/strava-mcp-server): MCP server for Strava workout data.
+- [hevy-mcp-server](https://github.com/meimakes/hevy-mcp-server): MCP server for Hevy strength training.
+- [oura-mcp-server](https://github.com/meimakes/oura-mcp-server): MCP server for Oura Ring sleep/readiness data.
+- [codesnap](https://github.com/meimakes/codesnap): Beautiful code screenshots from the terminal.
+- [remember-scroll-position](https://github.com/meimakes/remember-scroll-position): Obsidian plugin that restores scroll position per file.
+
+## Web Tools
+
+- [Toddler Activity Finder](https://meimakes.com/toddler-activity-finder/): Search engine for age-appropriate activities.
+- [Carnivore Calculator](https://calculator.thecarnivoremama.com/): TDEE and macro calculator for carnivore diet.
+- [What to Eat](https://meimakes.com/what-to-eat/): Meal decision helper.
+- [Tiny Terminal](https://meimakes.com/tiny-terminal/): Terminal-themed web toy.
+- [Word Train](https://meimakes.com/word-train/): Early reading game for toddlers.
+- [Shapes](https://meimakes.com/shapes/): Interactive shape playground for kids.
+
+## Social
+
+- X/Twitter: [@meimakes](https://x.com/meimakes)
+- GitHub: [meimakes](https://github.com/meimakes)
+
+## Contact
+
+For newsletter inquiries: subscribe via the links above.
+For open source: file issues on the relevant GitHub repo.
