@@ -4,195 +4,303 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>mei makes</title>
-<meta name="description" content="mother · maker · builder">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'IBM Plex Mono',monospace;background:#fafafa;color:#1a1a1a;line-height:1.6}
+<meta name="description" content="Two newsletters. One for builders, one for parents raising builders.">
 
-@media (prefers-color-scheme: dark){
-  body{background:#111;color:#eee}
-  .header,.hero{border-bottom:1px solid #1f1f1f}
-  .timeline-line::before{background:#222}
-  .entry{border-bottom:1px solid #1b1b1b}
-  .entry p{color:#aaa}
-  .entry .tag-label{border:1px solid #333;color:#aaa}
-  .social a{border-color:#FF4858;color:#FF4858}
-  .cta a{border-bottom-color:#FF4858}
-  .year-marker h2{color:#eee}
-  .year-marker::before{background:#eee}
-  .entry::before{border:2px solid #111}
+<!-- Open Graph -->
+<meta property="og:title" content="mei makes">
+<meta property="og:description" content="Two newsletters. One for builders, one for parents raising builders.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://meimakes.com">
+<meta property="og:image" content="https://meimakes.com/og.png">
+<meta property="og:site_name" content="mei makes">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@meimakes">
+<meta name="twitter:title" content="mei makes">
+<meta name="twitter:description" content="Two newsletters. One for builders, one for parents raising builders.">
+<meta name="twitter:image" content="https://meimakes.com/og.png">
+
+<!-- LLM Discovery -->
+<meta name="author" content="Mei Park">
+<meta name="keywords" content="indie builder, solo dev, newsletters, computational thinking, AI-assisted learning, parenting, open source, MCP servers">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mei Park",
+  "alternateName": "meimakes",
+  "url": "https://meimakes.com",
+  "image": "https://meimakes.com/profile.png",
+  "sameAs": [
+    "https://github.com/meimakes",
+    "https://x.com/meimakes",
+    "https://theundercurrent.dev",
+    "https://raisingpixels.dev",
+    "https://meimakes.gumroad.com"
+  ],
+  "jobTitle": "Builder",
+  "description": "Mother, maker, builder. Writes The Undercurrent (builder intelligence for solo devs) and Raising Pixels (teaching kids computational thinking). Open-source contributor: MCP servers for Strava, Hevy, Oura.",
+  "knowsAbout": ["AI agents", "MCP servers", "computational thinking", "early childhood education", "indie software", "open source"],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://meimakes.com"
+  }
+}
+</script>
+
+<link rel="canonical" href="https://meimakes.com">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-vkT-mE7KvnPcXlh6uLTk8.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<style>
+:root {
+  --bg: #ffffff;
+  --text: #1E293B;
+  --muted: #666;
+  --muted2: #999;
+  --card-bg: #ffffff;
+  --card-border: #1E293B;
+  --shadow: #1E293B;
+  --rule: #1E293B;
+  --hover-bg: #1E293B;
+  --hover-text: #ffffff;
+  --coral: #FF4858;
+  --teal: #14B9A7;
 }
 
-/* Hero */
-.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px 40px}
-.hero img{width:96px;height:96px;border-radius:50%;border:3px solid #FF4858;object-fit:cover;margin-bottom:16px}
-.hero h1{font-size:28px;margin-bottom:4px}
-.hero h1 span{color:#FF4858}
-.hero .tagline{color:#888;font-size:12px;letter-spacing:1px;margin-bottom:20px}
-.social{display:flex;gap:10px}
-.social a{color:#FF4858;text-decoration:none;font-size:12px;border:1px solid #FF4858;padding:5px 14px;transition:all 0.2s}
-.social a:hover{background:#FF4858;color:#fff}
-.scroll-hint{margin-top:40px;color:#ccc;font-size:11px;letter-spacing:2px;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:0.4}50%{opacity:1}}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --text: #E8E3DA;
+    --muted: #999;
+    --muted2: #666;
+    --card-bg: #1a1a1a;
+    --card-border: #E8E3DA;
+    --shadow: #E8E3DA;
+    --rule: #E8E3DA;
+    --hover-bg: #E8E3DA;
+    --hover-text: #121212;
+  }
+}
 
-/* Profile links to chat.meimakes.com */
-.hero a img{transition:border-color 0.2s}
-.hero a img:hover{border-color:#1a1a1a}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Timeline */
-.timeline{max-width:600px;margin:0 auto;padding:0 24px 60px}
-.timeline-line{position:relative;padding-left:32px}
-.timeline-line::before{content:'';position:absolute;left:4px;top:0;bottom:0;width:1px;background:#ddd}
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
 
-.entry{position:relative;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid #f0f0f0}
-.entry:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.entry::before{content:'';position:absolute;left:-32px;top:2px;width:9px;height:9px;border-radius:50%;background:#FF4858;border:2px solid #fafafa;box-shadow:0 0 0 1px #FF4858;z-index:1}
-.entry.upcoming::before{background:#fafafa;border:2px solid #FF4858;box-shadow:0 0 0 1px #FF4858}
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 24px 60px;
+}
 
-.entry .date{font-size:10px;color:#FF4858;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px;font-weight:500}
-.entry h3{font-size:14px;margin-bottom:3px;font-weight:600}
-.entry p{font-size:12px;color:#666;margin-bottom:6px}
-.entry .price{color:#FF4858;font-weight:700;font-size:13px}
-.entry .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
-.entry .links a{color:#FF4858;font-size:11px;text-decoration:none}
-.entry .links a:hover{text-decoration:underline}
-.entry .tag-label{display:inline-block;font-size:9px;padding:1px 6px;border:1px solid #ddd;border-radius:6px;color:#999;margin-left:4px}
+/* === HERO === */
+.hero {
+  text-align: center;
+  margin-bottom: 16px;
+}
 
-/* Year markers */
-.year-marker{position:relative;margin-bottom:20px;padding-bottom:0}
-.year-marker::before{content:'';position:absolute;left:-36px;top:0;width:17px;height:17px;border-radius:50%;background:#1a1a1a;z-index:1}
-.year-marker h2{font-size:11px;letter-spacing:3px;color:#1a1a1a;text-transform:uppercase;font-weight:700}
+.hero a { display: inline-block; }
 
-/* CTA */
-.cta{text-align:center;padding:40px 24px;max-width:600px;margin:0 auto}
-.cta a{color:#FF4858;font-size:13px;text-decoration:none;border-bottom:1px solid #FF4858;padding-bottom:2px}
-.cta .sub{color:#999;font-size:11px;margin-top:8px}
+.hero img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px solid var(--coral);
+  object-fit: cover;
+  transition: border-color 0.2s;
+}
 
-@media(max-width:480px){
-  .hero h1{font-size:24px}
-  .timeline-line{padding-left:28px}
-  .entry::before{left:-28px}
-  .year-marker::before{left:-32px}
-  .entry h3{font-size:13px}
+.hero a:hover img { border-color: var(--teal); }
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: lowercase;
+  margin-top: 16px;
+}
+
+.hero .tagline {
+  font-size: .85rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* === RULES === */
+hr.rule {
+  border: none;
+  border-top: 1.5px solid var(--rule);
+  margin: 32px 0;
+}
+
+/* === CARDS === */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.card {
+  border: 1.5px solid var(--card-border);
+  background: var(--card-bg);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s;
+}
+
+.card:hover { transform: translateY(-2px); }
+
+/* Hard drop shadows at different angles */
+.card:nth-child(1) { box-shadow: 6px 8px 0 var(--shadow); }
+.card:nth-child(2) { box-shadow: -5px 7px 0 var(--shadow); }
+
+.card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.card.undercurrent h2 { color: var(--text); }
+.card.pixels h2 { color: var(--teal); }
+
+.card .subtitle {
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.card p {
+  font-size: .8rem;
+  line-height: 1.7;
+  color: var(--muted);
+  flex: 1;
+}
+
+.card .card-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card .cta {
+  display: inline-block;
+  border: 1.5px solid var(--card-border);
+  padding: 10px 28px;
+  font-family: inherit;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.card .cta.subscribe {
+  background: var(--coral);
+  color: #fff;
+  border-color: var(--coral);
+}
+
+.card .cta.subscribe:hover { opacity: 0.85; }
+
+.card .cta.book {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+.card .cta.book:hover { opacity: 0.85; }
+
+.card .cta:hover {
+  background: var(--hover-bg);
+  color: var(--hover-text);
+}
+
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  margin-top: 48px;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted2);
+}
+
+.footer a {
+  color: var(--muted2);
+  text-decoration: none;
+  margin: 0 12px;
+  transition: color 0.2s;
+}
+
+.footer a:hover { color: var(--coral); }
+
+/* === MOBILE === */
+@media (max-width: 640px) {
+  .cards { grid-template-columns: 1fr; }
+  .card { padding: 28px 20px; }
 }
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <a href="https://chat.meimakes.com"><img src="profile.png" alt="mei"></a>
-  <h1>mei <span>makes</span></h1>
-  <div class="tagline">mother · maker · builder</div>
-  <div class="social">
-    <a href="https://github.com/meimakes">GitHub</a>
-    <a href="https://x.com/meimakes">X</a>
-  </div>
-  <div class="scroll-hint">↓ what i've shipped ↓</div>
-</div>
-
-<div class="timeline">
-<div class="timeline-line">
-
-  <div class="year-marker"><h2>Coming Up</h2></div>
-
-  <div class="entry upcoming">
-    <div class="date">2026</div>
-    <h3>📖 12 Weeks of Tech Projects for Toddlers</h3>
-    <p>Screen-free STEM ebook for parents who build. Real projects, real learning.</p>
-    <div class="price">Coming Soon</div>
-    <div class="links"><a href="https://meimakes.gumroad.com/">Get notified →</a></div>
+<div class="page">
+  <div class="hero">
+    <a href="https://chat.meimakes.com"><img src="profile.png" alt="Mei Park"></a>
+    <h1>mei makes</h1>
+    <p class="tagline">mother · maker · builder</p>
   </div>
 
-  <div class="year-marker"><h2>2026</h2></div>
+  <hr class="rule">
 
-  <div class="entry">
-    <div class="date">Feb 2026</div>
-    <h3>chomp</h3>
-    <p>Local food database CLI for AI-assisted nutrition tracking.</p>
-    <div class="links"><a href="https://github.com/meimakes/chomp">View repo →</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="date">Feb 2026</div>
-    <h3>remember-scroll-position</h3>
-    <p>Obsidian plugin that remembers your cursor position.</p>
-    <div class="links"><a href="https://github.com/meimakes/remember-scroll-position">View repo →</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="date">Feb 2026</div>
-    <h3>Kids Games Collection</h3>
-    <p>tiny-terminal, word-train, bigger-than-race, what-to-eat, shapes — games built with a 3-year-old.</p>
-    <div class="links"><a href="https://github.com/meimakes?tab=repositories&q=topic:kids">Browse →</a></div>
-  </div>
-
-  <div class="year-marker"><h2>2025</h2></div>
-
-  <div class="entry">
-    <div class="date">Nov 2025</div>
-    <h3>Strava MCP Server</h3>
-    <p>Fitness tracking integration for AI agents. First MCP server shipped.</p>
-    <div class="links"><a href="https://github.com/meimakes/strava-mcp-server">View repo →</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="date">Oct 2025</div>
-    <h3>Hevy + Oura MCP Servers</h3>
-    <p>Workout tracking and sleep/recovery data for AI agents.</p>
-    <div class="links">
-      <a href="https://github.com/meimakes/hevy-mcp-server">Hevy →</a>
-      <a href="https://github.com/meimakes/oura-mcp-server">Oura →</a>
+  <div class="cards">
+    <div class="card undercurrent">
+      <h2>The Undercurrent</h2>
+      <p class="subtitle">Builder intelligence beneath the noise.</p>
+      <p>Research-driven dispatches for solo devs, indie builders, and technical creators who'd rather read signal than scroll feeds.</p>
+      <div class="card-actions">
+        <a href="https://theundercurrent.dev" class="cta subscribe">Subscribe</a>
+      </div>
+    </div>
+    <div class="card pixels">
+      <h2>Raising Pixels</h2>
+      <p class="subtitle">Teaching kids to think like builders.</p>
+      <p>Computational thinking, AI-assisted learning, and what happens when you hand a 3-year-old a prompt instead of a worksheet.</p>
+      <div class="card-actions">
+        <a href="https://raisingpixels.dev" class="cta subscribe">Subscribe</a>
+        <a href="https://meimakes.gumroad.com" class="cta book">Get the book</a>
+      </div>
     </div>
   </div>
 
-  <div class="entry">
-    <div class="date">Oct 2025</div>
-    <h3>Amazon MCP Server</h3>
-    <p>MCP server for your Amazon cart. Made for Poke, works for everyone.</p>
-    <div class="links"><a href="https://github.com/meimakes/amazon-mcp-server">View repo →</a></div>
+  <hr class="rule">
+
+  <div class="footer">
+    <a href="https://github.com/meimakes">GitHub</a>
+    <a href="https://x.com/meimakes">X</a>
   </div>
-
-  <div class="entry">
-    <div class="date">Jul 2025</div>
-    <h3>napstack-dev</h3>
-    <p>Productivity dashboard for naptime code sessions.</p>
-    <div class="links"><a href="https://napstack.dev">Visit →</a> <a href="https://github.com/meimakes/napstack-dev">View repo →</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="date">Jul 2025</div>
-    <h3>loficode Hugo Theme</h3>
-    <p>A cozy, lo-fi inspired Hugo theme with ambient sound player and retro aesthetic.</p>
-    <div class="links"><a href="https://github.com/meimakes/loficode-hugo-theme">View repo →</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="date">Jun 2025</div>
-    <h3>vintage-web Hugo Theme</h3>
-    <p>Nostalgic Hugo theme inspired by late 90s/early 2000s web design.</p>
-    <div class="links"><a href="https://github.com/meimakes/vintage-web-hugo-theme">View repo →</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="date">Apr 2025</div>
-    <h3>NontoxicGoods.com</h3>
-    <p>Curated non-toxic product directory for families.</p>
-    <div class="links"><a href="https://nontoxicgoods.com">Visit →</a></div>
-  </div>
-
-  <div class="entry">
-    <div class="date">Mar 2025</div>
-    <h3>First Projects</h3>
-    <p>shapes, toddler-activity-finder, carnivore-calculator — where it all started.</p>
-    <div class="links"><a href="https://github.com/meimakes">Browse →</a></div>
-  </div>
-
-</div>
-</div>
-
-<div class="cta">
-  <a href="https://x.com/meimakes">Follow @meimakes for what ships next →</a>
 </div>
 
 </body>
