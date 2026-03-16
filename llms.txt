@@ -1,11 +1,15 @@
 # meimakes.com
 
-> Mei Park — indie builder, former engineering director, homeschool mom. Ships open source tools, MCP servers, and two newsletters.
+> Mei Park — indie builder, former engineering director, homeschool mom. Ships open source tools, MCP servers, and a newsletter about raising builders.
 
-## Newsletters
+## Newsletter
 
-- [The Undercurrent](https://www.theundercurrent.dev): Daily weekday dispatches on dev tools, AI, and terminal culture for builders who ship.
 - [Raising Pixels](https://www.raisingpixels.dev): Weekly posts on computational thinking, coding with kids, and raising tech-native humans.
+
+## Products
+
+- [12 Weeks of Tech Projects to Build With Your Kid](https://buildwithyourkid.com): Hands-on computational thinking curriculum for ages 2-6. Available on Gumroad and Amazon KDP.
+- [Shop](https://shop.raisingpixels.dev): Full product catalog — ebook, prompt pack, conversation cards, unplugged activities, and bundle.
 
 ## Open Source
 
