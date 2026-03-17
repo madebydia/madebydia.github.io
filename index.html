@@ -1,329 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mei makes</title>
-<meta name="description" content="A newsletter and a book for parents raising builders.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mei makes</title>
+    <meta name="description" content="A newsletter and a book for parents raising builders.">
 
-<!-- Open Graph -->
-<meta property="og:title" content="mei makes">
-<meta property="og:description" content="A newsletter and a book for parents raising builders.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://meimakes.com">
-<meta property="og:image" content="https://meimakes.com/og.png">
-<meta property="og:site_name" content="mei makes">
+    <!-- Open Graph -->
+    <meta property="og:title" content="mei makes">
+    <meta property="og:description" content="A newsletter and a book for parents raising builders.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meimakes.com">
+    <meta property="og:image" content="https://meimakes.com/og.png">
+    <meta property="og:site_name" content="mei makes">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@meimakes">
-<meta name="twitter:title" content="mei makes">
-<meta name="twitter:description" content="A newsletter and a book for parents raising builders.">
-<meta name="twitter:image" content="https://meimakes.com/og.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@meimakes">
+    <meta name="twitter:title" content="mei makes">
+    <meta name="twitter:description" content="A newsletter and a book for parents raising builders.">
+    <meta name="twitter:image" content="https://meimakes.com/og.png">
 
-<!-- LLM Discovery -->
-<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM metadata">
-<meta name="author" content="Mei Park">
-<meta name="keywords" content="indie builder, solo dev, newsletters, computational thinking, AI-assisted learning, parenting, open source, MCP servers">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Mei Park",
-  "alternateName": "meimakes",
-  "url": "https://meimakes.com",
-  "image": "https://meimakes.com/profile.png",
-  "sameAs": [
-    "https://github.com/meimakes",
-    "https://x.com/meimakes",
-    "https://raisingpixels.dev",
-    "https://buildwithyourkid.com",
-    "https://shop.raisingpixels.dev/l/12-weeks-tech-projects"
-  ],
-  "jobTitle": "Builder",
-  "description": "Mother, maker, builder. Writes Raising Pixels (teaching kids computational thinking) and authored 12 Weeks of Tech Projects to Build With Your Kid. Open-source contributor: MCP servers for Strava, Hevy, Oura.",
-  "knowsAbout": ["AI agents", "MCP servers", "computational thinking", "early childhood education", "indie software", "open source"],
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://meimakes.com"
-  }
-}
-</script>
+    <!-- LLM Discovery -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM metadata">
+    <meta name="author" content="Mei Park">
+    <meta name="keywords" content="indie builder, solo dev, newsletters, computational thinking, AI-assisted learning, parenting, open source, MCP servers">
 
-<link rel="canonical" href="https://meimakes.com">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mei Park",
+      "alternateName": "meimakes",
+      "url": "https://meimakes.com",
+      "image": "https://meimakes.com/profile.png",
+      "sameAs": [
+        "https://github.com/meimakes",
+        "https://x.com/meimakes",
+        "https://raisingpixels.dev",
+        "https://buildwithyourkid.com",
+        "https://shop.raisingpixels.dev/l/12-weeks-tech-projects"
+      ],
+      "jobTitle": "Builder",
+      "description": "MS Computer Science. Former engineering director turned stay-at-home mom. Writes Raising Pixels (teaching kids computational thinking) and authored 12 Weeks of Tech Projects to Build With Your Kid. Open-source contributor: MCP servers for Strava, Hevy, Oura.",
+      "knowsAbout": ["AI agents", "MCP servers", "computational thinking", "early childhood education", "indie software", "open source"],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://meimakes.com"
+      }
+    }
+    </script>
 
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-vkT-mE7KvnPcXlh6uLTk8.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
+    <link rel="canonical" href="https://meimakes.com">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<style>
-:root {
-  --bg: #ffffff;
-  --text: #1E293B;
-  --muted: #666;
-  --muted2: #999;
-  --card-bg: #ffffff;
-  --card-border: #1E293B;
-  --shadow: #1E293B;
-  --rule: #1E293B;
-  --hover-bg: #1E293B;
-  --hover-text: #ffffff;
-  --coral: #FF4858;
-  --teal: #14B9A7;
-}
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-vkT-mE7KvnPcXlh6uLTk8.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121212;
-    --text: #E8E3DA;
-    --muted: #999;
-    --muted2: #666;
-    --card-bg: #1a1a1a;
-    --card-border: #E8E3DA;
-    --shadow: #E8E3DA;
-    --rule: #E8E3DA;
-    --hover-bg: #E8E3DA;
-    --hover-text: #121212;
-  }
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F7F7F5;
+            --fg: #0A0A0A;
+            --coral: #FF4858;
+            --teal: #14B9A7;
+            --border-width: 1.5px;
+            --font-display: 'Anton', sans-serif;
+            --font-serif: 'Newsreader', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #121212;
+                --fg: #E8E3DA;
+            }
+        }
 
-body {
-  font-family: 'IBM Plex Mono', monospace;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  transition: background 0.3s, color 0.3s;
-}
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg); color: var(--fg); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        .layout { display: grid; grid-template-columns: 40vw 1fr; min-height: 100vh; border-bottom: var(--border-width) solid var(--fg); }
+        .identity { border-right: var(--border-width) solid var(--fg); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
+        .header-bar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-bottom: var(--border-width) solid var(--fg); }
+        .monogram { width: 36px; height: 36px; border: 1px solid var(--fg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; }
+        .meta-nav { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; text-decoration: none; color: var(--fg); }
+        .meta-nav:hover { color: var(--coral); }
+        .name-container { padding: 2rem; border-bottom: var(--border-width) solid var(--fg); }
+        h1 { font-family: var(--font-display); font-size: clamp(4rem, 9vw, 12rem); line-height: 0.85; text-transform: uppercase; letter-spacing: -0.01em; color: var(--fg); }
+        .bio-image-row { display: contents; }
+        .bio-container { padding: 2rem; border-bottom: var(--border-width) solid var(--fg); }
+        .bio-overlay { display: none; }
+        .bio-text { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.4; max-width: 90%; }
+        .bio-text i { font-style: italic; }
 
-.page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 80px 24px 60px;
-}
+        /* Image fills remaining space */
+        .image-container {
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            border-bottom: var(--border-width) solid var(--fg);
+        }
+        .avatar-editorial {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-/* === HERO === */
-.hero {
-  text-align: center;
-  margin-bottom: 16px;
-}
+        .social-row { display: flex; gap: 1.5rem; padding: 1.5rem 2rem; }
+        .social-row a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; color: var(--fg); text-decoration: none; }
+        .social-row a:hover { color: var(--coral); }
 
-.hero a { display: inline-block; }
+        .links { display: flex; flex-direction: column; height: 100vh; }
 
-.hero img {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  border: 3px solid var(--coral);
-  object-fit: cover;
-  transition: border-color 0.2s;
-}
+        .link-block {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--fg);
+            background-color: var(--bg);
+            border-bottom: var(--border-width) solid var(--fg);
+            transition: background-color 0.2s ease, color 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .link-block:last-child { border-bottom: none; }
 
-.hero a:hover img { border-color: var(--teal); }
+        /* Teal hover for newsletter, coral for book */
+        .link-block.newsletter:hover { background-color: var(--teal); color: var(--bg); }
+        .link-block.newsletter:hover .hover-arrow svg { fill: var(--bg); }
+        .link-block.book:hover { background-color: var(--coral); color: var(--bg); }
+        .link-block.book:hover .hover-arrow svg { fill: var(--bg); }
 
-.hero h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: lowercase;
-  margin-top: 16px;
-}
+        @media (prefers-color-scheme: dark) {
+            .link-block.newsletter:hover { color: #0A0A0A; }
+            .link-block.newsletter:hover .hover-arrow svg { fill: #0A0A0A; }
+            .link-block.book:hover { color: #0A0A0A; }
+            .link-block.book:hover .hover-arrow svg { fill: #0A0A0A; }
+            h1, h2 { color: #B8B3AA; }
+            .avatar-editorial { filter: brightness(0.75) contrast(0.9); }
+        }
 
-.hero .tagline {
-  font-size: .85rem;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 8px;
-}
+        .block-header { display: flex; justify-content: space-between; align-items: flex-start; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; }
+        .system-number { border: 1px solid currentColor; padding: 2px 6px; border-radius: 20px; }
+        .block-footer { display: flex; flex-direction: column; gap: 1rem; }
+        h2 { font-family: var(--font-display); font-size: clamp(3rem, 7.5vw, 9rem); line-height: 0.85; text-transform: uppercase; letter-spacing: -0.01em; }
+        .block-desc { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.3; max-width: 80%; margin-top: -0.5rem; }
+        .hover-arrow { position: absolute; top: 2rem; right: 2rem; width: 40px; height: 40px; opacity: 0; transform: translate(-20px, 20px); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .link-block:hover .hover-arrow { opacity: 1; transform: translate(0, 0); }
+        .hover-arrow svg { width: 100%; height: 100%; fill: var(--fg); }
 
-/* === RULES === */
-hr.rule {
-  border: none;
-  border-top: 1.5px solid var(--rule);
-  margin: 32px 0;
-}
+        @media (max-width: 1024px) {
+            .layout { grid-template-columns: 1fr; }
+            .identity { position: relative; height: auto; border-right: none; border-bottom: var(--border-width) solid var(--fg); }
+            .links { height: auto; }
+            .link-block { min-height: 50vh; }
 
-/* === CARDS === */
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 40px;
-}
-
-.card {
-  border: 1.5px solid var(--card-border);
-  background: var(--card-bg);
-  padding: 40px 32px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.15s;
-}
-
-.card:hover { transform: translateY(-2px); }
-
-/* Hard drop shadows at different angles */
-.card:nth-child(1) { box-shadow: 6px 8px 0 var(--shadow); }
-.card:nth-child(2) { box-shadow: -5px 7px 0 var(--shadow); }
-
-.card h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.card h2 img {
-  height: 1.4em;
-  width: auto;
-  object-fit: contain;
-}
-
-.card.book h2 { color: var(--coral); }
-.card.pixels h2 { color: var(--teal); }
-
-.card .category {
-  font-size: .6rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--muted2);
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.card .subtitle {
-  font-style: italic;
-  font-size: .85rem;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-
-.card p {
-  font-size: .8rem;
-  line-height: 1.7;
-  color: var(--muted);
-  flex: 1;
-}
-
-.card .card-actions {
-  margin-top: 24px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.card .cta {
-  display: inline-block;
-  border: 1.5px solid var(--card-border);
-  padding: 10px 28px;
-  font-family: inherit;
-  font-size: .75rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--text);
-  transition: all 0.2s;
-}
-
-.card .cta.subscribe {
-  background: var(--teal);
-  color: #fff;
-  border-color: var(--teal);
-}
-
-.card .cta.subscribe:hover { opacity: 0.85; }
-
-.card .cta.book {
-  background: var(--coral);
-  color: #fff;
-  border-color: var(--coral);
-}
-
-.card .cta.book:hover { opacity: 0.85; }
-
-.card .cta:hover {
-  background: var(--hover-bg);
-  color: var(--hover-text);
-}
-
-/* === FOOTER === */
-.footer {
-  text-align: center;
-  margin-top: 48px;
-  font-size: .7rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--muted2);
-}
-
-.footer a {
-  color: var(--muted2);
-  text-decoration: none;
-  margin: 0 12px;
-  transition: color 0.2s;
-}
-
-.footer a:hover { color: var(--coral); }
-
-/* === MOBILE === */
-@media (max-width: 640px) {
-  .cards { grid-template-columns: 1fr; }
-  .card { padding: 28px 20px; }
-}
-</style>
+            .bio-image-row {
+                display: contents;
+            }
+            .image-container {
+                height: 220px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <main class="layout">
+        <section class="identity">
+            <header class="header-bar">
+                <div class="monogram">m</div>
+                <a href="https://x.com/meimakes" class="meta-nav">@MEIMAKES</a>
+            </header>
+            <div class="name-container">
+                <h1>MEI<br>MAKES</h1>
+            </div>
+            <div class="bio-image-row">
+                <div class="bio-container">
+                    <p class="bio-text">
+                        MS Computer Science. 12 years in software engineering, from IC to director. Now a stay-at-home mom building <i>curriculum</i>, <i>open source tools</i>, and a newsletter about teaching kids to think like builders.
+                    </p>
+                </div>
+                <div class="image-container">
+                    <img src="https://meimakes.com/profile.png" alt="Mei Park" class="avatar-editorial">
+                    <p class="bio-overlay">MS Computer Science. 12 years in software engineering, from IC to director. Now a stay-at-home mom building <i>curriculum</i>, <i>open source tools</i>, and a newsletter about teaching kids to think like builders.</p>
+                </div>
+            </div>
+            <div class="social-row">
+                <a href="https://x.com/meimakes">𝕏</a>
+                <a href="https://github.com/meimakes">GitHub</a>
+            </div>
+        </section>
 
-<div class="page">
-  <div class="hero">
-    <a href="https://chat.meimakes.com"><img src="profile.png" alt="Mei Park"></a>
-    <h1>mei makes</h1>
-    <p class="tagline">MS Computer Science · 12 Years in Software · Eng Director → SAHM</p>
-  </div>
+        <section class="links">
+            <a href="https://raisingpixels.dev" class="link-block newsletter">
+                <div class="block-header">
+                    <span class="system-number">01</span>
+                    <span>NEWSLETTER</span>
+                </div>
+                <div class="block-footer">
+                    <h2>RAISING<br>PIXELS</h2>
+                    <p class="block-desc">Teaching kids to think like builders. Computational thinking, hands-on projects, and raising the next generation of makers.</p>
+                </div>
+                <div class="hover-arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                    </svg>
+                </div>
+            </a>
 
-  <hr class="rule">
-
-  <div class="cards">
-    <div class="card pixels">
-      <p class="category">Newsletter</p>
-      <h2><img src="rp-logo.png" alt="">Raising Pixels</h2>
-      <p class="subtitle">Teaching kids to think like builders.</p>
-      <div class="card-actions">
-        <a href="https://raisingpixels.dev" class="cta subscribe">Subscribe</a>
-      </div>
-    </div>
-    <div class="card book">
-      <p class="category">Book &amp; Curriculum</p>
-      <h2><img src="bwyk-logo.png" alt="">Build With Your Kid</h2>
-      <p class="subtitle">12 weeks of tech projects for ages 2–6.</p>
-      <div class="card-actions">
-        <a href="https://buildwithyourkid.com" class="cta book">Get the book</a>
-        <a href="https://shop.raisingpixels.dev" class="cta">Shop all</a>
-      </div>
-    </div>
-  </div>
-
-  <hr class="rule">
-
-  <div class="footer">
-    <a href="https://github.com/meimakes">GitHub</a>
-    <a href="https://x.com/meimakes">X</a>
-  </div>
-</div>
-
+            <a href="https://buildwithyourkid.com" class="link-block book">
+                <div class="block-header">
+                    <span class="system-number">02</span>
+                    <span>BOOK & CURRICULUM</span>
+                </div>
+                <div class="block-footer">
+                    <h2>BUILD WITH<br>YOUR KID</h2>
+                    <p class="block-desc">12 weeks of tech projects for ages 2–6. Computational thinking through play — no reading required.</p>
+                </div>
+                <div class="hover-arrow">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                    </svg>
+                </div>
+            </a>
+        </section>
+    </main>
 </body>
 </html>
