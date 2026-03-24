@@ -1,0 +1,506 @@
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — @meimakes</title>
+    <meta property="og:title" content="Projects — @meimakes">
+    <meta property="og:description" content="40 open source projects. Kids games, MCP servers, OpenClaw skills, dev tools, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meimakes.com/projects">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#ff4b5c',
+                        dark: '#111111',
+                        paper: '#ffffff',
+                        'paper-alt': '#f9f9f9',
+                    },
+                    fontFamily: {
+                        display: ['Anton', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    spacing: {
+                        'gap-border': '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #111111;
+            color: #111111;
+            -webkit-font-smoothing: antialiased;
+        }
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 2px solid #111111;
+            padding: 0.25rem 0.5rem;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            background-color: transparent;
+            color: #111111;
+        }
+        .btn-link:hover {
+            background-color: #111111;
+            color: #ffffff;
+        }
+        .btn-primary {
+            background-color: #111111;
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #111111;
+        }
+        .btn-accent {
+            background-color: #ff4b5c;
+            border-color: #ff4b5c;
+            color: #111111;
+        }
+        .btn-accent:hover {
+            background-color: #111111;
+            border-color: #111111;
+            color: #ffffff;
+        }
+        .section-number {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            border: 2px solid #111111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 700;
+            background-color: #ffffff;
+            flex-shrink: 0;
+        }
+        .nav-scrollbar::-webkit-scrollbar { height: 4px; }
+        .nav-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .nav-scrollbar::-webkit-scrollbar-thumb { background-color: #111111; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffffff; border-left: 2px solid #111111; }
+        ::-webkit-scrollbar-thumb { background: #111111; }
+        html { scroll-padding-top: 52px; }
+    </style>
+</head>
+<body class="w-full h-full min-h-screen">
+
+    <main class="w-full flex flex-col gap-gap-border bg-dark">
+
+        <!-- Header -->
+        <header class="w-full bg-paper p-6 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full border-2 border-dark flex items-center justify-center font-display text-3xl leading-none pt-1">m</div>
+                <span class="font-display text-4xl leading-none pt-2 tracking-wide uppercase">MeiMakes</span>
+            </div>
+            <a href="https://x.com/meimakes" class="font-mono text-xs uppercase tracking-widest font-bold hidden sm:block hover:text-accent transition-colors">@meimakes</a>
+        </header>
+
+        <!-- Hero -->
+        <section class="w-full bg-paper p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+            <h1 class="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.85] uppercase tracking-tighter break-words max-w-4xl">
+                Projects
+            </h1>
+            <p class="font-serif text-xl md:text-2xl leading-snug text-gray-800 max-w-xl lg:text-right border-l-2 lg:border-l-0 lg:border-r-2 border-dark pl-4 lg:pl-0 lg:pr-4 py-2 border-dashed">
+                40 open source projects spanning kids educational games, MCP servers, developer tools, and AI agent skills.
+            </p>
+        </section>
+
+        <!-- Nav -->
+        <nav class="sticky top-0 z-50 w-full bg-accent border-y-2 border-dark flex items-center px-4 overflow-x-auto nav-scrollbar h-[52px]">
+            <div class="flex items-center gap-6 font-mono text-xs font-bold uppercase tracking-wider whitespace-nowrap min-w-max mx-auto">
+                <a href="#kids-games" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Kids Games</a>
+                <a href="#ebooks" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Products</a>
+                <a href="#tools" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Tools</a>
+                <a href="#mcp" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">MCP Servers</a>
+                <a href="#skills" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">OpenClaw Skills</a>
+                <a href="#themes" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Themes</a>
+            </div>
+        </nav>
+
+        <div class="w-full bg-dark flex flex-col gap-gap-border">
+
+            <!-- Kids Educational Games -->
+            <section id="kids-games" class="flex flex-col gap-gap-border scroll-mt-[52px]">
+                <div class="bg-paper p-6 md:p-8 flex items-center gap-4">
+                    <div class="section-number">01</div>
+                    <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Kids Educational Games</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">airplanes.games</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Pattern recognition, logic, counting, and problem solving games for ages 3-5.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://airplanes.games" class="btn-link btn-primary text-[10px] sm:text-xs">Play ↗</a>
+                            <a href="https://github.com/meimakes/airplanes.games" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">tiny-terminal</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Fake terminal where kids type anything and get fun responses. Keyboard familiarity without the stakes.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://tiny-terminal.com" class="btn-link btn-primary text-[10px] sm:text-xs">Play ↗</a>
+                            <a href="https://github.com/meimakes/tiny-terminal" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">bigger-than-race</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Racing game that teaches number comparison. Adaptive difficulty from single digits to triple.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/bigger-than-race" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">word-train</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Drag-letter word-building game for early readers. CVC words, phonics, blending.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/word-train" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">toddler-activity-finder</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">100+ activities filtered by materials, benefits, time, and messiness level.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://toddlerdo.com" class="btn-link btn-primary text-[10px] sm:text-xs">Browse ↗</a>
+                            <a href="https://github.com/meimakes/toddler-activity-finder" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">shapes</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">2D and 3D shapes that reveal names and spin when clicked.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/shapes" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">2026-calendar</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Interactive holiday calendar. 27 holidays with confetti and animations.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/2026-calendar" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">what-to-eat</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Visual food menu to help toddlers choose what to eat.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/what-to-eat" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">bigger-ramp-jump</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Ramp jump game for number comparison.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/bigger-ramp-jump" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">pixelfoundery.com</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Build anything with your kid. AI prompt generator for parent-child projects.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/pixelfoundery.com" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Ebook & Products -->
+            <section id="ebooks" class="flex flex-col gap-gap-border scroll-mt-[52px]">
+                <div class="bg-paper p-6 md:p-8 flex items-center gap-4">
+                    <div class="section-number" style="border-color:#ff4b5c;color:#ff4b5c">02</div>
+                    <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Products</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">buildwithyourkid.com</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">"12 Weeks of Tech Projects to Build With Your Kid." Ebook + prompt pack + printables.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://buildwithyourkid.com" class="btn-link btn-accent text-[10px] sm:text-xs">Shop ↗</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">raisingpixels.dev</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Substack newsletter on raising kids who build with technology.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://raisingpixels.dev" class="btn-link btn-primary text-[10px] sm:text-xs">Read ↗</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">nontoxicgoods.com</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Curated non-toxic products. Evidence-based, not fear-based.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://nontoxicgoods.com" class="btn-link btn-primary text-[10px] sm:text-xs">Browse ↗</a>
+                            <a href="https://github.com/meimakes/nontoxicgoods.com" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Tools & Utilities -->
+            <section id="tools" class="flex flex-col gap-gap-border scroll-mt-[52px]">
+                <div class="bg-paper p-6 md:p-8 flex items-center gap-4">
+                    <div class="section-number">03</div>
+                    <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Tools & Utilities</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">chomp</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Nutrition tracking CLI in Rust. Local SQLite database, MCP server for AI agents.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/chomp" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">remember-scroll-position</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Obsidian plugin. Remembers cursor and scroll position per note across sessions.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/remember-scroll-position" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">codesnap</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Code screenshots from terminal. Catppuccin themes, platform presets.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/codesnap" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">writebetterdocs.dev</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Paste your README, get a score and a better version back.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://writebetterdocs.dev" class="btn-link btn-primary text-[10px] sm:text-xs">Try It ↗</a>
+                            <a href="https://github.com/meimakes/writebetterdocs.dev" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">makepx.com</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Social media image size reference and code screenshot tools.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://makepx.com" class="btn-link btn-primary text-[10px] sm:text-xs">Visit ↗</a>
+                            <a href="https://github.com/meimakes/makepx.com" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">napstack-dev</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Productivity dashboard for naptime code sessions. Pomodoro, ambient sounds, streaks.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://napstack.dev" class="btn-link btn-primary text-[10px] sm:text-xs">Visit ↗</a>
+                            <a href="https://github.com/meimakes/napstack-dev" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">tdee</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Total Daily Energy Expenditure calculator.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://tdee.thecarnivoremama.com" class="btn-link btn-primary text-[10px] sm:text-xs">Calculate ↗</a>
+                            <a href="https://github.com/meimakes/tdee" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">carnivore-calculator</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Protein-based meat intake calculator.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://calculator.thecarnivoremama.com" class="btn-link btn-primary text-[10px] sm:text-xs">Calculate ↗</a>
+                            <a href="https://github.com/meimakes/carnivore-calculator" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">obsidian-retro-terminal-theme</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Retro terminal theme for Obsidian. Green phosphor on black.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/obsidian-retro-terminal-theme" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">promptparent.com</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Devcontainer for parents who code in 15-minute windows.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://promptparent.com" class="btn-link btn-primary text-[10px] sm:text-xs">Visit ↗</a>
+                            <a href="https://github.com/meimakes/parent-dev-devcontainer" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- MCP Servers -->
+            <section id="mcp" class="flex flex-col gap-gap-border scroll-mt-[52px]">
+                <div class="bg-paper p-6 md:p-8 flex items-center gap-4">
+                    <div class="section-number" style="border-color:#ff4b5c;color:#ff4b5c">04</div>
+                    <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">MCP Servers</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                    <article class="bg-dark text-paper p-6 flex flex-col h-full hover:bg-[#1a1a1a] transition-colors group border-2 border-transparent hover:border-accent">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 text-accent break-words">makemcp.dev</h3>
+                        <p class="font-serif text-sm text-gray-300 leading-snug flex-grow mb-6">Hub page for all MCP servers. Install instructions and docs.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://makemcp.dev" class="btn-link btn-accent text-[10px] sm:text-xs">Visit ↗</a>
+                            <a href="https://github.com/meimakes/makemcp.dev" class="btn-link border-paper text-paper hover:bg-paper hover:text-dark text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">oura-mcp-server</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Sleep, readiness, and heart rate data from Oura Ring.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/oura-mcp-server" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">hevy-mcp-server</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Workout history, PRs, and exercises from Hevy.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/hevy-mcp-server" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">strava-mcp-server</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Activities, stats, and training data from Strava.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/strava-mcp-server" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">amazon-mcp-server</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Search, cart, and order history from Amazon.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/amazon-mcp-server" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">apple-mcp-server</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Native macOS access to Apple Reminders via EventKit.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/apple-mcp-server" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">obsidian-mcp</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Read, write, and search your Obsidian vault. No plugins required.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/obsidian-mcp" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- OpenClaw Skills -->
+            <section id="skills" class="flex flex-col gap-gap-border scroll-mt-[52px]">
+                <div class="bg-paper p-6 md:p-8 flex items-center gap-4">
+                    <div class="section-number">05</div>
+                    <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">OpenClaw Skills</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">xqueue</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">File-based X/Twitter post scheduler. Your filesystem is the UI.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://clawhub.ai/meimakes/xqueue" class="btn-link btn-primary text-[10px] sm:text-xs">ClawHub ↗</a>
+                            <a href="https://github.com/meimakes/xqueue" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">metacognition</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Self-reflection engine for AI agents. Hebbian learning with time decay.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://clawhub.ai/meimakes/metacognition" class="btn-link btn-primary text-[10px] sm:text-xs">ClawHub ↗</a>
+                            <a href="https://github.com/meimakes/metacognition" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">daily-memory-save</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Dual-layer persistent memory system for AI agents.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://clawhub.ai/meimakes/daily-memory-save" class="btn-link btn-primary text-[10px] sm:text-xs">ClawHub ↗</a>
+                            <a href="https://github.com/meimakes/daily-memory-save" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">deep-current</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Research thread manager. Track topics, accumulate sources, produce digests.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://clawhub.ai/meimakes/deep-current" class="btn-link btn-primary text-[10px] sm:text-xs">ClawHub ↗</a>
+                            <a href="https://github.com/meimakes/deep-current" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">gmail-no-send</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Drafts-only Gmail client. No send function exists in the codebase.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://clawhub.ai/meimakes/gmail-no-send" class="btn-link btn-primary text-[10px] sm:text-xs">ClawHub ↗</a>
+                            <a href="https://github.com/meimakes/gmail-no-send" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">nag</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Persistent reminders that escalate until you confirm.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://clawhub.ai/meimakes/nag" class="btn-link btn-primary text-[10px] sm:text-xs">ClawHub ↗</a>
+                            <a href="https://github.com/meimakes/nag" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">archive-daily-note</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Moves yesterday's Obsidian daily note into past-days/ archive.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://clawhub.ai/meimakes/archive-daily-note" class="btn-link btn-primary text-[10px] sm:text-xs">ClawHub ↗</a>
+                            <a href="https://github.com/meimakes/archive-daily-note" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Hugo Themes -->
+            <section id="themes" class="flex flex-col gap-gap-border scroll-mt-[52px]">
+                <div class="bg-paper p-6 md:p-8 flex items-center gap-4">
+                    <div class="section-number">06</div>
+                    <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Hugo Themes</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">vintage-web-hugo-theme</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Late 90s/early 2000s web nostalgia. 20+ stars.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/vintage-web-hugo-theme" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">loficode-hugo-theme</h3>
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Cozy lo-fi coding theme with built-in ambient sound player.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <a href="https://github.com/meimakes/loficode-hugo-theme" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="w-full bg-dark flex flex-col items-center justify-center p-12 text-paper gap-4 mt-12">
+             <div class="w-16 h-16 rounded-full border-2 border-paper flex items-center justify-center font-display text-4xl leading-none pt-2 mb-4">m</div>
+             <div class="flex gap-6 font-mono text-xs uppercase tracking-widest">
+                <a href="https://x.com/meimakes" class="hover:text-accent transition-colors">X/Twitter</a>
+                <a href="https://github.com/meimakes" class="hover:text-accent transition-colors">GitHub</a>
+                <a href="https://raisingpixels.dev" class="hover:text-accent transition-colors">Substack</a>
+             </div>
+             <a href="#" class="mt-4 font-mono text-[10px] uppercase tracking-widest underline hover:text-accent transition-colors opacity-60">Back to Top ↑</a>
+        </footer>
+
+    </main>
+
+</body></html>
+<!-- deployed 20260324215751 -->
