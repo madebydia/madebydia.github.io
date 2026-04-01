@@ -128,12 +128,12 @@
         <!-- Nav -->
         <nav class="sticky top-0 z-50 w-full bg-accent border-y-2 border-dark flex items-center px-4 overflow-x-auto nav-scrollbar h-[52px]">
             <div class="flex items-center gap-6 font-mono text-xs font-bold uppercase tracking-wider whitespace-nowrap min-w-max mx-auto">
-                <a href="#ebooks" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Products</a>
-                <a href="#kids-games" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Kids Games</a>
-                <a href="#tools" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Tools</a>
-                <a href="#mcp" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">MCP Servers</a>
-                <a href="#skills" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">OpenClaw Skills</a>
-                <a href="#themes" class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Themes</a>
+                <a href="#ebooks" data-nav class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Products</a>
+                <a href="#kids-games" data-nav class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Kids Games</a>
+                <a href="#tools" data-nav class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Tools</a>
+                <a href="#mcp" data-nav class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">MCP Servers</a>
+                <a href="#skills" data-nav class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">OpenClaw Skills</a>
+                <a href="#themes" data-nav class="hover:text-paper hover:bg-dark px-2 py-1 transition-colors border-2 border-transparent hover:border-dark rounded-full">Themes</a>
             </div>
         </nav>
 
@@ -512,5 +512,42 @@
 
     </main>
 
+        <script>
+        (function(){
+            const navLinks = document.querySelectorAll('a[data-nav]');
+            const sections = [];
+            navLinks.forEach(function(link){
+                const id = link.getAttribute('href').slice(1);
+                const sec = document.getElementById(id);
+                if(sec) sections.push({id:id, el:sec, link:link});
+            });
+
+            function activate(id){
+                navLinks.forEach(function(l){
+                    if(l.getAttribute('href') === '#'+id){
+                        l.classList.add('bg-dark','text-paper','border-dark');
+                    } else {
+                        l.classList.remove('bg-dark','text-paper','border-dark');
+                    }
+                });
+                // scroll nav to keep active link visible
+                var active = document.querySelector('a[data-nav].bg-dark');
+                if(active) active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+            }
+
+            var current = sections[0] ? sections[0].id : '';
+            var observer = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if(entry.isIntersecting){
+                        current = entry.target.id;
+                    }
+                });
+                activate(current);
+            }, {rootMargin:'-53px 0px -60% 0px', threshold:0});
+
+            sections.forEach(function(s){ observer.observe(s.el); });
+            if(sections[0]) activate(sections[0].id);
+        })();
+        </script>
 </body></html>
 <!-- deployed 20260324215751 -->
