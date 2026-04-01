@@ -155,8 +155,14 @@
                     </article>
                     <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
                         <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">raisingpixels.dev</h3>
-                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Substack newsletter on raising kids who build with technology.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
+                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Teaching kids to think like builders. Computational thinking, hands-on projects, and raising the next generation of makers.</p>
+                        <form class="mt-auto" action="https://raisingpixels.substack.com/api/v1/free" method="POST" target="_blank">
+                            <div class="flex gap-1">
+                                <input type="email" name="email" placeholder="your@email.com" required class="flex-grow font-mono text-[11px] px-2 py-1.5 border-2 border-dark bg-white focus:border-accent focus:outline-none">
+                                <button type="submit" class="btn-link btn-primary text-[10px] sm:text-xs whitespace-nowrap">Subscribe</button>
+                            </div>
+                        </form>
+                        <div class="flex flex-wrap gap-2 mt-3">
                             <a href="https://raisingpixels.dev" class="btn-link btn-primary text-[10px] sm:text-xs">Read ↗</a>
                         </div>
                     </article>
@@ -178,12 +184,12 @@
                     <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Kids Educational Games</h2>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
-                    <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
-                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">airplanes.games</h3>
-                        <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Pattern recognition, logic, counting, and problem solving games for ages 3-5.</p>
+                    <article class="bg-dark text-paper p-6 flex flex-col h-full hover:bg-[#1a1a1a] transition-colors group border-2 border-transparent hover:border-accent">
+                        <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 text-accent break-words">airplanes.games</h3>
+                        <p class="font-serif text-sm text-gray-300 leading-snug flex-grow mb-6">Pattern recognition, logic, counting, and problem solving games for ages 3-5.</p>
                         <div class="flex flex-wrap gap-2 mt-auto">
-                            <a href="https://airplanes.games" class="btn-link btn-primary text-[10px] sm:text-xs">Play ↗</a>
-                            <a href="https://github.com/meimakes/airplanes.games" class="btn-link text-[10px] sm:text-xs">GitHub</a>
+                            <a href="https://airplanes.games" class="btn-link btn-accent text-[10px] sm:text-xs">Play ↗</a>
+                            <a href="https://github.com/meimakes/airplanes.games" class="btn-link border-paper text-paper hover:bg-paper hover:text-dark text-[10px] sm:text-xs">GitHub</a>
                         </div>
                     </article>
                     <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
