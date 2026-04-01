@@ -520,11 +520,12 @@
 
         <script>
         (function(){
-            const navLinks = document.querySelectorAll('a[data-nav]');
-            const sections = [];
+            var navLinks = document.querySelectorAll('a[data-nav]');
+            var navWrap = navLinks[0] ? navLinks[0].parentElement : null;
+            var sections = [];
             navLinks.forEach(function(link){
-                const id = link.getAttribute('href').slice(1);
-                const sec = document.getElementById(id);
+                var id = link.getAttribute('href').slice(1);
+                var sec = document.getElementById(id);
                 if(sec) sections.push({id:id, el:sec, link:link});
             });
 
@@ -532,21 +533,22 @@
                 navLinks.forEach(function(l){
                     if(l.getAttribute('href') === '#'+id){
                         l.classList.add('bg-dark','text-paper','border-dark');
+                        // scroll only the nav bar horizontally, not the page
+                        if(navWrap){
+                            var nl = l.offsetLeft - navWrap.offsetLeft;
+                            var center = nl - navWrap.clientWidth/2 + l.offsetWidth/2;
+                            navWrap.scrollTo({left:center, behavior:'smooth'});
+                        }
                     } else {
                         l.classList.remove('bg-dark','text-paper','border-dark');
                     }
                 });
-                // scroll nav to keep active link visible
-                var active = document.querySelector('a[data-nav].bg-dark');
-                if(active) active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
             }
 
             var current = sections[0] ? sections[0].id : '';
             var observer = new IntersectionObserver(function(entries){
                 entries.forEach(function(entry){
-                    if(entry.isIntersecting){
-                        current = entry.target.id;
-                    }
+                    if(entry.isIntersecting) current = entry.target.id;
                 });
                 activate(current);
             }, {rootMargin:'-53px 0px -60% 0px', threshold:0});
