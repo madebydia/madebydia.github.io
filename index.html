@@ -141,6 +141,11 @@
         .link-block:last-child { border-bottom: none; }
         .link-block .subscribe-input::placeholder { color: inherit; opacity: 0.5; }
         .link-block:hover .subscribe-input::placeholder { color: var(--bg); opacity: 0.5; }
+        .link-block:hover .subscribe-btn { background: var(--bg); color: var(--teal); border-color: var(--bg); }
+        @media (prefers-color-scheme: dark) {
+            .subscribe-btn { background: #E8E3DA; color: #121212; border-color: #E8E3DA; }
+            .link-block:hover .subscribe-btn { background: #0A0A0A; color: var(--teal); border-color: #0A0A0A; }
+        }
 
         /* Teal hover for newsletter, coral for book */
         .link-block.newsletter:hover { background-color: var(--teal); color: var(--bg); }
@@ -242,17 +247,18 @@
                         outline:none;
                         letter-spacing:0.02em;
                     ">
-                    <button type="submit" style="
+                    <button type="submit" class="subscribe-btn" style="
                         font-family:var(--font-display);
                         font-size:18px;
                         text-transform:uppercase;
                         padding:0.6rem 1.25rem;
-                        border:var(--border-width) solid currentColor;
-                        background:currentColor;
+                        border:var(--border-width) solid #121212;
+                        background:#121212;
+                        color:#F7F7F5;
                         cursor:pointer;
                         white-space:nowrap;
                         letter-spacing:0.02em;
-                    "><span style="color:var(--bg);">SUBSCRIBE</span></button>
+                    ">SUBSCRIBE</button>
                 </form>
             </div>
 
