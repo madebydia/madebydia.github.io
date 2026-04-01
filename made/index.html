@@ -529,11 +529,13 @@
                 if(sec) sections.push({id:id, el:sec, link:link});
             });
 
+            var activeId = '';
             function activate(id){
+                if(id === activeId) return;
+                activeId = id;
                 navLinks.forEach(function(l){
                     if(l.getAttribute('href') === '#'+id){
                         l.classList.add('bg-dark','text-paper','border-dark');
-                        // scroll only the nav bar horizontally, not the page
                         if(navWrap){
                             var nl = l.offsetLeft - navWrap.offsetLeft;
                             var center = nl - navWrap.clientWidth/2 + l.offsetWidth/2;
@@ -545,16 +547,26 @@
                 });
             }
 
-            var current = sections[0] ? sections[0].id : '';
-            var observer = new IntersectionObserver(function(entries){
-                entries.forEach(function(entry){
-                    if(entry.isIntersecting) current = entry.target.id;
+            // Scroll-position based: find the last section whose top has
+            // scrolled past the nav bar. Simple, no boundary flicker.
+            var navH = 60;
+            var ticking = false;
+            function onScroll(){
+                if(ticking) return;
+                ticking = true;
+                requestAnimationFrame(function(){
+                    var best = sections[0] ? sections[0].id : '';
+                    for(var i = 0; i < sections.length; i++){
+                        if(sections[i].el.getBoundingClientRect().top <= navH + 2){
+                            best = sections[i].id;
+                        }
+                    }
+                    activate(best);
+                    ticking = false;
                 });
-                activate(current);
-            }, {rootMargin:'-53px 0px -60% 0px', threshold:0});
-
-            sections.forEach(function(s){ observer.observe(s.el); });
-            if(sections[0]) activate(sections[0].id);
+            }
+            window.addEventListener('scroll', onScroll, {passive:true});
+            onScroll();
         })();
         </script>
 </body></html>
