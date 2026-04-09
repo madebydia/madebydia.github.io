@@ -2,7 +2,7 @@
 
 Personal homepage for [meimakes.com](https://meimakes.com) — editorial landing page for Raising Pixels and Build With Your Kid.
 
-Built by [@meimakes](https://x.com/meimakes)
+Built by [@meimakes](https://x.com/intent/user?screen_name=meimakes)
 
 ## Design
 
