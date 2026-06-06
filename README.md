@@ -1,14 +1,14 @@
-# meimakes.com
+# madebydia.com
 
-Personal homepage for [meimakes.com](https://meimakes.com) — editorial landing page for Raising Pixels and Build With Your Kid.
+Personal homepage for [madebydia.com](https://madebydia.com) — editorial landing page for Raising Pixels and Build With Your Kid.
 
-Built by [@meimakes](https://x.com/intent/user?screen_name=meimakes)
+Built by [@madebydia](https://x.com/intent/user?screen_name=madebydia)
 
 ## Design
 
 Editorial split-screen layout inspired by magazine covers and brutalist web design.
 
-- **Left panel** (sticky on desktop) — MEI MAKES in Anton display font, bio in Newsreader serif, profile photo, social links
+- **Left panel** (sticky on desktop) — MADE BY DIA in Anton display font, bio in Newsreader serif, profile photo, social links
 - **Right panel** — Two full-height link blocks for Raising Pixels (newsletter) and Build With Your Kid (book & curriculum)
 - **Hover states** — RP block fills teal, BWYK block fills coral
 - **Dark mode** via `prefers-color-scheme` — muted titles, dimmed photo, warm tones
