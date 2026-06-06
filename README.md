@@ -10,11 +10,11 @@ Editorial split-screen layout inspired by magazine covers and brutalist web desi
 
 - **Left panel** (sticky on desktop) — MADE BY DIA in Anton display font, bio in Newsreader serif, profile photo, social links
 - **Right panel** — Two full-height link blocks for Raising Pixels (newsletter) and Build With Your Kid (book & curriculum)
-- **Hover states** — RP block fills teal, BWYK block fills coral
+- **Hover states** — RP block fills sea-glass, BWYK block fills clay
 - **Dark mode** via `prefers-color-scheme` — muted titles, dimmed photo, warm tones
 - **Mobile** — stacks vertically with cropped landscape photo strip matching desktop crop
 - **Fonts** — Anton (display), Newsreader (bio), Inter (body)
-- **Colors** — coral `#FF4858`, teal `#14B9A7`, ink `#0A0A0A`, bg `#F7F7F5`
+- **Colors** — clay `#C56F45`, sea-glass `#3E9D96`, ink `#0A0A0A`, bg `#F7F7F5`
 
 ## Tech
 
@@ -27,7 +27,7 @@ Editorial split-screen layout inspired by magazine covers and brutalist web desi
 ## Files
 
 - `index.html` — the whole site
-- `og.png` — Open Graph image (1200×630, coral bg + Anton type + profile)
+- `og.png` — Open Graph image (1200×630, clay bg + Anton type + profile)
 - `profile.png` — avatar
 - `rp-logo.png` — Raising Pixels logo
 - `bwyk-logo.png` — Build With Your Kid logo
