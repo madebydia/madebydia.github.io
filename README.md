@@ -14,7 +14,7 @@ Editorial split-screen layout inspired by magazine covers and brutalist web desi
 - **Dark mode** via `prefers-color-scheme` — muted titles, dimmed photo, warm tones
 - **Mobile** — stacks vertically with cropped landscape photo strip matching desktop crop
 - **Fonts** — Anton (display), Newsreader (bio), Inter (body)
-- **Colors** — sunlit yellow `#E8E0A8`, shadow teal `#508088`, ink `#0A0A0A`, bg `#F7F7F5`
+- **Colors** — Build With Your Kid yellow `#facc15`, Raising Pixels teal `#14B9A7`, ink `#0A0A0A`, bg `#F7F7F5`
 
 ## Tech
 

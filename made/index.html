@@ -21,7 +21,7 @@
             theme: {
                 extend: {
                     colors: {
-                        accent: '#508088',
+                        accent: '#14B9A7',
                         dark: '#121212',
                         paper: '#F7F7F5',
                         'paper-alt': '#EFEFE9',
@@ -40,7 +40,7 @@
     </script>
     <style>
         body {
-            background-color: #121212;
+            background-color: #14B9A7;
             color: #121212;
             -webkit-font-smoothing: antialiased;
         }
@@ -73,8 +73,8 @@
             color: #121212;
         }
         .btn-accent {
-            background-color: #E8E0A8;
-            border-color: #E8E0A8;
+            background-color: #facc15;
+            border-color: #facc15;
             color: #121212;
         }
         .btn-accent:hover {
@@ -107,7 +107,7 @@
 </head>
 <body class="w-full h-full min-h-screen">
 
-    <main class="w-full flex flex-col gap-gap-border bg-dark">
+    <main class="w-full flex flex-col gap-gap-border bg-accent">
 
         <!-- Header -->
         <header class="w-full bg-paper p-6 flex justify-between items-center">
@@ -137,15 +137,15 @@
             </div>
         </nav>
 
-        <div class="w-full bg-dark flex flex-col gap-gap-border">
+        <div class="w-full bg-accent flex flex-col gap-gap-border">
 
             <!-- Kids Educational Games -->
             <section id="ebooks" class="flex flex-col gap-gap-border scroll-mt-[52px]">
                 <div class="bg-paper p-6 md:p-8 flex items-center gap-4">
-                    <div class="section-number" style="border-color:#508088;color:#508088">01</div>
+                    <div class="section-number" style="border-color:#14B9A7;color:#14B9A7">01</div>
                     <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Products</h2>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-accent">
                     <article class="bg-dark text-paper p-6 flex flex-col h-full hover:bg-[#1a1a1a] transition-colors group border-2 border-transparent hover:border-accent">
                         <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 text-accent break-words">buildwithyourkid.com</h3>
                         <p class="font-serif text-sm text-gray-300 leading-snug flex-grow mb-6">"12 Weeks of Tech Projects to Build With Your Kid." Ebook + prompt pack + printables.</p>
@@ -183,7 +183,7 @@
                     <div class="section-number">02</div>
                     <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Kids Educational Games</h2>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-accent">
                     <article class="bg-dark text-paper p-6 flex flex-col h-full hover:bg-[#1a1a1a] transition-colors group border-2 border-transparent hover:border-accent">
                         <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 text-accent break-words">airplanes.games</h3>
                         <p class="font-serif text-sm text-gray-300 leading-snug flex-grow mb-6">Pattern recognition, logic, counting, and problem solving games for ages 3-5.</p>
@@ -273,7 +273,7 @@
                     <div class="section-number">03</div>
                     <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Tools & Utilities</h2>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-accent">
                     <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
                         <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">chomp</h3>
                         <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Nutrition tracking CLI in Rust. Local SQLite database, MCP server for AI agents.</p>
@@ -356,10 +356,10 @@
             <!-- MCP Servers -->
             <section id="mcp" class="flex flex-col gap-gap-border scroll-mt-[52px]">
                 <div class="bg-paper p-6 md:p-8 flex items-center gap-4">
-                    <div class="section-number" style="border-color:#508088;color:#508088">04</div>
+                    <div class="section-number" style="border-color:#14B9A7;color:#14B9A7">04</div>
                     <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">MCP Servers</h2>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-accent">
                     <article class="bg-dark text-paper p-6 flex flex-col h-full hover:bg-[#1a1a1a] transition-colors group border-2 border-transparent hover:border-accent">
                         <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 text-accent break-words">makemcp.dev</h3>
                         <p class="font-serif text-sm text-gray-300 leading-snug flex-grow mb-6">Hub page for all MCP servers. Install instructions and docs.</p>
@@ -419,7 +419,7 @@
                     <div class="section-number">05</div>
                     <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">OpenClaw Skills</h2>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-accent">
                     <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
                         <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">xqueue</h3>
                         <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">File-based X/Twitter post scheduler. Your filesystem is the UI.</p>
@@ -485,7 +485,7 @@
                     <div class="section-number">06</div>
                     <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tighter pt-1 leading-none">Hugo Themes</h2>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-dark">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gap-border bg-accent">
                     <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
                         <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">vintage-web-hugo-theme</h3>
                         <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Late 90s/early 2000s web nostalgia. 20+ stars.</p>
