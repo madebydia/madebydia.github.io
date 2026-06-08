@@ -22,10 +22,9 @@
 
 ## Web Tools
 
-- [Toddler Activity Finder](https://mama.dev/toddler-activity-finder/): Search engine for age-appropriate activities.
 - [Carnivore Calculator](https://calculator.thecarnivoremama.com/): TDEE and macro calculator for carnivore diet.
 - [What to Eat](https://mama.dev/what-to-eat/): Meal decision helper.
-- [Tiny Terminal](https://mama.dev/tiny-terminal/): Terminal-themed web toy.
+- [Tiny Terminal](https://tiny-terminal.com): Terminal-themed web toy.
 - [Word Train](https://mama.dev/word-train/): Early reading game for toddlers.
 - [Shapes](https://mama.dev/shapes/): Interactive shape playground for kids.
 
