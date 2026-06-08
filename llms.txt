@@ -1,6 +1,6 @@
 # madebydia.com
 
-> Diana Park — indie builder, former engineering director, homeschool mom. Ships open source tools, MCP servers, and a newsletter about raising builders.
+> Diana — indie builder, former engineering director, homeschool mom. Ships open source tools, MCP servers, and a newsletter about raising builders.
 
 ## Newsletter
 
