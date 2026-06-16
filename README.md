@@ -1,35 +1,37 @@
 # madebydia.com
 
-Personal homepage for [madebydia.com](https://madebydia.com) — editorial landing page for Raising Pixels and Build With Your Kid.
+Personal homepage and project index for [madebydia.com](https://madebydia.com).
 
-Built by [@madebydia](https://x.com/intent/user?screen_name=madebydia)
+Built by [Diana Park](https://x.com/intent/user?screen_name=madebydia).
 
-## Design
+## Pages
 
-Editorial split-screen layout inspired by magazine covers and brutalist web design.
+- `index.html` — editorial homepage for Diana Park, Raising Pixels, and Build With Your Kid
+- `made/index.html` — public project index for products, kid games, tools, MCP servers, OpenClaw skills, and themes
+- `llms.txt` — LLM-readable summary of Diana's current projects and links
 
-- **Left panel** (sticky on desktop) — MADE BY DIA in Anton display font, bio in Newsreader serif, profile photo, social links
-- **Right panel** — Two full-height link blocks for Raising Pixels (newsletter) and Build With Your Kid (book & curriculum)
-- **Hover states** — RP block fills shadow teal, BWYK block fills sunlit yellow
-- **Dark mode** via `prefers-color-scheme` — muted titles, dimmed photo, warm tones
-- **Mobile** — stacks vertically with cropped landscape photo strip matching desktop crop
-- **Fonts** — Anton (display), Newsreader (bio), Inter (body)
-- **Colors** — Build With Your Kid yellow `#facc15`, Raising Pixels teal `#14B9A7`, ink `#0A0A0A`, bg `#F7F7F5`
+## Current Featured Projects
+
+- [Raising Pixels](https://raisingpixels.dev) — parent-dev writing and resources for teaching kids to think like builders
+- [Build With Your Kid](https://buildwithyourkid.com) — 12-week computational thinking curriculum for ages 2-6
+- [Good Default](https://gooddefault.com) — searchable household defaults and product notes for safer swaps
+- [Toddler Labs](https://toddlerlabs.com) — activity finder for toddler play and learning
+- [MakeMCP](https://makemcp.dev) — hub for Diana's MCP servers
 
 ## Tech
 
-- Single HTML file, no build step, no dependencies beyond Google Fonts
-- JSON-LD Person schema + `llms.txt` for LLM discovery
-- Open Graph + Twitter Card meta with `og.png`
-- Plausible analytics (privacy-friendly, no cookies)
-- GitHub Pages on branch `mein`
+- Static HTML, no build step
+- Tailwind CDN on `/made`
+- Google Fonts
+- JSON-LD Person schema
+- Open Graph and Twitter Card meta with `og.png`
+- Plausible analytics
+- GitHub Pages
 
-## Files
+## Assets
 
-- `index.html` — the whole site
-- `og.png` — Open Graph image (1200×630, sunlit yellow bg + Anton type + profile)
+- `og.png` — Open Graph image
 - `profile.png` — avatar
 - `rp-logo.png` — Raising Pixels logo
 - `bwyk-logo.png` — Build With Your Kid logo
-- `favicon.ico` / `favicon-*.png` / `apple-touch-icon.png` — favicons
-- `llms.txt` — LLM-readable site summary
+- `favicon.ico`, `favicon-*.png`, `apple-touch-icon.png` — favicons
