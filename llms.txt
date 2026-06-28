@@ -4,7 +4,7 @@
 
 ## Primary Sites
 
-- [Raising Pixels](https://raisingpixels.dev): Parent-dev writing and resources for teaching kids to think like builders. The newsletter lives at [blog.raisingpixels.dev](https://blog.raisingpixels.dev).
+- [Raising Pixels](https://raisingpixels.dev): Parent-dev writing and resources for teaching kids to think like builders.
 - [Build With Your Kid](https://buildwithyourkid.com): 12-week computational thinking curriculum for ages 2-6.
 - [Good Default](https://gooddefault.com): Searchable household defaults and product notes for safer swaps without sponsored placements.
 - [Toddler Labs](https://toddlerlabs.com): Toddler activity finder with filters for materials, benefits, time, and messiness.

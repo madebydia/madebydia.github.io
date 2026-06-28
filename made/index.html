@@ -156,12 +156,13 @@
                     <article class="bg-paper p-6 flex flex-col h-full hover:bg-paper-alt transition-colors group">
                         <h3 class="font-mono text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-accent transition-colors break-words">raisingpixels.dev</h3>
                         <p class="font-serif text-sm text-gray-700 leading-snug flex-grow mb-6">Parent-dev writing and resources for teaching kids to think like builders. Computational thinking, AI at home, and hands-on projects.</p>
-                        <form class="mt-auto" action="https://blog.raisingpixels.dev/api/v1/free" method="POST" target="_blank">
+                        <form class="mt-auto" data-rp-subscribe data-rp-source="madebydia-made">
                             <div class="flex gap-1">
                                 <input type="email" name="email" placeholder="your@email.com" required class="flex-grow font-mono text-[11px] px-2 py-1.5 border-2 border-dark bg-white focus:border-accent focus:outline-none">
                                 <button type="submit" class="btn-link btn-primary text-[10px] sm:text-xs whitespace-nowrap">Subscribe</button>
                             </div>
                         </form>
+                        <p data-rp-subscribe-status class="font-serif text-xs text-gray-600 mt-2 min-h-[1rem]"></p>
                         <div class="flex flex-wrap gap-2 mt-3">
                             <a href="https://raisingpixels.dev" class="btn-link btn-primary text-[10px] sm:text-xs">Read ↗</a>
                         </div>
@@ -597,6 +598,43 @@
             window.addEventListener('scroll', onScroll, {passive:true});
             onScroll();
         })();
+
+        document.querySelectorAll('[data-rp-subscribe]').forEach(function(form) {
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const status = form.parentElement.querySelector('[data-rp-subscribe-status]');
+                const button = form.querySelector('button[type="submit"]');
+                const email = form.email.value.trim();
+                if (!email) return;
+
+                button.disabled = true;
+                button.textContent = 'Sending';
+                if (status) status.textContent = '';
+
+                try {
+                    const response = await fetch('https://raisingpixels.dev/api/subscribe', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            email,
+                            source: form.dataset.rpSource || 'madebydia-made',
+                            current_url: window.location.href,
+                            current_referrer: document.referrer || ''
+                        })
+                    });
+                    const payload = await response.json().catch(function() { return {}; });
+                    if (!response.ok) throw new Error(payload.error || 'Something went wrong.');
+
+                    form.email.value = '';
+                    button.textContent = 'Subscribed';
+                    if (status) status.textContent = "You're in — check your inbox for a welcome email.";
+                } catch (error) {
+                    button.disabled = false;
+                    button.textContent = 'Subscribe';
+                    if (status) status.textContent = error.message || 'Something went wrong. Please try again.';
+                }
+            });
+        });
         </script>
 </body></html>
 <!-- deployed 20260324215751 -->

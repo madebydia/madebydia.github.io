@@ -234,7 +234,7 @@
                         </svg>
                     </div>
                 </a>
-                <form action="https://blog.raisingpixels.dev/api/v1/free" method="POST" target="_blank" onclick="event.stopPropagation();" style="display:flex;align-items:stretch;gap:0;width:100%;max-width:420px;">
+                <form data-rp-subscribe data-rp-source="madebydia-home" onclick="event.stopPropagation();" style="display:flex;align-items:stretch;gap:0;width:100%;max-width:420px;">
                     <input type="email" name="email" placeholder="your@email.com" required class="subscribe-input" style="
                         flex-grow:1;
                         font-family:var(--font-display);
@@ -261,6 +261,7 @@
                         letter-spacing:0.02em;
                     ">SUBSCRIBE</button>
                 </form>
+                <p data-rp-subscribe-status style="font-size:13px;min-height:1.2em;margin:0.6rem 0 0;font-family:var(--font-sans);"></p>
             </div>
 
             <a href="https://buildwithyourkid.com" class="link-block book">
@@ -280,5 +281,43 @@
             </a>
         </section>
     </main>
+    <script>
+        document.querySelectorAll('[data-rp-subscribe]').forEach(function(form) {
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const status = form.parentElement.querySelector('[data-rp-subscribe-status]');
+                const button = form.querySelector('button[type="submit"]');
+                const email = form.email.value.trim();
+                if (!email) return;
+
+                button.disabled = true;
+                button.textContent = 'SENDING';
+                if (status) status.textContent = '';
+
+                try {
+                    const response = await fetch('https://raisingpixels.dev/api/subscribe', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            email,
+                            source: form.dataset.rpSource || 'madebydia',
+                            current_url: window.location.href,
+                            current_referrer: document.referrer || ''
+                        })
+                    });
+                    const payload = await response.json().catch(function() { return {}; });
+                    if (!response.ok) throw new Error(payload.error || 'Something went wrong.');
+
+                    form.email.value = '';
+                    button.textContent = 'SUBSCRIBED';
+                    if (status) status.textContent = "You're in — check your inbox for a welcome email.";
+                } catch (error) {
+                    button.disabled = false;
+                    button.textContent = 'SUBSCRIBE';
+                    if (status) status.textContent = error.message || 'Something went wrong. Please try again.';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
