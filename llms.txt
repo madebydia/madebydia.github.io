@@ -1,59 +1,15 @@
 # madebydia.com
 
-> Diana Park — indie builder, former engineering director, homeschool mom. Ships kid learning projects, product sites, MCP servers, developer tools, and AI-agent skills.
+> Diana Park — former software engineering director, indie builder, and homeschool mom.
 
-## Primary Sites
+madebydia.com is a concise identity and domain landing page.
 
-- [Raising Pixels](https://raisingpixels.dev): Parent-dev writing and resources for teaching kids to think like builders.
-- [Build With Your Kid](https://buildwithyourkid.com): 12-week computational thinking curriculum for ages 2-6.
-- [Good Default](https://gooddefault.com): Searchable household defaults and product notes for safer swaps without sponsored placements.
-- [Toddler Labs](https://toddlerlabs.com): Toddler activity finder with filters for materials, benefits, time, and messiness.
-- [MakeMCP](https://makemcp.dev): Hub for Diana's MCP servers.
+## Primary Links
 
-## Products And Tools
-
-- [12 Weeks of Tech Projects to Build With Your Kid](https://buildwithyourkid.com): Hands-on computational thinking curriculum for parents and young kids.
-- [Good Default Catalog](https://gooddefault.com/catalog.html): Household product catalog seeded from Diana's research.
-- [Meat Math](https://meatmath.thecarnivoremama.com/): Protein-first meat calculator for busy people.
-- [Carnivore Calculator](https://calculator.thecarnivoremama.com/): Protein-based meat intake calculator.
-- [TDEE](https://tdee.thecarnivoremama.com): Total Daily Energy Expenditure calculator.
-- [Tiny Terminal](https://tiny-terminal.com): Terminal-themed web toy for kids.
-- [Airplanes Games](https://airplanes.games): Pattern recognition, logic, counting, and problem-solving games for ages 3-5.
-- [Word Train](https://mama.dev/word-train/): Early reading game for toddlers.
-- [Shapes](https://mama.dev/shapes/): Interactive shape playground for kids.
-
-## Open Source
-
-- [chomp](https://github.com/madebydia/chomp): Rust CLI and MCP server for food and macro tracking.
-- [codesnap](https://github.com/madebydia/codesnap): Code screenshots from the terminal.
-- [remember-scroll-position](https://github.com/madebydia/remember-scroll-position): Obsidian plugin that restores scroll position per file.
-- [obsidian-rainbow-csv](https://github.com/madebydia/obsidian-rainbow-csv): Rainbow CSV syntax highlighting and spreadsheet table preview for Obsidian.
-- [obsidian-retro-terminal-theme](https://github.com/madebydia/obsidian-retro-terminal-theme): Retro terminal theme for Obsidian.
-- [gooddefault.com](https://github.com/madebydia/gooddefault.com): Static Good Default site and catalog.
-- [toddlerlabs.com](https://github.com/madebydia/toddlerlabs.com): Toddler activity finder.
-
-## MCP Servers
-
-- [oura-mcp-server](https://github.com/madebydia/oura-mcp-server): Oura Ring sleep, readiness, and heart rate data.
-- [hevy-mcp-server](https://github.com/madebydia/hevy-mcp-server): Hevy workout history, PRs, and exercises.
-- [strava-mcp-server](https://github.com/madebydia/strava-mcp-server): Strava activities, stats, and training data.
-- [amazon-mcp-server](https://github.com/madebydia/amazon-mcp-server): Amazon search, cart, and order history.
-- [apple-mcp-server](https://github.com/madebydia/apple-mcp-server): Native macOS Apple Reminders access through EventKit.
-- [obsidian-mcp](https://github.com/madebydia/obsidian-mcp): Read, write, and search an Obsidian vault without plugins.
-- [fatsecret-mcp](https://github.com/madebydia/fatsecret-mcp): FatSecret Platform API MCP server with OAuth 1.0a user auth.
-- [pokeclaw](https://github.com/madebydia/pokeclaw): MCP server for spawning and controlling Codex CLI and Claude Code sessions.
-
-## AI-Agent Skills
-
-- [xqueue](https://github.com/madebydia/xqueue): File-based X/Twitter post scheduler.
-- [metacognition](https://github.com/madebydia/metacognition): Self-reflection engine for AI agents.
-- [daily-memory-save](https://github.com/madebydia/daily-memory-save): Dual-layer persistent memory system for AI agents.
-- [archive-daily-note](https://github.com/madebydia/archive-daily-note): Archives yesterday's Obsidian daily note.
-- [deep-current](https://github.com/madebydia/deep-current): Research thread manager.
-- [gmail-no-send](https://github.com/madebydia/gmail-no-send): Drafts-only Gmail client.
-- [nag](https://github.com/madebydia/nag): Persistent reminders that escalate until confirmed.
+- [Raising Pixels](https://raisingpixels.dev): Writing and resources for parents teaching kids to think like builders.
+- [Build With Your Kid](https://buildwithyourkid.com): Hands-on computational thinking curriculum for parents and children ages 2–6.
 
 ## Social
 
-- X/Twitter: [@madebydia](https://x.com/intent/user?screen_name=madebydia)
-- GitHub: [madebydia](https://github.com/madebydia)
+- [GitHub](https://github.com/madebydia)
+- [X / @madebydia](https://x.com/intent/user?screen_name=madebydia)

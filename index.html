@@ -1,322 +1,1108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>made by dia</title>
-    <meta name="description" content="A newsletter and a book for parents raising builders.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>made by dia — Diana Park</title>
+  <meta name="description" content="Diana Park builds curriculum, open-source tools, and small software for parents raising kids who make things.">
+  <meta name="author" content="Diana Park">
+  <link rel="canonical" href="https://madebydia.com">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="made by dia">
-    <meta property="og:description" content="A newsletter and a book for parents raising builders.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://madebydia.com">
-    <meta property="og:image" content="https://madebydia.com/og.png">
-    <meta property="og:site_name" content="made by dia">
+  <meta property="og:title" content="made by dia — Diana Park">
+  <meta property="og:description" content="Curriculum, open-source tools, and small software for parents raising kids who make things.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madebydia.com">
+  <meta property="og:image" content="https://madebydia.com/og.png">
+  <meta property="og:site_name" content="made by dia">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@madebydia">
-    <meta name="twitter:title" content="made by dia">
-    <meta name="twitter:description" content="A newsletter and a book for parents raising builders.">
-    <meta name="twitter:image" content="https://madebydia.com/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@madebydia">
+  <meta name="twitter:title" content="made by dia — Diana Park">
+  <meta name="twitter:description" content="Curriculum, open-source tools, and small software for parents raising kids who make things.">
+  <meta name="twitter:image" content="https://madebydia.com/og.png">
 
-    <!-- LLM Discovery -->
-    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM metadata">
-    <meta name="author" content="Diana Park">
-    <meta name="keywords" content="indie builder, solo dev, newsletters, computational thinking, AI-assisted learning, parenting, open source, MCP servers">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM metadata">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Diana Park",
-      "alternateName": "madebydia",
-      "url": "https://madebydia.com",
-      "image": "https://madebydia.com/profile.png?v=20260629",
-      "sameAs": [
-        "https://github.com/madebydia",
-        "https://x.com/madebydia",
-        "https://raisingpixels.dev",
-        "https://buildwithyourkid.com",
-        "https://gooddefault.com"
-      ],
-      "jobTitle": "Builder",
-      "description": "MS Computer Science. Former engineering director turned stay-at-home mom. Writes Raising Pixels, authored 12 Weeks of Tech Projects to Build With Your Kid, and ships open-source tools, MCP servers, and small web projects.",
-      "knowsAbout": ["AI agents", "MCP servers", "computational thinking", "early childhood education", "indie software", "open source"],
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://madebydia.com"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Diana Park",
+    "alternateName": "madebydia",
+    "url": "https://madebydia.com",
+    "image": "https://madebydia.com/profile.png?v=20260813-transparent",
+    "sameAs": [
+      "https://github.com/madebydia",
+      "https://x.com/madebydia",
+      "https://raisingpixels.dev",
+      "https://buildwithyourkid.com",
+      "https://gooddefault.com"
+    ],
+    "jobTitle": "Builder",
+    "description": "MS Computer Science. Former engineering director turned stay-at-home mom building curriculum, open-source tools, and software for families.",
+    "knowsAbout": ["computational thinking", "early childhood education", "AI agents", "MCP servers", "open source", "indie software"]
+  }
+  </script>
+
+  <script async src="https://plausible.io/js/pa-vkT-mE7KvnPcXlh6uLTk8.js"></script>
+  <script>
+    window.plausible = window.plausible || function () {
+      (plausible.q = plausible.q || []).push(arguments);
+    };
+    plausible.init = plausible.init || function (options) { plausible.o = options || {}; };
+    plausible.init();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Permanent+Marker&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f4f2;
+      --paper-deep: #e8e8e4;
+      --ink: #261f1b;
+      --brown: #704938;
+      --warm: #d99a70;
+      --warm-soft: #f0ddca;
+      --accent: #2f6684;
+      --accent-fill: #2f6684;
+      --accent-soft: #dce9ed;
+      --white: #fffdf8;
+      --muted: #726257;
+      --on-accent: #fffdf8;
+      --paper-panel: rgba(255, 253, 248, 0.42);
+      --section-wash: rgba(255, 253, 248, 0.55);
+      --note-bg: rgba(255, 253, 248, 0.94);
+      --note-border: rgba(112, 73, 56, 0.5);
+      --portrait-border: #9b7964;
+      --portrait-back-border: #9ebbc7;
+      --field-border: #9ebbc7;
+      --texture-strong: rgba(38, 31, 27, 0.11);
+      --texture-soft: rgba(38, 31, 27, 0.065);
+      --texture-streak: rgba(38, 31, 27, 0.022);
+      --line: 1px solid #9c897b;
+      --shadow: 0 12px 30px rgba(49, 36, 28, 0.08);
+      --radius: 12px;
+      --display: "Bricolage Grotesque", sans-serif;
+      --mono: "IBM Plex Mono", monospace;
+      --marker: "Permanent Marker", cursive;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --paper: #1d1815;
+        --paper-deep: #28211c;
+        --ink: #f5ede2;
+        --brown: #dfa982;
+        --warm: #d99a70;
+        --warm-soft: #4a3328;
+        --accent: #82b3cc;
+        --accent-fill: #315f78;
+        --accent-soft: #263d48;
+        --white: #28211c;
+        --muted: #c3b4a8;
+        --on-accent: #fffaf2;
+        --paper-panel: rgba(40, 33, 28, 0.62);
+        --section-wash: rgba(40, 33, 28, 0.7);
+        --note-bg: rgba(40, 33, 28, 0.95);
+        --note-border: rgba(223, 169, 130, 0.52);
+        --portrait-border: #9f765e;
+        --portrait-back-border: #53798c;
+        --field-border: #567687;
+        --texture-strong: rgba(245, 237, 226, 0.075);
+        --texture-soft: rgba(245, 237, 226, 0.04);
+        --texture-streak: rgba(245, 237, 226, 0.018);
+        --line: 1px solid #6f5d51;
+        --shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
       }
     }
-    </script>
 
-    <link rel="canonical" href="https://madebydia.com">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    * {
+      box-sizing: border-box;
+    }
 
-    <!-- Privacy-friendly analytics by Plausible -->
-    <script async src="https://plausible.io/js/pa-vkT-mE7KvnPcXlh6uLTk8.js"></script>
-    <script>
-      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-      plausible.init()
-    </script>
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #F7F7F5;
-            --fg: #0A0A0A;
-            --coral: #facc15;
-            --teal: #14B9A7;
-            --border-width: 1.5px;
-            --font-display: 'Anton', sans-serif;
-            --font-serif: 'Newsreader', serif;
-            --font-sans: 'Inter', sans-serif;
-        }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        radial-gradient(circle, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 80%),
+        url("https://www.transparenttextures.com/patterns/natural-paper.png");
+      background-position: 0 0, 0 0;
+      background-size: auto, auto;
+      font-family: var(--display);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #121212;
-                --fg: #E8E3DA;
-            }
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      opacity: 0.03;
+      pointer-events: none;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAACZJREFUGFdjZEADjAyMDIwQATYmRpgAsxgjU4wRIsAoxggVYOQCAB2ZAgXm99isAAAAAElFTkSuQmCC");
+      background-repeat: repeat;
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg); color: var(--fg); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        .layout { display: grid; grid-template-columns: 40vw 1fr; min-height: 100vh; border-bottom: var(--border-width) solid var(--fg); }
-        .identity { border-right: var(--border-width) solid var(--fg); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
-        .header-bar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-bottom: var(--border-width) solid var(--fg); }
-        .monogram { width: 36px; height: 36px; border: 1px solid var(--fg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; }
-        .meta-nav { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; text-decoration: none; color: var(--fg); }
-        .meta-nav:hover { color: var(--coral); }
-        .name-container { padding: 2rem; border-bottom: var(--border-width) solid var(--fg); }
-        h1 { font-family: var(--font-display); font-size: clamp(4rem, 9vw, 12rem); line-height: 0.85; text-transform: uppercase; letter-spacing: -0.01em; color: var(--fg); }
-        .bio-image-row { display: contents; }
-        .bio-container { padding: 2rem; border-bottom: var(--border-width) solid var(--fg); }
-        .bio-overlay { display: none; }
-        .bio-text { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.4; max-width: 90%; }
-        .bio-text i { font-style: italic; }
+    a {
+      color: inherit;
+    }
 
-        /* Image fills remaining space */
-        .image-container {
-            flex-grow: 1;
-            position: relative;
-            overflow: hidden;
-            border-bottom: var(--border-width) solid var(--fg);
-        }
-        .avatar-editorial {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    button,
+    input {
+      font: inherit;
+    }
 
-        .social-row { display: flex; gap: 1.5rem; padding: 1.5rem 2rem; }
-        .social-row a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; color: var(--fg); text-decoration: none; }
-        .social-row a:hover { color: var(--coral); }
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      z-index: 100;
+      transform: translateY(-160%);
+      padding: 0.75rem 1rem;
+      border: var(--line);
+      background: var(--white);
+      font-family: var(--mono);
+      font-weight: 600;
+    }
 
-        .links { display: flex; flex-direction: column; height: 100vh; }
+    .skip-link:focus {
+      transform: translateY(0);
+    }
 
-        .link-block {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 2rem;
-            text-decoration: none;
-            color: var(--fg);
-            background-color: var(--bg);
-            border-bottom: var(--border-width) solid var(--fg);
-            transition: background-color 0.2s ease, color 0.2s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        .link-block:last-child { border-bottom: none; }
-        .link-block .subscribe-input::placeholder { color: inherit; opacity: 0.5; }
-        .link-block:hover .subscribe-input::placeholder { color: var(--bg); opacity: 0.5; }
-        .link-block:hover .subscribe-btn { background: var(--bg); color: var(--teal); border-color: var(--bg); }
-        @media (prefers-color-scheme: dark) {
-            .subscribe-btn { background: #E8E3DA; color: #121212; border-color: #E8E3DA; }
-            .link-block:hover .subscribe-btn { background: #0A0A0A; color: var(--teal); border-color: #0A0A0A; }
-        }
+    .shell {
+      width: min(1160px, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
 
-        /* Shadow-teal hover for newsletter, sunlit yellow for book */
-        .link-block.newsletter:hover { background-color: var(--teal); color: var(--bg); }
-        .link-block.newsletter:hover .hover-arrow svg { fill: var(--bg); }
-        .link-block.book:hover { background-color: var(--coral); color: #0A0A0A; }
-        .link-block.book:hover .hover-arrow svg { fill: #0A0A0A; }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 1.4rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
 
-        @media (prefers-color-scheme: dark) {
-            .link-block.newsletter:hover { color: #0A0A0A; }
-            .link-block.newsletter:hover .hover-arrow svg { fill: #0A0A0A; }
-            .link-block.book:hover { color: #0A0A0A; }
-            .link-block.book:hover .hover-arrow svg { fill: #0A0A0A; }
-            h1, h2 { color: #B8B3AA; }
-            .avatar-editorial { filter: brightness(0.75) contrast(0.9); }
-        }
+    .mark,
+    .nav-links,
+    .social-links {
+      display: flex;
+      align-items: center;
+    }
 
-        .block-header { display: flex; justify-content: space-between; align-items: flex-start; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; }
-        .system-number { border: 1px solid currentColor; padding: 2px 6px; border-radius: 20px; }
-        .block-footer { display: flex; flex-direction: column; gap: 1rem; }
-        h2 { font-family: var(--font-display); font-size: clamp(3rem, 7.5vw, 9rem); line-height: 0.85; text-transform: uppercase; letter-spacing: -0.01em; }
-        .block-desc { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.3; max-width: 80%; margin-top: -0.5rem; }
-        .hover-arrow { position: absolute; top: 4rem; right: 2rem; width: 40px; height: 40px; opacity: 0; transform: translate(-20px, 20px); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        .link-block:hover .hover-arrow { opacity: 1; transform: translate(0, 0); }
-        .hover-arrow svg { width: 100%; height: 100%; fill: var(--fg); }
+    .mark {
+      gap: 0.7rem;
+      text-decoration: none;
+    }
 
-        @media (max-width: 1024px) {
-            .layout { grid-template-columns: 1fr; }
-            .identity { position: relative; height: auto; border-right: none; border-bottom: var(--border-width) solid var(--fg); }
-            .links { height: auto; }
-            .link-block { min-height: 50vh; }
+    .mark-stamp {
+      display: grid;
+      width: 2.5rem;
+      height: 2.5rem;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 2px;
+      background: var(--warm);
+      color: var(--ink);
+      font-family: var(--marker);
+      font-size: 1.3rem;
+      line-height: 1;
+      transform: none;
+    }
 
-            .bio-image-row {
-                display: contents;
-            }
-            .image-container {
-                height: 220px;
-            }
-        }
-    </style>
+    .nav-links {
+      gap: 1.6rem;
+    }
+
+    .nav-links a,
+    .social-links a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.32em;
+    }
+
+    .nav-links a:hover,
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.75fr);
+      gap: clamp(3rem, 8vw, 7rem);
+      align-items: center;
+      min-height: 650px;
+      padding: clamp(4rem, 8vw, 6.5rem) 0 clamp(5rem, 9vw, 7rem);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow,
+    .section-label,
+    .card-kicker,
+    .credential,
+    .project-link,
+    .tiny-note {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.075em;
+      font-weight: 600;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin: 0 0 1.4rem;
+      font-size: 0.72rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 2.4rem;
+      height: 1px;
+      background: var(--warm);
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--ink);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 1.6rem;
+      font-family: var(--marker);
+      font-size: clamp(4.2rem, 9vw, 7.8rem);
+      line-height: 0.82;
+      letter-spacing: -0.045em;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .scribble {
+      color: var(--ink);
+      font-family: var(--marker);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-lede {
+      max-width: 680px;
+      margin-bottom: 1rem;
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+    }
+
+    .hero-bio {
+      max-width: 650px;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .actions,
+    .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      background: var(--accent-fill);
+      color: var(--on-accent);
+      box-shadow: none;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.045em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--ink);
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--accent);
+    }
+
+    .credentials {
+      margin-top: 1.55rem;
+    }
+
+    .credential {
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      font-size: 0.66rem;
+    }
+
+    .credential::before {
+      content: "✓";
+      display: grid;
+      width: 1.1rem;
+      height: 1.1rem;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--portrait-back-border);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.65rem;
+    }
+
+    .credential:nth-child(2)::before {
+      background: var(--accent-soft);
+    }
+
+    .credential:nth-child(3)::before {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .portrait-wrap {
+      position: relative;
+      width: min(100%, 390px);
+      justify-self: end;
+      isolation: isolate;
+    }
+
+    .portrait-wrap::before,
+    .portrait-wrap::after {
+      display: none;
+    }
+
+    .portrait-wrap::after {
+      inset: -0.45rem 1rem 0.6rem -0.45rem;
+      z-index: -1;
+      background: var(--warm-soft);
+      transform: rotate(-2deg);
+    }
+
+    .portrait {
+      position: relative;
+      overflow: visible;
+      aspect-ratio: 1;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .tape {
+      display: none;
+    }
+
+    .curve-note {
+      display: none;
+    }
+
+    .curve-note::after {
+      content: "↙";
+      display: block;
+      margin-left: 0.2rem;
+      font-size: 2.8rem;
+      line-height: 0.7;
+      transform: rotate(18deg);
+    }
+
+    .flagship-section {
+      padding-block: clamp(4.5rem, 8vw, 7rem);
+    }
+
+    .flagship-section {
+      position: relative;
+      border-top: var(--line);
+      border-bottom: 0;
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .flagship-section::before {
+      display: none;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    .section-label {
+      align-self: start;
+      padding-top: 0.65rem;
+      font-size: 0.68rem;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .section-heading h2 {
+      max-width: 820px;
+      margin-bottom: 0;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 600;
+    }
+
+    .flagship-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .feature-card {
+      min-height: 360px;
+      padding: clamp(1.6rem, 4vw, 2.7rem);
+      border: var(--line);
+      border-radius: 2px;
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .feature-card.newsletter {
+      border-top: 4px solid var(--accent);
+      background: transparent;
+      color: var(--ink);
+      transform: none;
+    }
+
+    .feature-card.newsletter .subscribe-form button {
+      background: var(--accent-fill);
+      color: var(--on-accent);
+    }
+
+    .feature-card.curriculum {
+      border-top: 4px solid var(--warm);
+      background: transparent;
+      transform: none;
+    }
+
+    .card-kicker {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      font-size: 0.68rem;
+    }
+
+    .card-kicker span:last-child {
+      white-space: nowrap;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      color: var(--ink);
+      font-family: var(--marker);
+      font-size: clamp(2.1rem, 4vw, 3.7rem);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .feature-card > p {
+      max-width: 560px;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .subscribe-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.55rem;
+      max-width: 520px;
+      margin-top: 2rem;
+    }
+
+    .subscribe-form label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .subscribe-form input,
+    .subscribe-form button {
+      min-height: 3.1rem;
+      border: 1px solid var(--field-border);
+      border-radius: 2px;
+    }
+
+    .subscribe-form input {
+      min-width: 0;
+      padding: 0 0.9rem;
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+
+    .subscribe-form button {
+      padding: 0 1rem;
+      background: var(--ink);
+      color: var(--on-accent);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .subscribe-status {
+      min-height: 1.4em;
+      margin: 0.6rem 0 0;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+    }
+
+    .feature-action {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-underline-offset: 0.36em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      padding: 2.4rem 0 3rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-top: 0;
+    }
+
+    .social-links {
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding-top: 5rem;
+      }
+
+      .portrait-wrap {
+        width: min(82%, 390px);
+        justify-self: center;
+        margin-top: 1rem;
+      }
+
+      .flagship-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(100% - 1.5rem, 1180px);
+      }
+
+      .site-nav {
+        padding-block: 1rem;
+      }
+
+      .mark-label,
+      .nav-links a:not(:last-child) {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(4.1rem, 21vw, 6.4rem);
+      }
+
+      .hero-lede {
+        font-size: 1.35rem;
+      }
+
+      .portrait-wrap {
+        width: min(90%, 350px);
+      }
+
+      .curve-note {
+        display: none;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-label {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0;
+        writing-mode: initial;
+        transform: none;
+      }
+
+      .feature-card {
+        min-height: 0;
+      }
+
+      .card-kicker {
+        margin-bottom: 2.5rem;
+      }
+
+      .subscribe-form {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (min-width: 1050px) and (max-height: 900px) and (min-aspect-ratio: 4 / 3) {
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        min-height: 100svh;
+      }
+
+      .site-nav {
+        width: 100%;
+        min-height: 4rem;
+        padding: 0.7rem 1rem;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 1.16fr) minmax(410px, 0.84fr);
+        gap: 0;
+        min-height: 0;
+        padding-inline: 0;
+        border-top: var(--line);
+        border-bottom: 0;
+      }
+
+      .hero.shell {
+        position: relative;
+        width: auto;
+        min-height: 0;
+        margin: 0;
+        padding: clamp(1.6rem, 3vw, 3rem);
+        grid-template-columns: minmax(0, 55%) minmax(0, 45%);
+        gap: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        overflow: hidden;
+      }
+
+      .eyebrow {
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        margin-bottom: 1.2rem;
+        font-size: clamp(4.4rem, 7vw, 6.9rem);
+      }
+
+      .hero-lede {
+        max-width: 560px;
+        margin-bottom: 0.75rem;
+        font-size: clamp(1rem, 1.25vw, 1.15rem);
+        line-height: 1.5;
+      }
+
+      .actions,
+      .credentials {
+        display: none;
+      }
+
+      .portrait-wrap {
+        align-self: stretch;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+      }
+
+      .portrait {
+        width: 100%;
+        height: 100%;
+      }
+
+      .portrait img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        margin-left: auto;
+        object-position: right bottom;
+      }
+
+      .flagship-section {
+        min-height: 0;
+        padding: 0;
+        border: 0;
+        border-left: var(--line);
+        background: transparent;
+        overflow: hidden;
+      }
+
+      .flagship-section .shell {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: 100%;
+        padding: 1.35rem;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-label {
+        padding: 0;
+        writing-mode: initial;
+        transform: none;
+      }
+
+      .section-heading .section-label,
+      .footer-inner .social-links {
+        display: none;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(2rem, 3vw, 3rem);
+      }
+
+      .flagship-grid {
+        flex: 1;
+        min-height: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1.12fr) minmax(0, 0.88fr);
+        gap: 0.75rem;
+      }
+
+      .feature-card {
+        min-height: 0;
+        padding: 1.25rem;
+        overflow: hidden;
+      }
+
+      .card-kicker {
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        margin-bottom: 0.7rem;
+        font-size: clamp(1.85rem, 2.75vw, 2.7rem);
+      }
+
+      .feature-card > p {
+        margin-bottom: 0.75rem;
+        font-size: 0.94rem;
+        line-height: 1.4;
+      }
+
+      .subscribe-form {
+        margin-top: auto;
+      }
+
+      .feature-action {
+        margin-top: 0.65rem;
+      }
+
+      .feature-card.curriculum .feature-action {
+        margin-top: auto;
+      }
+
+      footer {
+        padding: 0.45rem 0 0.65rem;
+      }
+
+      footer.shell {
+        width: calc(100% - 2rem);
+      }
+
+      .footer-inner {
+        padding-top: 0.6rem;
+      }
+    }
+
+    @media (min-width: 1050px) and (max-height: 760px) and (min-aspect-ratio: 4 / 3) {
+      .site-nav {
+        min-height: 3.5rem;
+      }
+
+      .hero.shell {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: clamp(4.4rem, 6.8vw, 6.3rem);
+      }
+
+      .hero-lede {
+        font-size: 1rem;
+      }
+
+      .portrait-wrap {
+        max-width: none;
+      }
+
+      .flagship-section .shell {
+        padding: 1rem;
+      }
+
+      .section-heading {
+        margin-bottom: 0.7rem;
+      }
+
+      .section-heading h2 {
+        font-size: 2.15rem;
+      }
+
+      .feature-card {
+        padding: 1rem;
+      }
+
+      .card-kicker {
+        margin-bottom: 0.6rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.85rem;
+      }
+
+      .feature-card > p {
+        font-size: 0.82rem;
+      }
+
+      .subscribe-form input,
+      .subscribe-form button {
+        min-height: 2.6rem;
+      }
+
+      footer {
+        font-size: 0.62rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <main class="layout">
-        <section class="identity">
-            <header class="header-bar">
-                <div class="monogram">m</div>
-                <div style="display:flex;align-items:center;gap:1.5rem">
-                    <a href="/made" class="meta-nav">MADE</a>
-                    <a href="https://x.com/intent/user?screen_name=madebydia" class="meta-nav">@MADEBYDIA</a>
-                </div>
-            </header>
-            <div class="name-container">
-                <h1>MADE<br>BY DIA</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav shell" aria-label="Primary navigation">
+    <a class="mark" href="/" aria-label="Made by Dia home">
+      <span class="mark-stamp" aria-hidden="true">m</span>
+      <span class="mark-label">madebydia</span>
+    </a>
+    <div class="nav-links">
+      <a href="https://github.com/madebydia">GitHub</a>
+      <a href="https://x.com/intent/user?screen_name=madebydia">@madebydia</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Software × childhood × practical life</p>
+        <h1><span>made</span><span class="scribble">by dia.</span></h1>
+        <p class="hero-lede">MS Computer Science. 12 years in software engineering, from IC to director. Now a stay-at-home mom building curriculum, open source tools, and software for real family life.</p>
+      </div>
+
+      <div class="portrait-wrap">
+        <span class="tape" aria-hidden="true"></span>
+        <div class="portrait">
+          <img src="/profile.png?v=20260813-transparent" alt="Illustrated portrait of Diana Park holding a phone and coffee" width="666" height="1000">
+        </div>
+        <span class="curve-note" aria-hidden="true">hi, I’m Diana</span>
+      </div>
+    </header>
+
+    <section class="flagship-section" id="start-here">
+      <div class="shell">
+        <div class="section-heading">
+          <span class="section-label">Start here / 01</span>
+          <h2>Start here.</h2>
+        </div>
+
+        <div class="flagship-grid">
+          <article class="feature-card newsletter">
+            <div class="card-kicker">
+              <span>Newsletter + resources</span>
+              <span>01 / Raising Pixels</span>
             </div>
-            <div class="bio-image-row">
-                <div class="bio-container">
-                    <p class="bio-text">
-                        MS Computer Science. 12 years in software engineering, from IC to director. Now a stay-at-home mom building <i>curriculum</i>, <i>open source tools</i>, and a newsletter about teaching kids to think like builders.
-                    </p>
-                </div>
-                <div class="image-container">
-                    <img src="/profile.png?v=20260629" alt="Diana" class="avatar-editorial">
-                    <p class="bio-overlay">MS Computer Science. 12 years in software engineering, from IC to director. Now a stay-at-home mom building <i>curriculum</i>, <i>open source tools</i>, and a newsletter about teaching kids to think like builders.</p>
-                </div>
+            <h3>Raising<br>Pixels</h3>
+            <p>Writing and resources for parents teaching kids to think like builders.</p>
+
+            <form class="subscribe-form" data-rp-subscribe data-rp-source="madebydia-home-redesign">
+              <label for="newsletter-email">Email address</label>
+              <input id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+              <button type="submit">Subscribe</button>
+            </form>
+            <p class="subscribe-status" data-rp-subscribe-status aria-live="polite"></p>
+            <a class="feature-action" href="https://raisingpixels.dev">Read Raising Pixels →</a>
+          </article>
+
+          <article class="feature-card curriculum">
+            <div class="card-kicker">
+              <span>Book + curriculum</span>
+              <span>02 / Ages 2–6</span>
             </div>
-            <div class="social-row">
-                <a href="https://x.com/intent/user?screen_name=madebydia">𝕏</a>
-                <a href="https://github.com/madebydia">GitHub</a>
-            </div>
-        </section>
+            <h3>Build With<br>Your Kid</h3>
+            <p>Twelve weeks of hands-on tech projects for ages 2–6.</p>
+            <a class="feature-action" href="https://buildwithyourkid.com">Explore the curriculum →</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <section class="links">
-            <div class="link-block newsletter" onclick="window.location='https://raisingpixels.dev'" style="cursor:pointer;">
-                <a href="https://raisingpixels.dev" style="text-decoration:none;color:inherit;display:contents;">
-                    <div class="block-header">
-                        <span class="system-number">01</span>
-                        <span>NEWSLETTER</span>
-                    </div>
-                    <div class="block-footer">
-                        <h2>RAISING<br>PIXELS</h2>
-                        <p class="block-desc">Parent-dev writing and resources for teaching kids to think like builders. Computational thinking, AI at home, and hands-on projects.</p>
-                    </div>
-                    <div class="hover-arrow">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                        </svg>
-                    </div>
-                </a>
-                <form data-rp-subscribe data-rp-source="madebydia-home" onclick="event.stopPropagation();" style="display:flex;align-items:stretch;gap:0;width:100%;max-width:420px;">
-                    <input type="email" name="email" placeholder="your@email.com" required class="subscribe-input" style="
-                        flex-grow:1;
-                        font-family:var(--font-display);
-                        font-size:18px;
-                        text-transform:uppercase;
-                        padding:0.6rem 1rem;
-                        border:var(--border-width) solid currentColor;
-                        border-right:none;
-                        background:transparent;
-                        color:inherit;
-                        outline:none;
-                        letter-spacing:0.02em;
-                    ">
-                    <button type="submit" class="subscribe-btn" style="
-                        font-family:var(--font-display);
-                        font-size:18px;
-                        text-transform:uppercase;
-                        padding:0.6rem 1.25rem;
-                        border:var(--border-width) solid #121212;
-                        background:#121212;
-                        color:#F7F7F5;
-                        cursor:pointer;
-                        white-space:nowrap;
-                        letter-spacing:0.02em;
-                    ">SUBSCRIBE</button>
-                </form>
-                <p data-rp-subscribe-status style="font-size:13px;min-height:1.2em;margin:0.6rem 0 0;font-family:var(--font-sans);"></p>
-            </div>
+  </main>
 
-            <a href="https://buildwithyourkid.com" class="link-block book">
-                <div class="block-header">
-                    <span class="system-number">02</span>
-                    <span>BOOK & CURRICULUM</span>
-                </div>
-                <div class="block-footer">
-                    <h2>BUILD WITH<br>YOUR KID</h2>
-                    <p class="block-desc">12 weeks of tech projects for ages 2–6. Computational thinking through play — no reading required.</p>
-                </div>
-                <div class="hover-arrow">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                    </svg>
-                </div>
-            </a>
-        </section>
-    </main>
-    <script>
-        document.querySelectorAll('[data-rp-subscribe]').forEach(function(form) {
-            form.addEventListener('submit', async function(event) {
-                event.preventDefault();
-                const status = form.parentElement.querySelector('[data-rp-subscribe-status]');
-                const button = form.querySelector('button[type="submit"]');
-                const email = form.email.value.trim();
-                if (!email) return;
+  <footer class="shell">
+    <div class="footer-inner">
+      <span>© <span data-current-year>2026</span> Diana Park / madebydia</span>
+      <div class="social-links">
+        <a href="https://github.com/madebydia">GitHub</a>
+        <a href="https://x.com/intent/user?screen_name=madebydia">X / @madebydia</a>
+        <a href="https://raisingpixels.dev">Raising Pixels</a>
+      </div>
+    </div>
+  </footer>
 
-                button.disabled = true;
-                button.textContent = 'SENDING';
-                if (status) status.textContent = '';
+  <script>
+    document.querySelectorAll("[data-current-year]").forEach(function (element) {
+      element.textContent = new Date().getFullYear();
+    });
 
-                try {
-                    const response = await fetch('https://raisingpixels.dev/api/subscribe', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            email,
-                            source: form.dataset.rpSource || 'madebydia',
-                            current_url: window.location.href,
-                            current_referrer: document.referrer || ''
-                        })
-                    });
-                    const payload = await response.json().catch(function() { return {}; });
-                    if (!response.ok) throw new Error(payload.error || 'Something went wrong.');
+    document.querySelectorAll("[data-rp-subscribe]").forEach(function (form) {
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
 
-                    form.email.value = '';
-                    button.textContent = 'SUBSCRIBED';
-                    if (status) status.textContent = "You're in — check your inbox for a welcome email.";
-                } catch (error) {
-                    button.disabled = false;
-                    button.textContent = 'SUBSCRIBE';
-                    if (status) status.textContent = error.message || 'Something went wrong. Please try again.';
-                }
-            });
-        });
-    </script>
+        var status = form.parentElement.querySelector("[data-rp-subscribe-status]");
+        var button = form.querySelector('button[type="submit"]');
+        var email = form.elements.email.value.trim();
+        if (!email) return;
+
+        button.disabled = true;
+        button.textContent = "Sending…";
+        status.textContent = "";
+
+        try {
+          var response = await fetch("https://raisingpixels.dev/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: email,
+              source: form.dataset.rpSource || "madebydia",
+              current_url: window.location.href,
+              current_referrer: document.referrer || ""
+            })
+          });
+
+          var payload = await response.json().catch(function () { return {}; });
+          if (!response.ok) throw new Error(payload.error || "Something went wrong.");
+
+          form.reset();
+          button.textContent = "Subscribed";
+          status.textContent = "You’re in—check your inbox for a welcome email.";
+        } catch (error) {
+          button.disabled = false;
+          button.textContent = "Subscribe";
+          status.textContent = error.message || "Something went wrong. Please try again.";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
