@@ -34,7 +34,7 @@
     "name": "Diana Park",
     "alternateName": "madebydia",
     "url": "https://madebydia.com",
-    "image": "https://madebydia.com/profile.png?v=20260813-transparent",
+    "image": "https://madebydia.com/profile.png?v=20260821-standing",
     "sameAs": [
       "https://github.com/madebydia",
       "https://x.com/madebydia",
@@ -441,6 +441,14 @@
       display: block;
       object-fit: contain;
       object-position: center;
+      transform: scale(1.28);
+      transform-origin: center bottom;
+    }
+
+    @media (min-width: 901px) {
+      .portrait img {
+        transform: translateY(8%) scale(1.28);
+      }
     }
 
     .tape {
@@ -1003,7 +1011,7 @@
       <div class="portrait-wrap">
         <span class="tape" aria-hidden="true"></span>
         <div class="portrait">
-          <img src="/profile.png?v=20260813-transparent" alt="Illustrated portrait of Diana Park holding a phone and coffee" width="666" height="1000">
+          <img src="/profile.png?v=20260821-standing" alt="Illustrated portrait of Diana Park standing with a phone and coffee" width="928" height="1232">
         </div>
         <span class="curve-note" aria-hidden="true">hi, I’m Diana</span>
       </div>
